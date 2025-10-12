@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>โปรไฟล์อาจารย์ Diego R. | CodeClass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/teacher-profile.css">
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <div class="brand"><span class="logo">⬢</span><strong>CodeClass</strong></div>
+      <nav class="breadcrumbs"><a href="teacher.html">← ครูสอนโค้ด</a></nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- LEFT -->
+    <section class="profile">
+      <div class="profile-head">
+        <img src="https://i.pravatar.cc/240?img=64" alt="ภาพโปรไฟล์ Diego R.">
+
+        <!-- ❤️ ปุ่มหัวใจ -->
+        <button class="fav-toggle"
+                aria-pressed="false"
+                aria-label="เพิ่มในบุ๊คมาร์ค"
+                data-id="diego"
+                data-title="Diego R."
+                data-href="profile-diego.html"
+                data-avatar="https://i.pravatar.cc/240?img=64"
+                data-price="940">❤</button>
+
+        <div>
+          <h1>Diego R.</h1>
+          <div class="badges">
+            <span class="badge">Backend</span>
+            <span class="badge">DevOps</span>
+            <span class="badge">Cloud</span>
+          </div>
+          <div class="metas">
+            <span>⭐ 4.95 (208 รีวิว)</span>
+            <span>สอน: Node.js, Docker, AWS</span>
+            <span>โค้ดจริง ดีพลอยจริง</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>เกี่ยวกับฉัน</h2>
+        <div class="box">
+          วิศวกรซอฟต์แวร์สายหลังบ้าน ทำระบบสเกลระดับล้านรีเควสต์/วัน
+          เน้นสอนตั้งแต่ออกแบบ REST/GraphQL, เขียนโค้ดสะอาด มีเทสต์,
+          คอนเทนเนอร์ด้วย Docker, ทำ CI/CD และดีพลอยขึ้น AWS อย่างปลอดภัย
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>ฉันสามารถสอน</h2>
+        <div class="chips">
+          <span class="chip">Node.js (Express/Fastify)</span>
+          <span class="chip">API Design</span>
+          <span class="chip">PostgreSQL/Redis</span>
+          <span class="chip">Docker & Compose</span>
+          <span class="chip">CI/CD (GitHub Actions)</span>
+          <span class="chip">AWS ECS/ECR</span>
+          <span class="chip">Monitoring & Logs</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>โครงสร้างหลักสูตร</h2>
+        <ol class="list">
+          <li>ออกแบบสถาปัตยกรรมบริการ + ตั้งโปรเจกต์ Node.js</li>
+          <li>สร้าง REST/GraphQL พร้อม Auth & Validation</li>
+          <li>เขียนเทสต์ (Jest) + จัดการฐานข้อมูลด้วย Prisma</li>
+          <li>คอนเทนเนอร์ด้วย Docker/Compose</li>
+          <li>ทำ CI/CD ด้วย GitHub Actions</li>
+          <li>ดีพลอยขึ้น AWS (ECR/ECS) + สังเกตการณ์ระบบ</li>
+        </ol>
+      </div>
+
+      <div class="section">
+        <h2>รีวิวเด่น</h2>
+        <div class="review">“จากศูนย์สู่ดีพลอยโปรดักชันได้ใน 6 สัปดาห์ โค้ดสะอาดมาก” — Bank (Startup)</div>
+      </div>
+    </section>
+
+    <!-- RIGHT -->
+    <aside class="sidebar">
+      <div class="card">
+        <div class="price">฿940 <span class="sub">/ 55 นาที</span></div>
+        <p class="small">⭐ 4.95 · เรียนแล้ว 1,560 ครั้ง</p>
+        <a class="btn primary" href="#">จองบทเรียนทดลอง</a>
+        <a class="btn ghost" id="contact" href="#">ส่งข้อความ</a>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">สแต็กที่ใช้สอน</h3>
+        <div class="chips">
+          <span class="chip">#Node.js</span>
+          <span class="chip">#Express</span>
+          <span class="chip">#PostgreSQL</span>
+          <span class="chip">#Docker</span>
+          <span class="chip">#GitHubActions</span>
+          <span class="chip">#AWS</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">เหมาะสำหรับ</h3>
+        <ul class="list" style="margin:0">
+          <li>ผู้ที่อยากยกระดับไปสู่ Backend/DevOps</li>
+          <li>ทีมสตาร์ทอัพที่ต้องการ CI/CD พร้อมดีพลอย</li>
+          <li>นักศึกษาที่อยากมีโปรเจกต์โปรดักชันในพอร์ต</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <!-- JS บุ๊คมาร์ก -->
+  <script>
+  (function(){
+    'use strict';
+    const LS_KEY = 'favorites.items';
+    const BADGE_KEY = 'favorites.count';
+    const $ = s => document.querySelector(s);
+
+    function loadFavs(){
+      try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
+      catch { return []; }
+    }
+    function saveFavs(items){
+      localStorage.setItem(LS_KEY, JSON.stringify(items));
+      localStorage.setItem(BADGE_KEY, String(items.length));
+      window.dispatchEvent(new StorageEvent('storage', { key: BADGE_KEY, newValue: String(items.length) }));
+    }
+    function isFav(id){ return loadFavs().some(x => x.id === id); }
+
+    const btn = document.querySelector('.profile .fav-toggle');
+    if(!btn) return;
+
+    const data = {
+      id:     btn.dataset.id,
+      title:  btn.dataset.title || document.querySelector('.profile-head h1')?.textContent?.trim() || 'Unknown',
+      href:   btn.dataset.href  || location.pathname.split('/').pop() || '#',
+      avatar: btn.dataset.avatar || document.querySelector('.profile-head img')?.src || '',
+      price:  btn.dataset.price || ''
+    };
+
+    function updateUI(on){
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.classList.toggle('on', !!on);
+      btn.title = on ? 'นำออกจากบุ๊คมาร์ค' : 'เพิ่มในบุ๊คมาร์ค';
+    }
+
+    updateUI(isFav(data.id));
+
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const items = loadFavs();
+      const i = items.findIndex(x => x.id === data.id);
+      if(i >= 0){
+        items.splice(i,1);
+        saveFavs(items);
+        updateUI(false);
+      }else{
+        items.push(data);
+        saveFavs(items);
+        updateUI(true);
+      }
+    });
+
+    window.addEventListener('storage', (e)=>{
+      if(e.key !== LS_KEY) return;
+      updateUI(isFav(data.id));
+    });
+  })();
+  </script>
+</body>
+</html>

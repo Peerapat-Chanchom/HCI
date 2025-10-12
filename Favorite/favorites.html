@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ถูกใจของฉัน | CodeClass</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Navbar -->
+  <link rel="stylesheet" href="../CSS/navbar.css" />
+  <!-- หน้านี้ -->
+  <link rel="stylesheet" href="../CSS/favorites.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="cc-navbar" role="navigation" aria-label="หลัก">
+    <div class="cc-nav-wrap">
+      <a class="cc-brand" href="/Home/Home.html" aria-label="CodeClass หน้าหลัก">
+        <span class="cc-logo" aria-hidden="true">⬢</span>
+        <strong class="cc-site">CodeClass</strong>
+      </a>
+
+      <ul class="cc-links">
+        <li><a href="/Teacher/teacher.html">ครูสอนโค้ด</a></li>
+        <li><a href="favorites.html" aria-current="page">ถูกใจของฉัน</a></li>
+      </ul>
+
+      <div class="cc-right">
+        <button class="cc-btn ghost" onclick="location.href='/Teacher/teacher.html'">ไปเลือกอาจารย์</button>
+        <div class="cc-actions">
+          <a class="cc-icon" href="/Teacher/inbox.html" aria-label="กล่องข้อความ">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a class="cc-icon" href="/Teacher/notifications.html" aria-label="การแจ้งเตือน">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v1h16v-1l-2-2z"/></svg>
+          </a>
+          <a class="cc-icon" href="/Teacher/help.html" aria-label="ศูนย์ช่วยเหลือ">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.88 15h-1.8v-1.8h1.8V17zm1.9-6.8c-.22.35-.62.72-1.18 1.11-.4.28-.65.5-.73.66-.09.17-.13.41-.13.74H11v-.32c0-.34.06-.63.18-.86.12-.24.37-.49.73-.76.47-.34.78-.61.93-.82.15-.21.23-.45.23-.74 0-.39-.15-.71-.44-.96-.29-.25-.69-.38-1.2-.38-.49 0-.9.14-1.24.41-.33.27-.56.67-.68 1.19l-1.77-.2c.09-.8.43-1.43 1.01-1.9.58-.47 1.33-.7 2.26-.7 1.01 0 1.8.25 2.38.76.58.5.87 1.16.87 1.98 0 .43-.11.82-.33 1.17z"/></svg>
+          </a>
+          <a class="cc-avatar" href="/Profile/account.html" aria-label="โปรไฟล์ของฉัน">
+            <img src="https://i.pravatar.cc/36?img=68" alt="ภาพโปรไฟล์ผู้ใช้">
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="fav-hero">
+    <div class="container">
+      <h1>ถูกใจของฉัน <span id="favCount" class="badge-count">0</span></h1>
+
+      <div class="toolbar" role="region" aria-label="เครื่องมือจัดการบุ๊คมาร์ค">
+        <div class="left">
+          <label for="sort" class="sr-only">เรียงลำดับ</label>
+          <select id="sort" class="cc-select-inline" aria-label="เรียงลำดับ">
+            <option value="saved">ลำดับที่บันทึก</option>
+            <option value="name">ชื่อ (A–Z)</option>
+            <option value="price-asc">ราคาต่ำ → สูง</option>
+            <option value="price-desc">ราคาสูง → ต่ำ</option>
+          </select>
+        </div>
+        <div class="right">
+          <button id="btnClear" class="cc-btn ghost" aria-label="ลบบุ๊คมาร์คทั้งหมด">ลบทั้งหมด</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIST -->
+  <main class="container cards" id="favList" aria-live="polite" aria-busy="false"></main>
+
+  <!-- EMPTY STATE -->
+  <template id="tpl-empty">
+    <section class="empty">
+      <div class="empty-card">
+        <div class="empty-emoji" aria-hidden="true">🫶</div>
+        <h2>ยังไม่ได้เพิ่มอาจารย์ที่ถูกใจ</h2>
+        <p>ไปที่หน้ารวมอาจารย์เพื่อเลือกอาจารย์ที่คุณชอบ แล้วกดหัวใจเพื่อบันทึกไว้ดูภายหลัง</p>
+        <a class="btn primary" href="/Teacher/teacher.html">ไปเลือกอาจารย์</a>
+      </div>
+    </section>
+  </template>
+
+  <!-- CARD TEMPLATE -->
+  <template id="tpl-card">
+    <article class="card">
+      <button class="fav-toggle on" aria-pressed="true" aria-label="นำออกจากบุ๊คมาร์ค">❤</button>
+      <a class="avatar" href="#" aria-label="เปิดโปรไฟล์">
+        <img src="" alt="ภาพโปรไฟล์">
+      </a>
+      <div class="body">
+        <header class="card-top">
+          <h2><a class="title" href="#"></a></h2>
+          <div class="meta">
+            <span class="light">รายการที่ถูกใจ</span>
+          </div>
+        </header>
+        <footer class="card-bottom">
+          <div class="stats"><span class="price">—</span></div>
+          <div class="cta"><a class="btn primary open-profile" href="#">ดูโปรไฟล์</a></div>
+        </footer>
+      </div>
+    </article>
+  </template>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      © 2025 CodeClass · เรียนเขียนโปรแกรมกับอาจารย์คุณภาพทั่วโลก
+    </div>
+  </footer>
+
+  <!-- Navbar JS -->
+  <script src="navbar.js" defer></script>
+
+  <!-- Favorites JS -->
+  <script>
+  (function(){
+    'use strict';
+
+    const LS_KEY = 'favorites.items';
+    const BADGE_KEY = 'favorites.count';
+    const $  = s => document.querySelector(s);
+
+    const listEl   = $('#favList');
+    const countEl  = $('#favCount');
+    const sortEl   = $('#sort');
+    const clearBtn = $('#btnClear');
+
+    function loadFavs(){
+      try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
+      catch { return []; }
+    }
+
+    function saveFavs(items){
+      localStorage.setItem(LS_KEY, JSON.stringify(items));
+      localStorage.setItem(BADGE_KEY, String(items.length));
+      window.dispatchEvent(new StorageEvent('storage', { key: BADGE_KEY, newValue: String(items.length) }));
+    }
+
+    function formatPrice(p){
+      if(!p) return '—';
+      const n = parseInt(p, 10);
+      if(Number.isNaN(n)) return '—';
+      return `฿${n.toLocaleString('th-TH')} <small>/ 50–55 นาที</small>`;
+    }
+
+    function sortItems(items, mode){
+      const cp = items.slice();
+      if(mode === 'name'){
+        cp.sort((a,b)=> (a.title||'').localeCompare(b.title||'', 'th'));
+      } else if(mode === 'price-asc'){
+        cp.sort((a,b)=> (parseInt(a.price||999999,10) - parseInt(b.price||999999,10)));
+      } else if(mode === 'price-desc'){
+        cp.sort((a,b)=> (parseInt(b.price||-1,10) - parseInt(a.price||-1,10)));
+      }
+      return cp;
+    }
+
+    function removeById(id){
+      const items = loadFavs();
+      const idx = items.findIndex(x => x.id === id);
+      if(idx >= 0){
+        items.splice(idx,1);
+        saveFavs(items);
+        render();
+      }
+    }
+
+    function render(){
+      listEl.setAttribute('aria-busy', 'true');
+      listEl.innerHTML = '';
+
+      const items = sortItems(loadFavs(), sortEl.value);
+      countEl.textContent = items.length;
+
+      if(items.length === 0){
+        const empty = document.importNode(document.querySelector('#tpl-empty').content, true);
+        listEl.appendChild(empty);
+        listEl.setAttribute('aria-busy', 'false');
+        return;
+      }
+
+      const tpl = document.querySelector('#tpl-card');
+      items.forEach(item=>{
+        const node = document.importNode(tpl.content, true);
+
+        const card = node.querySelector('.card');
+        const btnFav = node.querySelector('.fav-toggle');
+        const avatarA = node.querySelector('.avatar');
+        const img = node.querySelector('img');
+        const titleA = node.querySelector('.title');
+        const priceEl = node.querySelector('.price');
+        const openBtn = node.querySelector('.open-profile');
+
+        avatarA.href = item.href || '#';
+        img.src = item.avatar || '';
+        img.alt = `ภาพโปรไฟล์ ${item.title || ''}`;
+        titleA.href = item.href || '#';
+        titleA.textContent = item.title || 'Unknown';
+        priceEl.innerHTML = formatPrice(item.price);
+        openBtn.href = item.href || '#';
+
+        btnFav.title = 'นำออกจากบุ๊คมาร์ค';
+        btnFav.addEventListener('click', e=>{
+          e.preventDefault();
+          removeById(item.id);
+        });
+
+        listEl.appendChild(node);
+      });
+
+      listEl.setAttribute('aria-busy', 'false');
+    }
+
+    sortEl.addEventListener('change', render);
+    clearBtn.addEventListener('click', ()=>{
+      if(confirm('ต้องการลบรายการที่ถูกใจทั้งหมดหรือไม่?')){
+        saveFavs([]);
+        render();
+      }
+    });
+
+    window.addEventListener('storage', e=>{
+      if(e.key === LS_KEY || e.key === BADGE_KEY) render();
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>

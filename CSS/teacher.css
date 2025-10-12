@@ -1,0 +1,133 @@
+:root{
+  --ink:#192338; --blue-900:#1E2E4F; --blue-800:#31487A; --blue-400:#8FB3E2;
+  --blue-100:#D9E1F1; --pastel-200:#D6E2EF; --cream:#E4DAD1; --bg:#F7F9FB; --white:#fff;
+  --shadow:0 10px 24px rgba(30,46,79,.10);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0; font-family:"Prompt",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Thai",sans-serif; color:var(--ink);
+  background:linear-gradient(180deg,var(--blue-100) 0%,var(--bg) 20%,var(--bg) 100%);
+}
+.container{width:min(1120px,92%); margin-inline:auto}
+.site-header{background:linear-gradient(90deg,var(--blue-100),var(--cream)); border-bottom:1px solid var(--pastel-200)}
+.site-header .container{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+.brand{display:flex; align-items:center; gap:.6rem; font-weight:700}
+.brand .logo{display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px; background:var(--blue-800); color:#fff}
+.nav a{color:var(--blue-800); text-decoration:none; margin-left:18px; font-weight:500}
+.nav a[aria-current="page"]{color:var(--ink)}
+.hero{padding:40px 0 26px; border-bottom:1px solid var(--pastel-200);
+  background:radial-gradient(150px 80px at 15% -10%, rgba(143,179,226,.35), transparent 70%),
+             radial-gradient(200px 120px at 85% -20%, rgba(228,218,209,.45), transparent 70%);
+}
+.hero h1{margin:0 0 .3rem; font-size:clamp(22px,2.4vw,34px)} .hero h1 span{color:var(--blue-800)}
+.hero p{margin:.25rem 0 1.2rem; color:#3b4a6b}
+.hero p span{background:linear-gradient(90deg,var(--blue-400),var(--cream)); padding:0 .4rem; border-radius:.4rem}
+
+.filters{display:grid; gap:12px; grid-template-columns:repeat(12,1fr); background:var(--white); padding:14px; border:1px solid var(--pastel-200); border-radius:14px; box-shadow:var(--shadow)}
+.filter{display:flex; flex-direction:column; gap:6px; grid-column:span 3}
+.filter.search{grid-column:span 6}
+.filter label{font-size:.85rem; color:#4f628e}
+select, input[type="search"]{height:40px; border:1px solid var(--pastel-200); border-radius:10px; padding:0 12px; background:#fff; color:var(--ink); outline:none}
+select:focus, input[type="search"]:focus{border-color:var(--blue-400); box-shadow:0 0 0 3px rgba(143,179,226,.35)}
+@media (max-width:920px){ .filter{grid-column:span 6} .filter.search{grid-column:span 12} }
+
+.cards{padding:26px 0 56px; display:grid; gap:18px}
+.card{display:grid; grid-template-columns:120px 1fr; gap:18px; background:#fff; border:1px solid var(--pastel-200); border-radius:18px; box-shadow:var(--shadow); padding:16px; transition:transform .18s ease, box-shadow .18s ease}
+.card:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(30,46,79,.14)}
+.avatar img{width:120px; height:120px; object-fit:cover; border-radius:16px; border:3px solid var(--blue-100)}
+.card .body{display:flex; flex-direction:column; gap:10px}
+.card-top{display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px}
+.card-top h2{margin:0; font-size:1.15rem}
+.card-top h2 a{color:var(--ink); text-decoration:none}
+.card-top h2 a:hover{color:var(--blue-800)}
+.meta{display:flex; align-items:center; gap:8px; color:#60709a; font-size:.92rem}
+.badge{display:inline-flex; align-items:center; border-radius:999px; padding:4px 10px; font-size:.78rem; font-weight:600}
+.badge.pro{background:var(--blue-100); color:var(--blue-800)}
+.dot{width:4px; height:4px; background:#a9b7d6; border-radius:50%}
+.excerpt{margin:0; color:#3f4a63}
+.chips{display:flex; gap:8px; flex-wrap:wrap}
+.chip{font-size:.78rem; background:var(--cream); color:#5b5247; padding:4px 10px; border-radius:999px}
+.card-bottom{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.stats{color:#41527a; display:flex; gap:10px; flex-wrap:wrap}
+.price{font-weight:700; color:var(--ink)} .price small{font-weight:400; color:#6b789d}
+.btn{height:40px; display:inline-grid; place-items:center; padding:0 14px; border-radius:10px; text-decoration:none; font-weight:600; transition:.15s ease}
+.btn.primary{background:var(--blue-400); color:#fff; border:1px solid var(--blue-400)}
+.btn.primary:hover{background:var(--blue-800); border-color:var(--blue-800)}
+.btn.ghost{color:var(--blue-800); background:#fff; border:1px solid var(--blue-100)}
+.btn.ghost:hover{background:var(--blue-100)}
+@media (max-width:680px){ .card{grid-template-columns:1fr} .avatar{order:-1} }
+.site-footer{border-top:1px solid var(--pastel-200); background:var(--blue-100); color:var(--blue-900)}
+.site-footer .container{padding:16px 0; text-align:center}
+/* —— ตรึงหัวใจมุมขวาบนทุกการ์ด และเว้นที่ให้โดยอัตโนมัติ —— */
+
+/* ให้การ์ดเป็นตำแหน่งอ้างอิง */
+.cards .card{
+  position: relative;
+  overflow: visible;
+}
+
+/* ถ้ามี .fav-toggle อยู่ในใบการ์ด → เพิ่ม padding-top กันหัวใจทับหัวเรื่อง */
+.cards .card:has(.fav-toggle){
+  padding-top: 56px; /* สูงพอสำหรับปุ่ม 36 + ช่องไฟ */
+}
+
+/* ปักหัวใจไว้มุมขวาบนของการ์ด */
+.cards .card .fav-toggle{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  /* ขนาด/ศิลป์ให้เข้ากับธีม */
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+
+  border-radius: 10px;
+  border: 1px solid var(--blue-100);
+  background: #fff;
+  color: var(--blue-800);
+  box-shadow: var(--shadow);
+
+  transition: background .2s ease, transform .15s ease, color .2s ease, box-shadow .2s ease;
+  z-index: 2;
+}
+.cards .card .fav-toggle:hover{
+  background: var(--blue-100);
+  transform: translateY(-1px);
+}
+.cards .card .fav-toggle:active{
+  transform: translateY(1px);
+}
+.cards .card .fav-toggle.on{
+  color: #e0245e;
+  border-color: #f5b5c9;
+  background: #ffeaf1;
+}
+
+/* จอแคบ: ขยับเข้าเล็กน้อย และเผื่อที่ด้านบนลดลง */
+@media (max-width: 680px){
+  .cards .card:has(.fav-toggle){ padding-top: 52px; }
+  .cards .card .fav-toggle{ top: 14px; right: 14px; }
+}
+
+/* (ไม่บังคับ) กันเนื้อหา header/ปุ่มอื่นเลื่อนทับหัวใจโดยเผื่อพื้นที่ด้านขวาบนของบรรทัดแรก */
+.card-top{ padding-right: 60px; } /* พื้นที่ ~ปุ่ม 36 + ช่องไฟ */
+
+.site-footer {
+  background: linear-gradient(90deg, var(--blue-100), var(--cream));
+  border-top: 1px solid var(--pastel-200);
+  color: var(--blue-900);
+  text-align: center;
+  padding: 18px 0;
+  font-weight: 500;
+}
+.site-footer .footer-inner {
+  width: min(1120px, 92%);
+  margin-inline: auto;
+}

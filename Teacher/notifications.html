@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>การแจ้งเตือน | CodeClass</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Navbar -->
+  <link rel="stylesheet" href="../CSS/navbar.css" />
+  <!-- หน้าการแจ้งเตือน -->
+  <link rel="stylesheet" href="../CSS/notifications.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="cc-navbar" role="navigation" aria-label="หลัก">
+    <div class="cc-nav-wrap">
+      <a class="cc-brand" href="/Home/Home.html" aria-label="CodeClass หน้าหลัก">
+        <span class="cc-logo" aria-hidden="true">⬢</span>
+        <strong class="cc-site">CodeClass</strong>
+      </a>
+
+      <ul class="cc-links">
+        <li><a href="teacher.html">ครูสอนโค้ด</a></li>
+      </ul>
+
+      <div class="cc-right">
+        <button class="cc-btn ghost" onclick="location.href='teacher.html'">ไปเลือกอาจารย์</button>
+        <div class="cc-actions">
+          <a class="cc-icon" href="inbox.html" aria-label="กล่องข้อความ">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a class="cc-icon" href="help.html" aria-label="ศูนย์ช่วยเหลือ">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.88 15h-1.8v-1.8h1.8V17zm1.9-6.8c-.22.35-.62.72-1.18 1.11-.4.28-.65.5-.73.66-.09.17-.13.41-.13.74H11v-.32c0-.34.06-.63.18-.86.12-.24.37-.49.73-.76.47-.34.78-.61.93-.82.15-.21.23-.45.23-.74 0-.39-.15-.71-.44-.96-.29-.25-.69-.38-1.2-.38-.49 0-.9.14-1.24.41-.33.27-.56.67-.68 1.19l-1.77-.2c.09-.8.43-1.43 1.01-1.9.58-.47 1.33-.7 2.26-.7 1.01 0 1.8.25 2.38.76.58.5.87 1.16.87 1.98 0 .43-.11.82-.33 1.17z"/></svg>
+          </a>
+<a class="cc-icon" href="/Favorite/favorites.html" aria-label="ถูกใจของฉัน">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21s-6.7-4.4-9.1-7.6C.6 10.8 1.4 7.2 4.4 6 6.3 5.2 8.3 5.7 9.7 7c.5.5.9 1.1 1.1 1.7.3-.6.7-1.2 1.2-1.7 1.4-1.4 3.4-1.8 5.3-.9 3 1.3 3.7 4.8 1.5 7.4C18.7 16.6 12 21 12 21z"/>
+        </svg>
+      </a>
+          <a class="cc-icon" href="notifications.html" aria-label="การแจ้งเตือน" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v1h16v-1l-2-2z"/></svg>
+          </a>
+          <a class="cc-avatar" href="/Profile/account.html" aria-label="โปรไฟล์ของฉัน">
+            <img src="https://i.pravatar.cc/36?img=68" alt="ภาพโปรไฟล์ผู้ใช้">
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO + TOOLBAR -->
+  <section class="notif-hero">
+    <div class="container">
+      <h1>การแจ้งเตือน <span id="unreadBadge" class="badge-count">0</span></h1>
+
+      <div class="toolbar" role="region" aria-label="ตัวกรองและการกระทำ">
+        <div class="tabs" role="tablist" aria-label="กรองการแจ้งเตือน">
+          <button class="tab active" role="tab" aria-selected="true" data-filter="all">ทั้งหมด</button>
+          <button class="tab" role="tab" data-filter="unread">ยังไม่ได้อ่าน</button>
+          <button class="tab" role="tab" data-filter="message">ข้อความ</button>
+          <button class="tab" role="tab" data-filter="booking">การจอง</button>
+          <button class="tab" role="tab" data-filter="favorite">ถูกใจ</button>
+          <button class="tab" role="tab" data-filter="system">ระบบ</button>
+        </div>
+
+        <div class="actions">
+          <button id="btnMarkAll" class="cc-btn ghost">มาร์กอ่านทั้งหมด</button>
+          <button id="btnClearRead" class="cc-btn ghost">ลบที่อ่านแล้ว</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIST -->
+  <main class="container notif-list" id="notifList" role="list" aria-live="polite" aria-busy="false">
+    <!-- JS จะเติมรายการตรงนี้ -->
+  </main>
+
+  <!-- Empty State -->
+  <template id="tpl-empty">
+    <section class="empty">
+      <div class="empty-card">
+        <div class="empty-emoji" aria-hidden="true">🔔</div>
+        <h2>ยังไม่มีการแจ้งเตือน</h2>
+        <p>เมื่อมีข้อความใหม่ การจอง หรืออัปเดตระบบ เราจะแสดงไว้ที่นี่</p>
+        <a class="btn primary" href="teacher.html">เริ่มค้นหาอาจารย์</a>
+      </div>
+    </section>
+  </template>
+
+  <!-- Template Notification -->
+  <template id="tpl-item">
+    <article class="notif" role="listitem">
+      <div class="left">
+        <div class="avatar-wrap">
+          <img class="avatar" src="" alt="">
+          <div class="type-icon" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="content">
+        <header class="title-row">
+          <h3 class="title"></h3>
+          <time class="time" datetime=""></time>
+        </header>
+        <p class="body"></p>
+
+        <div class="row-actions">
+          <a class="btn primary open" href="#">เปิด</a>
+          <button class="btn ghost toggle-read">มาร์กว่าอ่านแล้ว</button>
+          <button class="btn ghost danger delete">ลบ</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      © 2025 CodeClass · เรียนเขียนโปรแกรมกับอาจารย์คุณภาพทั่วโลก
+    </div>
+  </footer>
+
+  <!-- Navbar badges -->
+  <script src="navbar.js" defer></script>
+
+  <!-- Logic การแจ้งเตือน -->
+  <script>
+  (function(){
+    'use strict';
+
+    const KEY = 'notifications.items';
+    const COUNT_KEY = 'notifications.count';
+
+    const $  = s => document.querySelector(s);
+    const $$ = s => Array.from(document.querySelectorAll(s));
+
+    function load(){ try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; } }
+    function save(items){
+      localStorage.setItem(KEY, JSON.stringify(items));
+      const unread = items.filter(x => !x.read).length;
+      localStorage.setItem(COUNT_KEY, String(unread));
+      window.dispatchEvent(new StorageEvent('storage', { key: COUNT_KEY, newValue: String(unread) }));
+    }
+
+    function seedIfEmpty(){
+      if(load().length) return;
+      const now = Date.now();
+      const items = [
+        {
+          id:'m1', type:'message', title:'ข้อความใหม่จาก Akira T.',
+          body:'“สวัสดีครับ มีเวลาว่างรอบวันพฤหัส 19:00 น. สนใจไหมครับ”',
+          href:'inbox.html', avatar:'https://i.pravatar.cc/64?img=15',
+          time: new Date(now - 15*60*1000).toISOString(), read:false
+        },
+        {
+          id:'b1', type:'booking', title:'ยืนยันการจองบทเรียนกับ Diego R.',
+          body:'วันอังคาร 19:00–19:55 (เวลาไทย) ผ่าน Google Meet',
+          href:'profile-diego.html', avatar:'https://i.pravatar.cc/64?img=64',
+          time: new Date(now - 2*60*60*1000).toISOString(), read:false
+        },
+        {
+          id:'f1', type:'favorite', title:'บันทึก Michiel B. ลง “ถูกใจของฉัน” แล้ว',
+          body:'แตะเพื่อดูโปรไฟล์หรือยกเลิกการบันทึก',
+          href:'favorites.html', avatar:'https://i.pravatar.cc/64?img=12',
+          time: new Date(now - 5*60*60*1000).toISOString(), read:true
+        },
+        {
+          id:'m2', type:'message', title:'ข้อความใหม่จาก Lina S.',
+          body:'“ลองดูไฟล์ Figma ที่แนบไว้นะคะ แล้วนัดคุยกันอีกทีค่ะ”',
+          href:'inbox.html', avatar:'https://i.pravatar.cc/64?img=47',
+          time: new Date(now - 26*60*60*1000).toISOString(), read:true
+        },
+        {
+          id:'s1', type:'system', title:'อัปเดตนโยบายความเป็นส่วนตัว',
+          body:'เราเพิ่มรายละเอียดเกี่ยวกับข้อมูลการจองและการชำระเงิน',
+          href:'help.html', avatar:'', time: new Date(now - 3*24*60*60*1000).toISOString(), read:true
+        }
+      ];
+      save(items);
+    }
+
+    function relTime(iso){
+      const d = new Date(iso);
+      const diff = Math.floor((Date.now() - d.getTime())/1000);
+      if(diff < 60) return 'เมื่อสักครู่';
+      const m = Math.floor(diff/60);
+      if(m < 60) return m+' นาทีที่แล้ว';
+      const h = Math.floor(m/60);
+      if(h < 24) return h+' ชม.ที่แล้ว';
+      const dday = Math.floor(h/24);
+      if(dday === 1) return 'เมื่อวาน';
+      if(dday <= 7) return dday+' วันที่แล้ว';
+      return d.toLocaleDateString('th-TH');
+    }
+
+    function iconHTML(type){
+      const base = 'width:18px;height:18px;display:inline-block';
+      if(type === 'message')  return `<svg style="${base}" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 00-2 2v12l4-3h14a2 2 0 002-2V6a2 2 0 00-2-2z"/></svg>`;
+      if(type === 'booking')  return `<svg style="${base}" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2v2H5a2 2 0 00-2 2v2h18V6a2 2 0 00-2-2h-2V2h-2v2H9V2H7zm14 8H3v8a2 2 0 002 2h14a2 2 0 002-2v-8z"/></svg>`;
+      if(type === 'favorite') return `<svg style="${base}" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-6.7-4.4-9.1-7.6C.6 10.8 1.4 7.2 4.4 6c1.9-.8 3.9-.3 5.3 1 .5.5.9 1.1 1.1 1.7.3-.6.7-1.2 1.2-1.7 1.4-1.4 3.4-1.8 5.3-.9 3 1.3 3.7 4.8 1.5 7.4C18.7 16.6 12 21 12 21z"/></svg>`;
+      return `<svg style="${base}" viewBox="0 0 24 24"><path fill="currentColor" d="M3 11v2h4l5 4V7l-5 4H3zm13.5 1a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></svg>`;
+    }
+
+    const listEl = $('#notifList');
+    const unreadBadge = $('#unreadBadge');
+    let currentFilter = 'all';
+
+    function render(){
+      const items = load().sort((a,b)=> new Date(b.time)-new Date(a.time));
+      const filtered = items.filter(n=>{
+        if(currentFilter === 'all') return true;
+        if(currentFilter === 'unread') return !n.read;
+        return n.type === currentFilter;
+      });
+
+      const unread = items.filter(x=>!x.read).length;
+      unreadBadge.textContent = unread;
+
+      listEl.innerHTML = '';
+      listEl.setAttribute('aria-busy', 'true');
+
+      if(filtered.length === 0){
+        const empty = document.importNode($('#tpl-empty').content, true);
+        listEl.appendChild(empty);
+        listEl.setAttribute('aria-busy', 'false');
+        return;
+      }
+
+      const tpl = $('#tpl-item');
+      filtered.forEach(n=>{
+        const node = document.importNode(tpl.content, true);
+        const art = node.querySelector('.notif');
+        if(!n.read) art.classList.add('unread');
+
+        const img = node.querySelector('.avatar');
+        img.src = n.avatar || '';
+        img.alt = n.avatar ? 'รูปโปรไฟล์' : 'ไอคอน';
+        node.querySelector('.type-icon').innerHTML = iconHTML(n.type);
+        node.querySelector('.title').textContent = n.title;
+        const t = node.querySelector('.time');
+        t.textContent = relTime(n.time);
+        t.setAttribute('datetime', n.time);
+        node.querySelector('.body').textContent = n.body;
+        node.querySelector('.open').href = n.href || '#';
+
+        const toggle = node.querySelector('.toggle-read');
+        toggle.textContent = n.read ? 'มาร์กว่าไม่ได้อ่าน' : 'มาร์กว่าอ่านแล้ว';
+        toggle.addEventListener('click', (e)=>{
+          e.preventDefault();
+          const all = load();
+          const i = all.findIndex(x=>x.id===n.id);
+          if(i>=0){
+            all[i].read = !all[i].read;
+            save(all);
+            render();
+          }
+        });
+
+        node.querySelector('.delete').addEventListener('click', (e)=>{
+          e.preventDefault();
+          const all = load();
+          const i = all.findIndex(x=>x.id===n.id);
+          if(i>=0){
+            all.splice(i,1);
+            save(all);
+            render();
+          }
+        });
+
+        listEl.appendChild(node);
+      });
+
+      listEl.setAttribute('aria-busy', 'false');
+    }
+
+    $('#btnMarkAll').addEventListener('click', ()=>{
+      const items = load();
+      items.forEach(i=>i.read=true);
+      save(items);
+      render();
+    });
+
+    $('#btnClearRead').addEventListener('click', ()=>{
+      const left = load().filter(i=>!i.read);
+      save(left);
+      render();
+    });
+
+    $$('.tab').forEach(tab=>{
+      tab.addEventListener('click', ()=>{
+        $$('.tab').forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');
+        currentFilter = tab.dataset.filter;
+        render();
+      });
+    });
+
+    window.addEventListener('storage', (e)=>{
+      if(e.key === KEY || e.key === COUNT_KEY) render();
+    });
+
+    seedIfEmpty();
+    render();
+  })();
+  </script>
+</body>
+</html>

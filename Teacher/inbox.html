@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>กล่องข้อความ | CodeClass</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Navbar -->
+  <link rel="stylesheet" href="../CSS/navbar.css" />
+  <!-- หน้านี้ -->
+  <link rel="stylesheet" href="../CSS/inbox.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="cc-navbar" role="navigation" aria-label="หลัก">
+    <div class="cc-nav-wrap">
+      <a class="cc-brand" href="/Home/Home.html" aria-label="CodeClass หน้าหลัก">
+        <span class="cc-logo" aria-hidden="true">⬢</span>
+        <strong class="cc-site">CodeClass</strong>
+      </a>
+
+      <ul class="cc-links">
+        <li><a href="teacher.html">ครูสอนโค้ด</a></li>
+      </ul>
+
+      <div class="cc-right">
+        <button class="cc-btn ghost" onclick="location.href='teacher.html'">ไปเลือกอาจารย์</button>
+        <div class="cc-actions">
+          <a class="cc-icon" href="inbox.html" aria-label="กล่องข้อความ" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12l4-3h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg>
+          </a>
+          <a class="cc-icon" href="/Favorite/favorites.html" aria-label="ถูกใจของฉัน">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-6.7-4.4-9.1-7.6C.6 10.8 1.4 7.2 4.4 6c1.9-.8 3.9-.3 5.3 1 .5.5.9 1.1 1.1 1.7.3-.6.7-1.2 1.2-1.7 1.4-1.4 3.4-1.8 5.3-.9 3 1.3 3.7 4.8 1.5 7.4C18.7 16.6 12 21 12 21z"/></svg>
+          </a>
+          <a class="cc-icon" href="notifications.html" aria-label="การแจ้งเตือน">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v1h16v-1l-2-2z"/></svg>
+          </a>
+          <a class="cc-avatar" href="/Profile/account.html" aria-label="โปรไฟล์ของฉัน">
+            <img src="https://i.pravatar.cc/36?img=68" alt="ภาพโปรไฟล์ผู้ใช้" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="inbox-hero">
+    <div class="container">
+      <h1>กล่องข้อความ</h1>
+      <p>ติดต่อพูดคุยกับอาจารย์ของคุณได้โดยตรงที่นี่</p>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="inbox-main">
+    <!-- รายชื่อแชต -->
+    <aside class="chat-list" aria-label="รายชื่อการสนทนา">
+      <div class="chat-item active">
+        <img src="https://i.pravatar.cc/48?img=15" alt="Akira T.">
+        <div class="info">
+          <div class="name">Akira T.</div>
+          <div class="preview">มีเวลาว่างวันพฤหัส 19:00 น. สนใจไหมครับ?</div>
+        </div>
+        <span class="time">12 ชม.</span>
+      </div>
+      <div class="chat-item">
+        <img src="https://i.pravatar.cc/48?img=47" alt="Lina S.">
+        <div class="info">
+          <div class="name">Lina S.</div>
+          <div class="preview">แนบไฟล์ Figma ให้ดูนะคะ!</div>
+        </div>
+        <span class="time">1 วัน</span>
+      </div>
+      <div class="chat-item">
+        <img src="https://i.pravatar.cc/48?img=64" alt="Diego R.">
+        <div class="info">
+          <div class="name">Diego R.</div>
+          <div class="preview">ขอบคุณครับ เจอกันวันอังคาร 19:00!</div>
+        </div>
+        <span class="time">2 วัน</span>
+      </div>
+    </aside>
+
+    <!-- กล่องแชตหลัก1 -->
+    <section class="chat-window" aria-label="พื้นที่สนทนา">
+      <header class="chat-header">
+        <img src="https://i.pravatar.cc/48?img=15" alt="">
+        <div class="chat-meta">
+          <h2>Akira T.</h2>
+          <span class="status online">ออนไลน์</span>
+        </div>
+      </header>
+
+      <div class="chat-body">
+        <div class="msg other">
+          <div class="bubble">สวัสดีครับ มีเวลาว่างวันพฤหัส 19:00 น. สนใจไหมครับ?</div>
+          <div class="time">12 ชม.ที่แล้ว</div>
+        </div>
+
+        <div class="msg me">
+          <div class="bubble">สวัสดีค่ะ ได้เลยค่ะ วันพฤหัสสะดวกมากเลย</div>
+          <div class="time">11 ชม.ที่แล้ว</div>
+        </div>
+      </div>
+
+      <form class="chat-input" onsubmit="return false;">
+        <input type="text" id="msgBox" placeholder="พิมพ์ข้อความ..." aria-label="พิมพ์ข้อความ" />
+        <button class="btn-send" aria-label="ส่งข้อความ">ส่ง</button>
+      </form>
+    </section>
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    © 2025 CodeClass · เรียนเขียนโปรแกรมกับอาจารย์คุณภาพทั่วโลก
+  </footer>
+
+  <!-- Navbar JS -->
+  <script src="navbar.js" defer></script>
+
+  <!-- Chat Logic -->
+  <script>
+    const form = document.querySelector('.chat-input');
+    const input = document.getElementById('msgBox');
+    const chatBody = document.querySelector('.chat-body');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if(!text) return;
+      const msg = document.createElement('div');
+      msg.className = 'msg me';
+      msg.innerHTML = '<div class="bubble"></div><div class="time">ขณะนี้</div>';
+      msg.querySelector('.bubble').textContent = text;
+      chatBody.appendChild(msg);
+      input.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+    });
+  </script>
+</body>
+</html>

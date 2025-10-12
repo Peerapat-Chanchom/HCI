@@ -1,0 +1,85 @@
+:root{
+  --ink:#192338; --blue-900:#1E2E4F; --blue-800:#31487A; --blue-400:#8FB3E2;
+  --blue-100:#D9E1F1; --pastel-200:#D6E2EF; --cream:#E4DAD1; --white:#fff;
+  --shadow:0 14px 34px rgba(30,46,79,.12);
+}
+*{box-sizing:border-box}
+body{margin:0; font-family:"Prompt",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Thai",sans-serif; color:var(--ink);
+  background:linear-gradient(180deg,var(--blue-100) 0%, #F7F9FB 16%, #F7F9FB 100%);
+}
+a{color:var(--blue-800)}
+.header{border-bottom:1px solid var(--pastel-200); background:linear-gradient(90deg,var(--blue-100),var(--cream))}
+.header .wrap{width:min(1120px,92%); margin:auto; display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+.brand{display:flex; align-items:center; gap:.6rem; font-weight:700}
+.brand .logo{width:28px; height:28px; display:grid; place-items:center; border-radius:8px; background:var(--blue-800); color:#fff}
+.breadcrumbs{font-size:.92rem; color:#4f628e}
+.breadcrumbs a{text-decoration:none}
+.main{width:min(1120px,92%); margin:20px auto; display:grid; grid-template-columns:1.2fr .9fr; gap:24px}
+@media (max-width:980px){.main{grid-template-columns:1fr}}
+.profile{background:#fff; border:1px solid var(--pastel-200); border-radius:18px; box-shadow:var(--shadow); padding:18px}
+.profile-head{display:grid; grid-template-columns:120px 1fr; gap:16px; align-items:center}
+.profile-head img{width:120px; height:120px; object-fit:cover; border-radius:14px; border:4px solid var(--blue-100)}
+.profile-head h1{margin:.2rem 0 .3rem; font-size:1.5rem}
+.badges{display:flex; gap:8px; flex-wrap:wrap; margin:.3rem 0}
+.badge{background:var(--blue-100); color:var(--blue-800); padding:4px 10px; border-radius:999px; font-size:.8rem; font-weight:600}
+.metas{color:#5a6b93; display:flex; gap:12px; flex-wrap:wrap}
+.section{margin-top:18px}
+.section h2{font-size:1.05rem; margin:0 0 .6rem; color:var(--blue-900)}
+.section .box{background:#fff; border:1px dashed var(--pastel-200); border-radius:14px; padding:14px}
+.chips{display:flex; gap:8px; flex-wrap:wrap}
+.chip{padding:4px 10px; background:var(--cream); color:#5b5247; border-radius:999px; font-size:.8rem}
+.sidebar{display:flex; flex-direction:column; gap:16px}
+.card{background:#fff; border:1px solid var(--pastel-200); border-radius:18px; box-shadow:var(--shadow); padding:16px}
+.price{font-size:1.3rem; font-weight:700}
+.sub{color:#6b789d}
+.btn{height:44px; display:grid; place-items:center; border-radius:10px; font-weight:700; text-decoration:none; transition:.15s ease}
+.btn.primary{background:var(--blue-400); color:#fff; border:1px solid var(--blue-400)}
+.btn.primary:hover{background:var(--blue-800); border-color:var(--blue-800)}
+.btn.ghost{background:#fff; color:var(--blue-800); border:1px solid var(--blue-100)}
+.btn.ghost:hover{background:var(--blue-100)}
+.small{font-size:.92rem; color:#4f628e}
+.list{display:grid; gap:6px; padding-left:18px}
+.list li{margin-left:6px}
+.review{background:var(--blue-100); border-radius:12px; padding:12px; color:#31415f}
+
+/* ----- หัวใจบนหน้าโปรไฟล์ ----- */
+.profile-head {
+  position: relative;
+}
+
+.fav-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--pastel-200);
+  background: #fff;
+  color: var(--blue-800);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background .2s ease, transform .15s ease, color .2s ease, border-color .2s ease;
+  z-index: 2;
+}
+.fav-toggle:hover {
+  background: var(--blue-100);
+  transform: translateY(-1px);
+}
+.fav-toggle:active {
+  transform: translateY(1px);
+}
+.fav-toggle.on {
+  color: #e0245e;
+  background: #ffeaf1;
+  border-color: #f5b5c9;
+}
+.fav-toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(143,179,226,.35);
+}

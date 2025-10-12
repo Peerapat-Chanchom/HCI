@@ -1,0 +1,118 @@
+:root{
+  --ink:#192338; --blue-900:#1E2E4F; --blue-800:#31487A; --blue-400:#8FB3E2;
+  --blue-100:#D9E1F1; --pastel-200:#D6E2EF; --cream:#E4DAD1; --bg:#F7F9FB; --white:#fff;
+  --shadow:0 10px 24px rgba(30,46,79,.10);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; color:var(--ink);
+  font-family:"Prompt",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Thai",sans-serif;
+  background:linear-gradient(180deg,var(--blue-100) 0%,var(--bg) 18%,var(--bg) 100%);
+}
+.container{width:min(1120px,92%); margin-inline:auto}
+
+/* HERO */
+.fav-hero{
+  padding:28px 0 16px;
+  border-bottom:1px solid var(--pastel-200);
+  background:
+    radial-gradient(150px 80px at 12% -10%, rgba(143,179,226,.35), transparent 70%),
+    radial-gradient(200px 120px at 88% -20%, rgba(228,218,209,.45), transparent 70%);
+}
+.fav-hero h1{margin:0 0 .8rem; font-size:clamp(22px,2.2vw,32px)}
+.badge-count{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:28px; height:28px; padding:0 8px; margin-left:8px;
+  border-radius:999px; background:var(--blue-100); color:var(--blue-800); font-weight:700; font-size:.95rem;
+  border:1px solid var(--pastel-200);
+}
+.toolbar{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+}
+.cc-select-inline{
+  height:38px; border:1px solid var(--pastel-200); border-radius:10px; padding:0 12px; background:#fff; color:var(--ink);
+}
+.cc-select-inline:focus{ outline:none; box-shadow:0 0 0 3px rgba(143,179,226,.35) }
+
+/* CARDS */
+.cards{ padding:22px 0 56px; display:grid; gap:18px }
+.card{
+  position:relative;
+  display:grid; grid-template-columns:120px 1fr; gap:18px;
+  background:#fff; border:1px solid var(--pastel-200); border-radius:18px; box-shadow:var(--shadow); padding:16px;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(30,46,79,.14) }
+.avatar img{ width:120px; height:120px; object-fit:cover; border-radius:16px; border:3px solid var(--blue-100) }
+.card .body{ display:flex; flex-direction:column; gap:10px }
+.card-top{ display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px }
+.card-top h2{ margin:0; font-size:1.15rem }
+.card-top h2 a{ color:var(--ink); text-decoration:none }
+.card-top h2 a:hover{ color:var(--blue-800) }
+.meta{ color:#60709a; font-size:.92rem }
+.card-bottom{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap }
+.stats{ color:#41527a; display:flex; gap:10px; flex-wrap:wrap }
+.price{ font-weight:700; color:var(--ink) }
+.price small{ font-weight:400; color:#6b789d }
+
+.btn{ height:40px; display:inline-grid; place-items:center; padding:0 14px; border-radius:10px; text-decoration:none; font-weight:600; transition:.15s ease; cursor:pointer }
+.btn.primary{ background:var(--blue-400); color:#fff; border:1px solid var(--blue-400) }
+.btn.primary:hover{ background:var(--blue-800); border-color:var(--blue-800) }
+.btn.ghost{ color:var(--blue-800); background:#fff; border:1px solid var(--blue-100) }
+.btn.ghost:hover{ background:var(--blue-100) }
+
+/* ปุ่มหัวใจ (มุมขวาบนเหมือนหน้าก่อน) */
+.card .fav-toggle{
+  position:absolute; top:16px; right:16px;
+  width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center;
+  border-radius:10px; border:1px solid var(--blue-100); background:#fff; color:var(--blue-800);
+  font-size:18px; line-height:1; cursor:pointer; box-shadow:var(--shadow);
+  transition:background .2s ease, transform .15s ease, color .2s ease, border-color .2s ease;
+}
+.card .fav-toggle:hover{ background:var(--blue-100); transform:translateY(-1px) }
+.card .fav-toggle:active{ transform:translateY(1px) }
+.card .fav-toggle.on{ color:#e0245e; background:#ffeaf1; border-color:#f5b5c9 }
+.card .fav-toggle:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(143,179,226,.35) }
+
+/* EMPTY STATE */
+.empty{ padding:36px 0 64px }
+.empty-card{
+  margin:0 auto; width:min(760px, 92%);
+  background:#fff; border:1px solid var(--pastel-200); border-radius:18px; box-shadow:var(--shadow); padding:24px; text-align:center;
+}
+.empty-emoji{ font-size:48px; margin-bottom:8px }
+.empty h2{ margin:.4rem 0 .6rem }
+.empty p{ color:#4f628e; margin:0 0 1rem }
+
+/* Responsive */
+@media (max-width:680px){
+  .card{ grid-template-columns:1fr }
+}
+
+/* FOOTER (เต็มความกว้าง) */
+.site-footer{
+  border-top:1px solid var(--pastel-200);
+  background:var(--blue-100); color:var(--blue-900);
+  width:100%; text-align:center; padding:20px 0; margin-top:40px;
+}
+.footer-inner{ max-width:1120px; margin:0 auto; font-size:.95rem; font-weight:500 }
+
+/* a11y helper */
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;
+}
+/* ปรับหัวใจให้อยู่บนขอบขวา ไม่ชนข้อความ */
+.card .fav-toggle{
+  top:12px;
+  right:12px;
+  z-index:2;
+}
+
+.card .fav-toggle{
+  position:absolute;
+  top:8px;
+  left:90px; /* อยู่ตรงขอบขวาของรูปโปรไฟล์ */
+  z-index:3;
+  border-radius:50%;
+  background:#fff;
+}

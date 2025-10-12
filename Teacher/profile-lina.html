@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>โปรไฟล์อาจารย์ Lina S. | CodeClass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/teacher-profile.css">
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <div class="brand"><span class="logo">⬢</span><strong>CodeClass</strong></div>
+      <nav class="breadcrumbs"><a href="teacher.html">← ครูสอนโค้ด</a></nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="profile">
+      <div class="profile-head">
+        <img src="https://i.pravatar.cc/240?img=47" alt="ภาพโปรไฟล์ Lina S.">
+        <!-- ❤️ ปุ่มหัวใจ -->
+        <button class="fav-toggle"
+                aria-pressed="false"
+                aria-label="เพิ่มในบุ๊คมาร์ค"
+                data-id="lina"
+                data-title="Lina S."
+                data-href="profile-lina.html"
+                data-avatar="https://i.pravatar.cc/240?img=47"
+                data-price="820">❤</button>
+        <div>
+          <h1>Lina S.</h1>
+          <div class="badges">
+            <span class="badge">UX/UI Design</span>
+            <span class="badge">Webflow</span>
+            <span class="badge">Figma</span>
+          </div>
+          <div class="metas">
+            <span>⭐ 4.9 (132 รีวิว)</span>
+            <span>สอน: UX/UI, HTML/CSS, Webflow</span>
+            <span>โฟกัสงานจริง + พอร์ตดีไซน์</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>เกี่ยวกับฉัน</h2>
+        <div class="box">
+          นักออกแบบ UX/UI ที่มีประสบการณ์ในสาย Tech Startup มากกว่า 6 ปี  
+          เคยออกแบบระบบ Dashboard และ Landing Page ให้บริษัทในยุโรป  
+          ช่วยนักเรียนทุกคนสร้างผลงานดีไซน์จริง พร้อมเข้าใจพื้นฐานของโค้ด  
+          เพื่อสื่อสารกับ Developer ได้อย่างมืออาชีพ
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>ฉันสามารถสอน</h2>
+        <div class="chips">
+          <span class="chip">Design Thinking</span>
+          <span class="chip">User Flow</span>
+          <span class="chip">Wireframe / Prototype</span>
+          <span class="chip">Figma</span>
+          <span class="chip">Webflow</span>
+          <span class="chip">HTML / CSS</span>
+          <span class="chip">Responsive Design</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>โครงสร้างหลักสูตร</h2>
+        <ol class="list">
+          <li>พื้นฐาน UX/UI และเข้าใจผู้ใช้</li>
+          <li>วิเคราะห์ปัญหา + ออกแบบ Wireframe</li>
+          <li>สร้าง Prototype ด้วย Figma</li>
+          <li>แปลงดีไซน์เป็นเว็บจริงใน Webflow/HTML</li>
+          <li>ออกแบบ Portfolio ของคุณเอง</li>
+        </ol>
+      </div>
+
+      <div class="section">
+        <h2>รีวิวเด่น</h2>
+        <div class="review">“ได้ดีไซน์จริง ส่งเป็นพอร์ตสมัครงานได้เลย!” — Jane (นักศึกษาม.กรุงเทพ)</div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="card">
+        <div class="price">฿820 <span class="sub">/ 50 นาที</span></div>
+        <p class="small">⭐ 4.9 · เรียนแล้ว 980 ครั้ง</p>
+        <a class="btn primary" href="#">จองบทเรียนทดลอง</a>
+        <a class="btn ghost" id="contact" href="#">ส่งข้อความ</a>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">เครื่องมือที่ใช้สอน</h3>
+        <div class="chips">
+          <span class="chip">#Figma</span>
+          <span class="chip">#Webflow</span>
+          <span class="chip">#HTML</span>
+          <span class="chip">#CSS</span>
+          <span class="chip">#Notion</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">เหมาะสำหรับ</h3>
+        <ul class="list" style="margin:0">
+          <li>ผู้เริ่มต้นด้าน UX/UI</li>
+          <li>นักศึกษาที่ต้องการสร้างพอร์ตดีไซน์</li>
+          <li>ฟรีแลนซ์ที่อยากเพิ่มทักษะ Webflow</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <!-- JS บุ๊คมาร์ก (เหมือนหน้าอื่น ๆ) -->
+  <script>
+  (function(){
+    'use strict';
+    const LS_KEY = 'favorites.items';
+    const BADGE_KEY = 'favorites.count';
+    const $ = s => document.querySelector(s);
+
+    function loadFavs(){
+      try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
+      catch { return []; }
+    }
+    function saveFavs(items){
+      localStorage.setItem(LS_KEY, JSON.stringify(items));
+      localStorage.setItem(BADGE_KEY, String(items.length));
+      window.dispatchEvent(new StorageEvent('storage', { key: BADGE_KEY, newValue: String(items.length) }));
+    }
+    function isFav(id){ return loadFavs().some(x => x.id === id); }
+
+    const btn = $('.profile .fav-toggle');
+    if(!btn) return;
+
+    const data = {
+      id:     btn.dataset.id,
+      title:  btn.dataset.title || document.querySelector('.profile-head h1')?.textContent?.trim() || 'Unknown',
+      href:   btn.dataset.href  || location.pathname.split('/').pop() || '#',
+      avatar: btn.dataset.avatar || document.querySelector('.profile-head img')?.src || '',
+      price:  btn.dataset.price || ''
+    };
+
+    function updateUI(on){
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.classList.toggle('on', !!on);
+      btn.title = on ? 'นำออกจากบุ๊คมาร์ค' : 'เพิ่มในบุ๊คมาร์ค';
+    }
+
+    updateUI(isFav(data.id));
+
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const items = loadFavs();
+      const i = items.findIndex(x => x.id === data.id);
+      if(i >= 0){
+        items.splice(i,1);
+        saveFavs(items);
+        updateUI(false);
+      }else{
+        items.push(data);
+        saveFavs(items);
+        updateUI(true);
+      }
+    });
+
+    window.addEventListener('storage', (e)=>{
+      if(e.key !== LS_KEY) return;
+      updateUI(isFav(data.id));
+    });
+  })();
+  </script>
+</body>
+</html>
