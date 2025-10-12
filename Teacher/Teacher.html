@@ -1,11 +1,644 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>อาจารย์สอนโค้ด | CodeClass</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ใส่ CSS ที่คุณทำไว้ -->
+  <link rel="stylesheet" href="../CSS/navbar.css" />
+  <link rel="stylesheet" href="../CSS/teacher.css" />
 </head>
 <body>
-    
+
+  <!-- NAVBAR ที่เราทำไว้ -->
+  <header class="cc-navbar" role="navigation" aria-label="หลัก">
+    <div class="cc-nav-wrap">
+      <!-- BRAND -->
+      <a class="cc-brand" href="/Home/Home.html" aria-label="CodeClass หน้าหลัก">
+        <span class="cc-logo" aria-hidden="true">⬢</span>
+        <strong class="cc-site">CodeClass</strong>
+      </a>
+
+      <!-- LEFT LINKS -->
+      <ul class="cc-links">
+        <li><a href="teacher.html" aria-current="page">ครูสอนโค้ด</a></li>
+      </ul>
+
+
+    <!-- RIGHT AREA -->
+    <div class="cc-right">
+      <button class="cc-btn ghost" id="btnRefer">แนะนำเพื่อน</button>
+
+ <!-- Language & Currency Dropdown -->
+  <div class="cc-select" id="lcSelect" aria-expanded="false">
+  <button class="cc-select-toggle" id="lcToggle" aria-haspopup="listbox" aria-expanded="false">
+    ภาษาไทย, THB
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+  </button>
+
+  <div class="cc-select-menu" role="listbox" aria-label="เลือกภาษาและสกุลเงิน">
+    <!-- Asia -->
+    <button role="option" data-lang="th" data-cur="THB" aria-selected="true">ภาษาไทย, THB</button>
+    <button role="option" data-lang="en" data-cur="USD">English, USD</button>
+    <button role="option" data-lang="en" data-cur="EUR">English, EUR</button>
+    <button role="option" data-lang="zh" data-cur="CNY">中文 (简体), CNY</button>
+    <button role="option" data-lang="ja" data-cur="JPY">日本語, JPY</button>
+    <button role="option" data-lang="ko" data-cur="KRW">한국어, KRW</button>
+    <button role="option" data-lang="vi" data-cur="VND">Tiếng Việt, VND</button>
+    <button role="option" data-lang="id" data-cur="IDR">Bahasa Indonesia, IDR</button>
+
+    <!-- Europe -->
+    <button role="option" data-lang="fr" data-cur="EUR">Français, EUR</button>
+    <button role="option" data-lang="de" data-cur="EUR">Deutsch, EUR</button>
+    <button role="option" data-lang="es" data-cur="EUR">Español, EUR</button>
+    <button role="option" data-lang="it" data-cur="EUR">Italiano, EUR</button>
+    <button role="option" data-lang="nl" data-cur="EUR">Nederlands, EUR</button>
+
+    <!-- Middle East -->
+    <button role="option" data-lang="ar" data-cur="AED">العربية, AED</button>
+    <button role="option" data-lang="tr" data-cur="TRY">Türkçe, TRY</button>
+
+    <!-- America -->
+    <button role="option" data-lang="en" data-cur="CAD">English (Canada), CAD</button>
+    <button role="option" data-lang="es" data-cur="MXN">Español (México), MXN</button>
+    <button role="option" data-lang="pt" data-cur="BRL">Português (Brasil), BRL</button>
+
+    <!-- Oceania -->
+    <button role="option" data-lang="en" data-cur="AUD">English (Australia), AUD</button>
+    <button role="option" data-lang="en" data-cur="NZD">English (New Zealand), NZD</button>
+  </div>
+</div>
+
+      <!-- RIGHT -->
+      <div class="cc-actions">
+        <a class="cc-icon" href="inbox.html" aria-label="กล่องข้อความ">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+        <a class="cc-icon" href="help.html" aria-label="ศูนย์ช่วยเหลือ">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.88 15h-1.8v-1.8h1.8V17zm1.9-6.8c-.22.35-.62.72-1.18 1.11-.4.28-.65.5-.73.66-.09.17-.13.41-.13.74H11v-.32c0-.34.06-.63.18-.86.12-.24.37-.49.73-.76.47-.34.78-.61.93-.82.15-.21.23-.45.23-.74 0-.39-.15-.71-.44-.96-.29-.25-.69-.38-1.2-.38-.49 0-.9.14-1.24.41-.33.27-.56.67-.68 1.19l-1.77-.2c.09-.8.43-1.43 1.01-1.9.58-.47 1.33-.7 2.26-.7 1.01 0 1.8.25 2.38.76.58.5.87 1.16.87 1.98 0 .43-.11.82-.33 1.17z"/></svg>
+        </a>
+        <a class="cc-icon" href="favorites.html" aria-label="ถูกใจของฉัน">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.4-9.1-7.6C.6 10.8 1.4 7.2 4.4 6 6.3 5.2 8.3 5.7 9.7 7c.5.5.9 1.1 1.1 1.7.3-.6.7-1.2 1.2-1.7 1.4-1.4 3.4-1.8 5.3-.9 3 1.3 3.7 4.8 1.5 7.4C18.7 16.6 12 21 12 21z"/></svg>
+        </a>
+        <a class="cc-icon" href="notifications.html" aria-label="การแจ้งเตือน">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v1h16v-1l-2-2z"/></svg>
+        </a>
+
+        <!-- AVATAR -->
+        <a class="cc-avatar" href="account.html" aria-label="โปรไฟล์ของฉัน">
+          <img src="https://i.pravatar.cc/36?img=68" alt="ภาพโปรไฟล์ผู้ใช้">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>พบอาจารย์สอนโค้ดกว่า <span>500+</span> คน</h1>
+      <p>เริ่มต้นเขียนโปรแกรมให้เป็นระบบภายใน <span>4 สัปดาห์</span> ด้วยการเรียนตัวต่อตัว</p>
+
+      <div class="filters" role="region" aria-label="ตัวกรองค้นหา">
+        <div class="filter">
+          <label for="lang">ภาษาโปรแกรม</label>
+          <select id="lang">
+            <option value="">ทั้งหมด</option>
+            <option>Python</option><option>JavaScript</option>
+            <option>TypeScript</option><option>HTML / CSS</option>
+            <option>Java</option><option>C++</option>
+          </select>
+        </div>
+        <div class="filter">
+          <label for="level">ระดับ</label>
+          <select id="level">
+            <option value="">ทั้งหมด</option>
+            <option>พื้นฐาน</option><option>กลาง</option><option>ขั้นสูง</option>
+          </select>
+        </div>
+        <div class="filter">
+          <label for="price">ช่วงราคา (฿/50–55 นาที)</label>
+          <select id="price">
+            <option value="">ทั้งหมด</option>
+            <option>0–500</option><option>501–800</option><option>801–1200</option>
+          </select>
+        </div>
+        <div class="filter search">
+          <label for="q">ค้นหา</label>
+          <input id="q" type="search" placeholder="พิมพ์ชื่ออาจารย์ หรือภาษาโค้ด…"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <main class="container cards" id="teacherList">
+    <!-- ตัวอย่าง: เพิ่มปุ่มหัวใจ .fav-toggle ใน footer ของแต่ละการ์ด -->
+     <!-- Card 1 -->
+<article class="card"
+  data-id="michiel"
+  data-langs="Python, HTML / CSS"
+  data-level="พื้นฐาน"
+  data-price="649"
+  data-name="Michiel B. beginner webbasic git">
+
+  <a class="avatar" href="profile-michiel.html" aria-label="ดูโปรไฟล์ Michiel B.">
+    <img src="https://i.pravatar.cc/240?img=12" alt="ภาพโปรไฟล์ Michiel B." />
+  </a>
+
+  <div class="body">
+    <header class="card-top">
+      <h2><a href="profile-michiel.html">Michiel B.</a></h2>
+      <div class="meta">
+        <span class="badge pro">ผู้สอนมืออาชีพ</span><span class="dot"></span>
+        <span class="light">สอน: Python, HTML, CSS</span>
+      </div>
+    </header>
+
+    <p class="excerpt">ปูพื้นฐานให้แน่นผ่านโปรเจกต์เล็ก ๆ: CSV Tool, เว็บพอร์ต, ฟอร์ม พร้อมรีวิวโค้ดรายสัปดาห์</p>
+
+    <div class="chips">
+      <span class="chip">#Beginner</span>
+      <span class="chip">#WebBasic</span>
+      <span class="chip">#Git</span>
+    </div>
+
+    <footer class="card-bottom">
+      <div class="stats">
+        <span>⭐ 4.9</span><span>· 120 รีวิว</span><span>· เรียนแล้ว 1,130 ครั้ง</span>
+      </div>
+
+      <div class="cta">
+        <div class="price">฿649 <small>/ 50 นาที</small></div>
+        <a class="btn primary" href="profile-michiel.html">จองบทเรียนทดลอง</a>
+        <a class="btn ghost" href="profile-michiel.html#contact">ส่งข้อความ</a>
+
+        <!-- ✅ ปุ่มหัวใจ ต้องอยู่ตรงนี้เท่านั้น -->
+        <button class="fav-toggle"
+                aria-pressed="false"
+                aria-label="เพิ่มในบุ๊คมาร์ค"
+                data-title="Michiel B."
+                data-href="profile-michiel.html"
+                data-avatar="https://i.pravatar.cc/240?img=12">
+          ❤
+        </button>
+      </div>
+    </footer>
+  </div>
+</article>
+
+<!-- Card 2 (แก้แล้ว) -->
+<article class="card"
+  data-id="holly"
+  data-langs="JavaScript, HTML / CSS, TypeScript"
+  data-level="กลาง"
+  data-price="746"
+  data-name="Holly G. react vite frontend">
+
+  <a class="avatar" href="profile-holly.html" aria-label="ดูโปรไฟล์ Holly G.">
+    <img src="https://i.pravatar.cc/240?img=32" alt="ภาพโปรไฟล์ Holly G." />
+  </a>
+
+  <div class="body">
+    <header class="card-top">
+      <h2><a href="profile-holly.html">Holly G.</a></h2>
+      <div class="meta">
+        <span class="badge pro">Front-end</span><span class="dot"></span>
+        <span class="light">สอน: JavaScript, React</span>
+      </div>
+    </header>
+
+    <p class="excerpt">ทำ React App ด้วย Vite ตั้งแต่ศูนย์ถึงดีพลอย โครงสร้างโค้ดอ่านง่าย ใช้งานจริงได้</p>
+
+    <div class="chips">
+      <span class="chip">#React</span><span class="chip">#Hooks</span><span class="chip">#Tailwind</span>
+    </div>
+
+    <footer class="card-bottom">
+      <div class="stats"><span>⭐ 4.8</span><span>· 89 รีวิว</span><span>· เรียนแล้ว 649 ครั้ง</span></div>
+      <div class="cta">
+        <div class="price">฿746 <small>/ 50 นาที</small></div>
+        <a class="btn primary" href="profile-holly.html">จองบทเรียนทดลอง</a>
+        <a class="btn ghost" href="profile-holly.html#contact">ส่งข้อความ</a>
+
+        <!-- ปุ่มหัวใจต้องอยู่ตรงนี้ -->
+        <button class="fav-toggle"
+                aria-pressed="false"
+                aria-label="เพิ่มในบุ๊คมาร์ค"
+                data-title="Holly G."
+                data-href="profile-holly.html"
+                data-avatar="https://i.pravatar.cc/240?img=32">
+          ❤
+        </button>
+      </div>
+    </footer>
+  </div>
+</article>
+
+   <!-- Card 3 (แก้แล้ว) -->
+<article class="card"
+  data-id="nurgyady"
+  data-langs="C++, Java"
+  data-level="ขั้นสูง"
+  data-price="487"
+  data-name="Nurgyady S. algorithm data structure">
+
+  <a class="avatar" href="profile-nurgyady.html" aria-label="ดูโปรไฟล์ Nurgyady S.">
+    <img src="https://i.pravatar.cc/240?img=5" alt="ภาพโปรไฟล์ Nurgyady S." />
+  </a>
+
+  <div class="body">
+    <header class="card-top">
+      <h2><a href="profile-nurgyady.html">Nurgyady S.</a></h2>
+      <div class="meta">
+        <span class="badge pro">Algorithm</span><span class="dot"></span>
+        <span class="light">สอน: C++, Java</span>
+      </div>
+    </header>
+
+    <p class="excerpt">
+      เจาะอัลกอริทึม & โครงสร้างข้อมูล ตั้งแต่ Big-O ถึง Graph/DP พร้อมโจทย์และรีวิวโค้ด
+    </p>
+
+    <div class="chips">
+      <span class="chip">#DataStructure</span>
+      <span class="chip">#Algorithm</span>
+      <span class="chip">#Interview</span>
+    </div>
+
+    <footer class="card-bottom">
+      <div class="stats">
+        <span>⭐ 5.0</span><span>· 210 รีวิว</span><span>· เรียนแล้ว 708 ครั้ง</span>
+      </div>
+      <div class="cta">
+        <div class="price">฿487 <small>/ 50 นาที</small></div>
+        <a class="btn primary" href="profile-nurgyady.html">จองบทเรียนทดลอง</a>
+        <a class="btn ghost" href="profile-nurgyady.html#contact">ส่งข้อความ</a>
+
+        <!-- ✅ ปุ่มหัวใจถูกที่ -->
+        <button class="fav-toggle"
+                aria-pressed="false"
+                aria-label="เพิ่มในบุ๊คมาร์ค"
+                data-title="Nurgyady S."
+                data-href="profile-nurgyady.html"
+                data-avatar="https://i.pravatar.cc/240?img=5">
+          ❤
+        </button>
+      </div>
+    </footer>
+  </div>
+</article>
+
+    <!-- Card 4: Akira (แก้แล้ว) -->
+<article class="card"
+  data-id="akira"
+  data-langs="Python, SQL"
+  data-level="กลาง"
+  data-price="890"
+  data-name="Akira T. data science pandas machine learning streamlit">
+
+  <a class="avatar" href="profile-akira.html" aria-label="ดูโปรไฟล์ Akira T.">
+    <img src="https://i.pravatar.cc/240?img=15" alt="ภาพโปรไฟล์ Akira T." />
+  </a>
+
+  <div class="body">
+    <header class="card-top">
+      <h2><a href="profile-akira.html">Akira T.</a></h2>
+      <div class="meta">
+        <span class="badge pro">Data Science</span><span class="dot"></span>
+        <span class="light">สอน: Python, Pandas, ML</span>
+      </div>
+    </header>
+
+    <p class="excerpt">จากพื้นฐาน Python → วิเคราะห์ข้อมูล → โมเดล ML → ทำแดชบอร์ด Streamlit และดีพลอย</p>
+
+    <div class="chips">
+      <span class="chip">#Python</span><span class="chip">#Pandas</span><span class="chip">#ML</span>
+    </div>
+
+    <footer class="card-bottom">
+      <div class="stats"><span>⭐ 5.0</span><span>· 1,204 ครั้ง</span></div>
+      <div class="cta">
+        <div class="price">฿890 <small>/ 55 นาที</small></div>
+        <a class="btn primary" href="profile-akira.html">จองบทเรียนทดลอง</a>
+        <a class="btn ghost" href="profile-akira.html#contact">ส่งข้อความ</a>
+
+        <!-- ปุ่มหัวใจถูกที่ -->
+        <button class="fav-toggle"
+                aria-pressed="false"
+                aria-label="เพิ่มในบุ๊คมาร์ค"
+                data-title="Akira T."
+                data-href="profile-akira.html"
+                data-avatar="https://i.pravatar.cc/240?img=15">
+          ❤
+        </button>
+      </div>
+    </footer>
+  </div>
+</article>
+
+<!-- Card 5: Lina (แก้แล้ว) -->
+<article class="card"
+  data-id="lina"
+  data-langs="HTML / CSS, JavaScript"
+  data-level="พื้นฐาน"
+  data-price="820"
+  data-name="Lina S. ux ui figma webflow design">
+
+  <a class="avatar" href="profile-lina.html" aria-label="ดูโปรไฟล์ Lina S.">
+    <img src="https://i.pravatar.cc/240?img=47" alt="ภาพโปรไฟล์ Lina S." />
+  </a>
+
+  <div class="body">
+    <header class="card-top">
+      <h2><a href="profile-lina.html">Lina S.</a></h2>
+      <div class="meta">
+        <span class="badge pro">UX/UI</span><span class="dot"></span>
+        <span class="light">สอน: UX/UI, HTML/CSS, Webflow</span>
+      </div>
+    </header>
+
+    <p class="excerpt">
+      ออกแบบประสบการณ์ผู้ใช้ด้วย Figma แล้วแปลงเป็นเว็บจริงด้วย Webflow/HTML
+    </p>
+
+    <div class="chips">
+      <span class="chip">#UXUI</span><span class="chip">#Figma</span><span class="chip">#Webflow</span>
+    </div>
+
+    <footer class="card-bottom">
+      <div class="stats"><span>⭐ 4.9</span><span>· 980 ครั้ง</span></div>
+      <div class="cta">
+        <div class="price">฿820 <small>/ 50 นาที</small></div>
+        <a class="btn primary" href="profile-lina.html">จองบทเรียนทดลอง</a>
+        <a class="btn ghost" href="profile-lina.html#contact">ส่งข้อความ</a>
+
+        <!-- ❤️ ปุ่มหัวใจ -->
+        <button class="fav-toggle"
+                aria-pressed="false"
+                aria-label="เพิ่มในบุ๊คมาร์ค"
+                data-title="Lina S."
+                data-href="profile-lina.html"
+                data-avatar="https://i.pravatar.cc/240?img=47">
+          ❤
+        </button>
+      </div>
+    </footer>
+  </div>
+</article>
+
+<!-- Card 6: Diego (แก้แล้ว) -->
+<article class="card"
+  data-id="diego"
+  data-langs="JavaScript, TypeScript"
+  data-level="ขั้นสูง"
+  data-price="940"
+  data-name="Diego R. backend devops node docker aws">
+
+  <a class="avatar" href="profile-diego.html" aria-label="ดูโปรไฟล์ Diego R.">
+    <img src="https://i.pravatar.cc/240?img=64" alt="ภาพโปรไฟล์ Diego R." />
+  </a>
+
+  <div class="body">
+    <header class="card-top">
+      <h2><a href="profile-diego.html">Diego R.</a></h2>
+      <div class="meta">
+        <span class="badge pro">Backend/DevOps</span><span class="dot"></span>
+        <span class="light">สอน: Node.js, Docker, AWS</span>
+      </div>
+    </header>
+
+    <p class="excerpt">
+      ออกแบบ API → เขียนเทสต์ → Docker/CI/CD → ดีพลอยขึ้น AWS ใช้งานจริงได้ทันที
+    </p>
+
+    <div class="chips">
+      <span class="chip">#Node</span><span class="chip">#Docker</span><span class="chip">#AWS</span>
+    </div>
+
+    <footer class="card-bottom">
+      <div class="stats"><span>⭐ 4.95</span><span>· 1,560 ครั้ง</span></div>
+      <div class="cta">
+        <div class="price">฿940 <small>/ 55 นาที</small></div>
+        <a class="btn primary" href="profile-diego.html">จองบทเรียนทดลอง</a>
+        <a class="btn ghost" href="profile-diego.html#contact">ส่งข้อความ</a>
+
+        <!-- ❤️ ปุ่มหัวใจ -->
+        <button class="fav-toggle"
+                aria-pressed="false"
+                aria-label="เพิ่มในบุ๊คมาร์ค"
+                data-title="Diego R."
+                data-href="profile-diego.html"
+                data-avatar="https://i.pravatar.cc/240?img=64">
+          ❤
+        </button>
+      </div>
+    </footer>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    © 2025 CodeClass · เรียนเขียนโปรแกรมกับอาจารย์คุณภาพทั่วโลก
+  </div>
+</footer>
+
+<!-- JS ของ Navbar (จากรอบก่อน) -->
+  <script src="navbar.js" defer></script>
+
+  <script>
+(function(){
+  const select   = document.getElementById('lcSelect');
+  const toggle   = document.getElementById('lcToggle');
+  const options  = Array.from(select.querySelectorAll('.cc-select-menu [role="option"]'));
+  const LS_KEY   = 'lc.pref';
+  const BADGEKEY = 'favorites.count'; // ให้ navbar เดิมอ่าน (คงไว้ไม่เกี่ยวกับเมนู)
+
+  if (!select || !toggle || !options.length) return;
+
+  // โหลดค่าเดิม
+  try{
+    const saved = JSON.parse(localStorage.getItem(LS_KEY));
+    if (saved){
+      const btn = options.find(b => b.dataset.lang===saved.lang && b.dataset.cur===saved.cur);
+      if (btn){
+        options.forEach(o => o.setAttribute('aria-selected','false'));
+        btn.setAttribute('aria-selected','true');
+        toggle.firstChild.nodeValue = `${btn.textContent.trim()}`;
+        document.documentElement.lang = saved.lang;
+      }
+    }
+  }catch{}
+
+  // เปิด/ปิดเมนู
+  function openMenu(on){
+    select.setAttribute('aria-expanded', on ? 'true' : 'false');
+    toggle.setAttribute('aria-expanded', on ? 'true' : 'false');
+  }
+  toggle.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const isOpen = select.getAttribute('aria-expanded') === 'true';
+    openMenu(!isOpen);
+  });
+  document.addEventListener('click', (e)=>{
+    if (!select.contains(e.target)) openMenu(false);
+  });
+  document.addEventListener('keydown', (e)=>{
+    if (e.key === 'Escape') openMenu(false);
+  });
+
+  // เลือกค่า
+  options.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      options.forEach(o => o.setAttribute('aria-selected','false'));
+      btn.setAttribute('aria-selected','true');
+      toggle.firstChild.nodeValue = `${btn.textContent.trim()}`;
+      openMenu(false);
+      // เก็บค่า
+      const pref = { lang: btn.dataset.lang, cur: btn.dataset.cur };
+      localStorage.setItem('lc.pref', JSON.stringify(pref));
+      document.documentElement.lang = pref.lang;
+      // แจ้งส่วนอื่น ๆ
+      select.dispatchEvent(new CustomEvent('lcchange', { detail: pref }));
+    });
+  });
+})();
+</script>
+
+  <!-- Filter script (ของเดิม) -->
+  <script>
+    (function(){
+      const $$ = s => Array.from(document.querySelectorAll(s));
+      const q = document.getElementById('q');
+      const lang = document.getElementById('lang');
+      const level = document.getElementById('level');
+      const price = document.getElementById('price');
+      const cards = $$('#teacherList .card');
+
+      function inRange(priceNum, rangeText){
+        if(!rangeText) return true;
+        const [a,b] = rangeText.split('–').map(x=>parseInt(x,10));
+        return priceNum >= a && priceNum <= b;
+      }
+      function apply(){
+        const qv = (q?.value || '').trim().toLowerCase();
+        const lv = level?.value || '';
+        const lg = lang?.value || '';
+        const pr = price?.value || '';
+        cards.forEach(c => {
+          const name = (c.dataset.name||'').toLowerCase();
+          const langs = (c.dataset.langs||'').split(',').map(s=>s.trim());
+          const levelMatch = !lv || c.dataset.level === lv;
+          const langMatch = !lg || langs.includes(lg);
+          const priceMatch = inRange(parseInt(c.dataset.price,10), pr);
+          const textMatch = !qv || name.includes(qv);
+          c.style.display = (levelMatch && langMatch && priceMatch && textMatch) ? '' : 'none';
+        });
+      }
+      [q, lang, level, price].forEach(el => el && el.addEventListener('input', apply));
+      apply();
+    })();
+  </script>
+
+  <!-- 2) JS บุ๊คมาร์ค + smooth scroll -->
+  <script>
+    (function(){
+      'use strict';
+      const $$ = s => Array.from(document.querySelectorAll(s));
+      const $  = s => document.querySelector(s);
+
+      const LS_KEY = 'favorites.items';   // เก็บรายการบุ๊คมาร์ค
+      const BADGE_KEY = 'favorites.count';// ให้ navbar.js อ่านไปแสดง badge
+
+      // โหลดค่าบุ๊คมาร์ค
+      function loadFavs(){
+        try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
+        catch { return []; }
+      }
+      function saveFavs(items){
+        localStorage.setItem(LS_KEY, JSON.stringify(items));
+        localStorage.setItem(BADGE_KEY, String(items.length));
+        // กระตุ้น event storage ให้แท็บอื่น/สคริปต์อื่นรู้
+        window.dispatchEvent(new StorageEvent('storage', { key: BADGE_KEY, newValue: String(items.length) }));
+      }
+      function isFav(id){ return loadFavs().some(x => x.id === id); }
+
+      // ติดตั้งปุ่มหัวใจบนการ์ด
+      function initFavButtons(){
+        $$('#teacherList .card').forEach(card => {
+          const id = card.dataset.id || card.dataset.name || '';
+          const btn = card.querySelector('.fav-toggle');
+          if(!btn || !id) return;
+
+          const data = {
+            id,
+            title: btn.dataset.title || card.querySelector('h2')?.innerText?.trim() || 'Unknown',
+            href: btn.dataset.href || card.querySelector('h2 a')?.getAttribute('href') || '#',
+            avatar: btn.dataset.avatar || card.querySelector('.avatar img')?.src || '',
+            price: card.dataset.price || ''
+          };
+
+          const updateUI = (on) => {
+            btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+            btn.classList.toggle('on', !!on);
+            btn.title = on ? 'นำออกจากบุ๊คมาร์ค' : 'เพิ่มในบุ๊คมาร์ค';
+          };
+
+          // ตั้งค่าเริ่มต้น
+          updateUI(isFav(id));
+
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const items = loadFavs();
+            const idx = items.findIndex(x => x.id === id);
+            if(idx >= 0){
+              items.splice(idx, 1);
+              saveFavs(items);
+              updateUI(false);
+            } else {
+              items.push(data);
+              saveFavs(items);
+              updateUI(true);
+            }
+          });
+        });
+
+        // sync ข้ามแท็บ
+        window.addEventListener('storage', (e) => {
+          if(e.key !== LS_KEY) return;
+          // รีเฟรชสถานะปุ่ม
+          $$('#teacherList .card').forEach(card => {
+            const id = card.dataset.id || card.dataset.name || '';
+            const btn = card.querySelector('.fav-toggle');
+            if(!btn || !id) return;
+            const on = isFav(id);
+            btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+            btn.classList.toggle('on', !!on);
+          });
+        });
+      }
+
+      // smooth scroll ให้ลิงก์ภายในหน้า
+      function initSmoothScroll(){
+        document.addEventListener('click', (e) => {
+          const a = e.target.closest('a[href^="#"]');
+          if(!a) return;
+          const id = a.getAttribute('href').slice(1);
+          if(!id) return;
+          const el = document.getElementById(id);
+          if(!el) return;
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, '', `#${id}`);
+        });
+      }
+
+      initFavButtons();
+      initSmoothScroll();
+    })();
+  </script>
 </body>
 </html>

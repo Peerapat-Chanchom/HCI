@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>โปรไฟล์อาจารย์ Nurgyady S. | CodeClass</title>
+
+  <!-- ฟอนต์และ CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/teacher-profile.css">
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <div class="brand"><span class="logo">⬢</span><strong>CodeClass</strong></div>
+      <nav class="breadcrumbs"><a href="teacher.html">← ครูสอนโค้ด</a></nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- LEFT -->
+    <section class="profile">
+      <div class="profile-head">
+        <img src="https://i.pravatar.cc/240?img=5" alt="ภาพโปรไฟล์ Nurgyady S.">
+
+        <!-- ❤️ ปุ่มหัวใจ -->
+        <button class="fav-toggle"
+                aria-pressed="false"
+                aria-label="เพิ่มในบุ๊คมาร์ค"
+                data-id="nurgyady"
+                data-title="Nurgyady S."
+                data-href="profile-nurgyady.html"
+                data-avatar="https://i.pravatar.cc/240?img=5"
+                data-price="487">❤</button>
+
+        <div>
+          <h1>Nurgyady S.</h1>
+          <div class="badges">
+            <span class="badge">Algorithms</span>
+            <span class="badge">C++</span>
+            <span class="badge">Java</span>
+          </div>
+          <div class="metas">
+            <span>⭐ 5.0 (210 รีวิว)</span>
+            <span>สอน: C++, Java</span>
+            <span>ติวสัมภาษณ์งานสายโปรแกรมเมอร์</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>เกี่ยวกับฉัน</h2>
+        <div class="box">
+          สอนการแก้ปัญหาด้วยอัลกอริทึมอย่างมีเหตุผล ฝึกวิเคราะห์เวลาและหน่วยความจำ 
+          พร้อมแนะแนววิธีอธิบายแนวคิดตอนสัมภาษณ์งานเทคนิคให้มั่นใจยิ่งขึ้น
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>ฉันสามารถสอน</h2>
+        <div class="chips">
+          <span class="chip">Big-O</span>
+          <span class="chip">Array / LinkedList / Tree / Graph</span>
+          <span class="chip">Greedy / DP</span>
+          <span class="chip">OOP (C++ / Java)</span>
+          <span class="chip">Coding Interview</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>แบบฝึกหัดตัวอย่าง</h2>
+        <ol class="list">
+          <li>Shortest Path (Dijkstra)</li>
+          <li>Dynamic Programming: Knapsack / LIS</li>
+          <li>Design Class ระบบจองตั๋ว</li>
+        </ol>
+      </div>
+
+      <div class="section" id="reviews">
+        <h2>รีวิวเด่น</h2>
+        <div class="review">“ช่วยให้ผ่านรอบเทคนิคบริษัทใหญ่ได้จริง!” — Namtan</div>
+      </div>
+    </section>
+
+    <!-- RIGHT -->
+    <aside class="sidebar">
+      <div class="card">
+        <div class="price">฿487 <span class="sub">/ 50 นาที</span></div>
+        <p class="small">⭐ 5.0 · เรียนแล้ว 708 ครั้ง</p>
+        <a class="btn primary" href="#">จองบทเรียนทดลอง</a>
+        <a class="btn ghost" id="contact" href="#">ส่งข้อความ</a>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">สแต็กที่ใช้สอน</h3>
+        <div class="chips">
+          <span class="chip">#C++</span>
+          <span class="chip">#Java</span>
+          <span class="chip">#Algorithm</span>
+          <span class="chip">#DataStructure</span>
+          <span class="chip">#DynamicProgramming</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">เหมาะสำหรับ</h3>
+        <ul class="list" style="margin:0">
+          <li>ผู้ที่เตรียมสอบสัมภาษณ์งานสาย Software Engineer</li>
+          <li>นักศึกษาที่อยากเข้าใจ Algorithm อย่างลึก</li>
+          <li>ผู้ที่ต้องการพัฒนา Logic และ Coding Skill</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <!-- JS บุ๊คมาร์ก -->
+  <script>
+  (function(){
+    'use strict';
+    const LS_KEY = 'favorites.items';
+    const BADGE_KEY = 'favorites.count';
+    const $ = s => document.querySelector(s);
+
+    function loadFavs(){
+      try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
+      catch { return []; }
+    }
+    function saveFavs(items){
+      localStorage.setItem(LS_KEY, JSON.stringify(items));
+      localStorage.setItem(BADGE_KEY, String(items.length));
+      window.dispatchEvent(new StorageEvent('storage', { key: BADGE_KEY, newValue: String(items.length) }));
+    }
+    function isFav(id){ return loadFavs().some(x => x.id === id); }
+
+    const btn = $('.profile .fav-toggle');
+    if(!btn) return;
+
+    const data = {
+      id:     btn.dataset.id,
+      title:  btn.dataset.title || document.querySelector('.profile-head h1')?.textContent?.trim() || 'Unknown',
+      href:   btn.dataset.href  || location.pathname.split('/').pop() || '#',
+      avatar: btn.dataset.avatar || document.querySelector('.profile-head img')?.src || '',
+      price:  btn.dataset.price || ''
+    };
+
+    function updateUI(on){
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.classList.toggle('on', !!on);
+      btn.title = on ? 'นำออกจากบุ๊คมาร์ค' : 'เพิ่มในบุ๊คมาร์ค';
+    }
+
+    updateUI(isFav(data.id));
+
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const items = loadFavs();
+      const i = items.findIndex(x => x.id === data.id);
+      if(i >= 0){
+        items.splice(i,1);
+        saveFavs(items);
+        updateUI(false);
+      }else{
+        items.push(data);
+        saveFavs(items);
+        updateUI(true);
+      }
+    });
+
+    window.addEventListener('storage', (e)=>{
+      if(e.key !== LS_KEY) return;
+      updateUI(isFav(data.id));
+    });
+  })();
+  </script>
+</body>
+</html>

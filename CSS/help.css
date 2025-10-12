@@ -1,0 +1,200 @@
+/* ========= THEME ========= */
+:root {
+  --ink:#192338;
+  --blue-900:#1E2E4F;
+  --blue-800:#31487A;
+  --blue-400:#8FB3E2;
+  --blue-100:#D9E1F1;
+  --pastel-200:#D6E2EF;
+  --cream:#E4DAD1;
+  --white:#fff;
+  --shadow:0 14px 34px rgba(30,46,79,.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ========= BASE ========= */
+body {
+  margin: 0;
+  font-family: "Prompt", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Thai", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--blue-100) 0%, #F7F9FB 16%, #F7F9FB 100%);
+}
+
+a {
+  color: var(--blue-800);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--blue-900);
+}
+
+/* ========= HERO ========= */
+.help-hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background: linear-gradient(180deg, var(--blue-100) 0%, #f8fafc 100%);
+  border-bottom: 1px solid var(--pastel-200);
+}
+
+.help-hero h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--blue-900);
+  margin-bottom: 0.75rem;
+}
+
+.help-hero p {
+  color: #4f628e;
+  margin-bottom: 1.5rem;
+}
+
+.help-search input {
+  width: 100%;
+  max-width: 480px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--pastel-200);
+  border-radius: 12px;
+  background: var(--white);
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(30,46,79,.06);
+  transition: border-color .2s ease;
+}
+
+.help-search input:focus {
+  outline: none;
+  border-color: var(--blue-400);
+}
+
+/* ========= FAQ ========= */
+.help-section {
+  width: min(960px, 92%);
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.help-section h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--blue-900);
+  margin-bottom: 1rem;
+}
+
+.faq-item {
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--pastel-200);
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: all .25s ease;
+}
+
+.faq-q {
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  color: var(--blue-800);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: background .2s ease;
+}
+
+.faq-q:hover {
+  background: var(--blue-100);
+}
+
+.faq-a {
+  display: none;
+  padding: 0 1.25rem 1rem;
+  color: #3d4a6a;
+  line-height: 1.6;
+  background: #fbfcfe;
+}
+
+.faq-item.active .faq-a {
+  display: block;
+}
+
+.faq-q svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--blue-800);
+  transition: transform .2s ease;
+}
+
+.faq-item.active .faq-q svg {
+  transform: rotate(180deg);
+}
+
+/* ========= CONTACT ========= */
+.contact-box {
+  background: var(--white);
+  border: 1px solid var(--pastel-200);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.contact-box h2 {
+  margin-bottom: 0.5rem;
+  color: var(--blue-900);
+  font-weight: 600;
+}
+
+.contact-box p {
+  color: #4f628e;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ========= BUTTONS ========= */
+.btn.primary {
+  display: inline-block;
+  background: var(--blue-400);
+  color: var(--white);
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--blue-400);
+  transition: all 0.2s ease;
+}
+
+.btn.primary:hover {
+  background: var(--blue-800);
+  border-color: var(--blue-800);
+}
+
+/* ========= FOOTER ========= */
+.site-footer {
+  background: linear-gradient(to top, var(--blue-100), #f8fafc);
+  text-align: center;
+  padding: 1.8rem 1rem;
+  font-size: 0.9rem;
+  color: #4f628e;
+  margin-top: 4rem;
+  border-top: 1px solid var(--pastel-200);
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 600px) {
+  .help-hero h1 {
+    font-size: 1.5rem;
+  }
+  .help-section {
+    padding: 0 0.75rem;
+  }
+}

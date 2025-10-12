@@ -1,0 +1,219 @@
+:root {
+  --ink:#192338;
+  --blue-900:#1E2E4F;
+  --blue-800:#31487A;
+  --blue-400:#8FB3E2;
+  --blue-100:#D9E1F1;
+  --pastel-200:#D6E2EF;
+  --cream:#E4DAD1;
+  --white:#fff;
+  --shadow:0 14px 34px rgba(30,46,79,.12);
+}
+
+body {
+  margin: 0;
+  font-family: "Prompt", sans-serif;
+  background: linear-gradient(180deg, var(--blue-100) 0%, #f7f9fb 16%, #f7f9fb 100%);
+  color: var(--ink);
+}
+
+/* HERO */
+.inbox-hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background: linear-gradient(to bottom, var(--blue-100), #f7f9fb);
+  border-bottom: 1px solid var(--pastel-200);
+}
+.inbox-hero h1 {
+  margin-bottom: .5rem;
+  color: var(--blue-900);
+}
+.inbox-hero p {
+  color: #4f628e;
+}
+
+/* MAIN */
+.inbox-main {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1rem;
+  width: min(1200px, 94%);
+  margin: 1.5rem auto;
+  min-height: 540px;
+}
+@media (max-width: 880px) {
+  .inbox-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SIDEBAR CHAT LIST */
+.chat-list {
+  background: var(--white);
+  border: 1px solid var(--pastel-200);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.chat-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .8rem 1rem;
+  border-bottom: 1px solid var(--pastel-200);
+  cursor: pointer;
+  transition: background .2s ease;
+}
+.chat-item:hover {
+  background: var(--blue-100);
+}
+.chat-item.active {
+  background: #e7eef8;
+}
+.chat-item img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.chat-item .info {
+  flex: 1;
+}
+.chat-item .name {
+  font-weight: 600;
+  color: var(--blue-900);
+}
+.chat-item .preview {
+  font-size: .9rem;
+  color: #4f628e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chat-item .time {
+  font-size: .8rem;
+  color: #6b789d;
+}
+
+/* CHAT WINDOW */
+.chat-window {
+  background: var(--white);
+  border: 1px solid var(--pastel-200);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--pastel-200);
+  background: #fafbfd;
+}
+.chat-header img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+.chat-meta h2 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--blue-900);
+}
+.status {
+  font-size: .85rem;
+  color: #5a6b93;
+}
+.status.online::before {
+  content: '•';
+  color: #3ab56b;
+  margin-right: 4px;
+}
+
+/* CHAT BODY */
+.chat-body {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background: #f9fbfd;
+}
+.msg {
+  margin-bottom: .9rem;
+  max-width: 80%;
+}
+.msg .bubble {
+  border-radius: 12px;
+  padding: .6rem .9rem;
+  line-height: 1.5;
+  font-size: .96rem;
+  box-shadow: 0 2px 6px rgba(30,46,79,.08);
+}
+.msg .time {
+  font-size: .8rem;
+  color: #6b789d;
+  margin-top: .25rem;
+}
+.msg.other {
+  align-self: flex-start;
+}
+.msg.other .bubble {
+  background: var(--blue-100);
+  color: var(--blue-900);
+}
+.msg.me {
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+.msg.me .bubble {
+  background: var(--blue-400);
+  color: #fff;
+}
+
+/* INPUT AREA */
+.chat-input {
+  display: flex;
+  border-top: 1px solid var(--pastel-200);
+  padding: .7rem 1rem;
+  background: #fff;
+  border-radius: 0 0 14px 14px;
+}
+.chat-input input {
+  flex: 1;
+  border: 1px solid var(--pastel-200);
+  border-radius: 10px;
+  padding: .6rem .9rem;
+  font-size: .95rem;
+}
+.chat-input input:focus {
+  outline: none;
+  border-color: var(--blue-400);
+}
+.btn-send {
+  margin-left: .75rem;
+  background: var(--blue-400);
+  border: 1px solid var(--blue-400);
+  border-radius: 10px;
+  color: #fff;
+  padding: 0 .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+.btn-send:hover {
+  background: var(--blue-800);
+}
+
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: .9rem;
+  color: #4f628e;
+  border-top: 1px solid var(--pastel-200);
+  background: linear-gradient(to top, var(--blue-100), #f8fafc);
+  margin-top: 3rem;
+}
