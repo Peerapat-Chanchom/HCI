@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>จองคุณครู</title>
+  <link rel="stylesheet" href="../CSS/Pay.css" />
+</head>
+<body>
+<div class="container">
+  <div class="grid">
+    <!-- ฟอร์มด้านซ้าย -->
+    <form class="card" id="bookingForm" onsubmit="event.preventDefault()">
+      <div class="hd">ภาษาอังกฤษ</div>
+      <div class="bd">
+        <div class="row cols-2">
+          <div>
+            <div class="label">วันที่เริ่มเรียน</div>
+            <input type="date" id="date" required>
+          </div>
+        </div>
+
+        <div class="row cols-2">
+          <div>
+            <div class="label">จำนวนชั่วโมง</div>
+            <input type="number" id="hours" min="1" max="20" value="1">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">โน้ตถึงคุณครู (ไม่บังคับ)</div>
+          <textarea id="note" placeholder="ระบุเป้าหมายการเรียน เช่น พูดคล่อง หรือเตรียมสอบ"></textarea>
+        </div>
+
+        <div class="row">
+          <label>
+            <input type="checkbox" id="agree" required>
+            <span> ฉันยอมรับนโยบายการยกเลิกและเงื่อนไขการจอง</span>
+          </label>
+        </div>
+
+        <div class="row">
+          <button class="btn btn-primary" style="width:100%" id="confirmBtn">ยืนยันการจอง</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- สรุปด้านขวา -->
+    <aside class="card summary" id="summary">
+      <div class="hd">สรุปคำสั่งจอง</div>
+      <div class="bd">
+        <div class="teacher">
+          <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300" alt="ครู">
+          <div>
+            <div style="font-weight:600">Kavinna B.</div>
+            <div class="muted">319 บทเรียน</div>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="rowline"><span>วันที่</span><span id="sumDate">—</span></div>
+        <div class="rowline"><span>จำนวนชั่วโมง</span><span id="sumHours">1</span></div>
+        <div class="rowline"><span>ราคา/ชั่วโมง</span><span id="sumRate">฿487</span></div>
+
+        <div class="hr"></div>
+
+        <div class="rowline"><strong>รวมทั้งหมด</strong><strong id="sumTotal">฿487</strong></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script>
+  const PRICE_PER_HOUR = 487; // ราคาต่อชั่วโมง
+  const $ = id => document.getElementById(id);
+
+  function updateSummary() {
+    const hours = parseFloat($("hours").value) || 0;
+    const dateVal = $("date").value;
+    const total = hours * PRICE_PER_HOUR;
+
+    $("sumDate").textContent = dateVal || "—";
+    $("sumHours").textContent = hours.toString();
+    $("sumTotal").textContent = `฿${total.toFixed(0)}`;
+  }
+
+  // อัปเดตเมื่อเปลี่ยนค่า
+  ["hours","date"].forEach(id => $(id).addEventListener("input", updateSummary));
+
+  // โหลดครั้งแรกให้แสดงค่าตั้งต้น
+  updateSummary();
+
+  // 👉 เมื่อคลิกปุ่มยืนยันการจอง
+  $("confirmBtn").addEventListener("click", () => {
+    if (!$("agree").checked) {
+      alert("กรุณายอมรับเงื่อนไขก่อนทำการจอง");
+      return;
+    }
+
+    const dateVal = $("date").value;
+    const hours = $("hours").value;
+
+    if (!dateVal || !hours) {
+      alert("กรุณากรอกข้อมูลให้ครบก่อนค่ะ");
+      return;
+    }
+
+    // เก็บข้อมูลไว้ใน localStorage (ไว้ใช้ในหน้าชำระเงิน)
+    localStorage.setItem("bookingDate", dateVal);
+    localStorage.setItem("bookingHours", hours);
+    localStorage.setItem("bookingTotal", hours * PRICE_PER_HOUR);
+
+    // ไปหน้าชำระเงิน
+    window.location.href = "Payment.html";
+  });
+</script>
+
+</body>
+</html>

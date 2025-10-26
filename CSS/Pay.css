@@ -1,0 +1,132 @@
+:root { 
+  --brand: #b1c3d5;
+  --bg: #f5fbfa;
+  --card: #fff;
+  --border: #e6efee;
+  --text: #2f2f2f;
+  --muted: #6b7280;
+  --shadow: 0 4px 20px rgba(0,0,0,0.05);
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Prompt", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* โครงหลัก */
+.container {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+/* การ์ด */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card .hd {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.card .bd {
+  padding: 18px 20px;
+}
+
+/* ฟอร์ม */
+.row {
+  margin-bottom: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.cols-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.label {
+  font-size: 14px;
+  color: #374151;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1e7e5;
+  font-size: 15px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* ปุ่ม */
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+/* ส่วนสรุป */
+.summary .rowline {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+}
+
+.summary .hr {
+  height: 1px;
+  background: var(--border);
+  margin: 10px 0;
+}
+
+.teacher {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

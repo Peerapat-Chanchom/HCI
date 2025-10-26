@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ชำระเงิน</title>
+  <link rel="stylesheet" href="../CSS/Payment.css"></head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>ชำระเงินสำหรับการจอง</h2>
+      <p>วันที่เรียน: <strong id="payDate">—</strong></p>
+      <p>จำนวนชั่วโมง: <strong id="payHours">—</strong></p>
+      <p>ยอดรวมทั้งหมด: <strong id="payTotal">—</strong> บาท</p>
+
+      <div class="payment-options">
+        <div class="payment-option" data-method="promptpay">PromptPay (พร้อมเพย์)</div>
+      </div>
+
+      <button class="btn-primary" id="payBtn">ยืนยันการชำระเงิน</button>
+    </div>
+  </div>
+
+  <!-- Popup QR -->
+  <div class="overlay" id="qrOverlay">
+    <div class="popup">
+      <h3>สแกนเพื่อชำระเงินผ่าน PromptPay</h3>
+      <img id="qrImage" src="" alt="PromptPay QR" />
+      <p id="qrAmount"></p>
+      <button class="btn-primary" onclick="closeQR()">ปิด</button>
+    </div>
+  </div>
+
+  <script>
+    // โหลดข้อมูลจากการจอง
+    const date = localStorage.getItem("bookingDate");
+    const hours = localStorage.getItem("bookingHours");
+    const total = localStorage.getItem("bookingTotal");
+
+    if (date && hours && total) {
+      document.getElementById("payDate").textContent = date;
+      document.getElementById("payHours").textContent = hours;
+      document.getElementById("payTotal").textContent = `฿${parseFloat(total).toFixed(0)}`;
+    } else {
+      document.body.innerHTML = "<div class='container'><div class='card'><p>ไม่พบข้อมูลการจอง</p></div></div>";
+    }
+
+    let selectedMethod = null;
+    const options = document.querySelectorAll(".payment-option");
+    options.forEach(opt => {
+      opt.addEventListener("click", () => {
+        options.forEach(o => o.classList.remove("selected"));
+        opt.classList.add("selected");
+        selectedMethod = opt.dataset.method;
+      });
+    });
+
+    const overlay = document.getElementById("qrOverlay");
+    const qrImg = document.getElementById("qrImage");
+    const qrAmount = document.getElementById("qrAmount");
+
+    function closeQR() {
+      overlay.classList.remove("active");
+    }
+
+    document.getElementById("payBtn").addEventListener("click", () => {
+      if (!selectedMethod) {
+        alert("กรุณาเลือกช่องทางการชำระเงินก่อนค่ะ");
+        return;
+      }
+
+      // ถ้าเลือก PromptPay → แสดง QR
+      if (selectedMethod === "promptpay") {
+        const phone = "0812345678"; // เบอร์จำลอง
+        const amount = parseFloat(total).toFixed(2);
+
+        const qrUrl = `https://promptpay.io/${phone}/${amount}.png`;
+
+        qrImg.src = qrUrl;
+        qrAmount.textContent = `ยอดชำระ: ฿${amount}`;
+        overlay.classList.add("active");
+        return;
+      }
+
+      // ถ้าเป็นช่องทางอื่น
+      alert(`ชำระเงินสำเร็จผ่านช่องทาง: ${selectedMethod}`);
+      localStorage.clear();
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
