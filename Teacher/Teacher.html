@@ -426,13 +426,27 @@
           const btn = card.querySelector('.fav-toggle');
           if(!btn || !id) return;
 
-          const data = {
-            id,
-            title: btn.dataset.title || card.querySelector('h2')?.innerText?.trim() || 'Unknown',
-            href: btn.dataset.href || card.querySelector('h2 a')?.getAttribute('href') || '#',
-            avatar: btn.dataset.avatar || card.querySelector('.avatar img')?.src || '',
-            price: card.dataset.price || ''
-          };
+         const chips = Array.from(card.querySelectorAll('.chips .chip'))
+  .map(el => el.textContent.trim()).slice(0, 6);
+
+const subjectText =
+  card.dataset.subjects ||
+  card.querySelector('.meta .light')?.textContent?.replace(/^สอน:\s*/,'') ||
+  '';
+
+const excerpt = card.querySelector('.excerpt')?.textContent?.trim() || '';
+
+const data = {
+  id,
+  title: btn.dataset.title || card.querySelector('h2')?.innerText?.trim() || 'Unknown',
+  href: btn.dataset.href || card.querySelector('h2 a')?.getAttribute('href') || '#',
+  avatar: btn.dataset.avatar || card.querySelector('.avatar img')?.src || '',
+  price: card.dataset.price || '',
+  subject: subjectText,   // ✅ เก็บวิชาที่สอน
+  chips,                  // ✅ เก็บแท็ก
+  excerpt                 // ✅ เก็บคำโปรยสั้น ๆ
+};
+
 
           const updateUI = (on) => {
             btn.setAttribute('aria-pressed', on ? 'true' : 'false');
