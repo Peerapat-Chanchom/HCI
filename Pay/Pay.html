@@ -61,7 +61,11 @@
 
 <div class="container">
   <form class="card" id="bookingForm" onsubmit="event.preventDefault()">
-    <div class="hd">ภาษาอังกฤษ</div>
+    <div class="hd">บทเรียน</div>
+    <div class="">
+      <P>ภาษาอังกฤษ</P>
+      <p>ผู้สอน: สมศรี</p>
+    </div>
     <div class="bd">
       <label for="name">ชื่อผู้จอง:</label>
       <input type="text" id="name" required>
@@ -103,15 +107,15 @@
       <div class="rowline"><span>วันที่</span><span id="sumDate">—</span></div>
       <div class="rowline"><span>เวลา</span><span id="sumTime">—</span></div>
       <div class="rowline"><span>จำนวนชั่วโมง</span><span id="sumHours">0</span></div>
-      <div class="rowline"><span>ราคาต่อชั่วโมง</span><span id="sumRate">฿746</span></div>
+      <div class="rowline"><span>ราคาต่อชั่วโมง</span><span id="sumRate">300 บาท</span></div>
       <div class="hr"></div>
-      <div class="rowline"><strong>รวมทั้งหมด</strong><strong id="sumTotal">฿0</strong></div>
+      <div class="rowline"><strong>รวมทั้งหมด</strong><strong id="sumTotal">0</strong></div>
     </div>
   </aside>
 </div>
 
 <script>
-  const PRICE_PER_HOUR = 746;
+  const PRICE_PER_HOUR = 300;
   const $ = id => document.getElementById(id);
 
   // ✅ ฟังก์ชันช่วยสร้างวันที่แบบ local (ไม่เหลื่อมโซนเวลา)
@@ -237,7 +241,7 @@
       selectedTime.textContent = "ยังไม่ได้เลือก";
       $("sumTime").textContent = "—";
       $("sumHours").textContent = "0";
-      $("sumTotal").textContent = "฿0";
+      $("sumTotal").textContent = "0 บาท";
       return;
     }
     selectedTimes.sort();
@@ -245,7 +249,7 @@
     selectedTime.textContent = timeText;
     $("sumTime").textContent = timeText;
     $("sumHours").textContent = selectedTimes.length;
-    $("sumTotal").textContent = `฿${(PRICE_PER_HOUR * selectedTimes.length).toLocaleString()}`;
+    $("sumTotal").textContent = `${(PRICE_PER_HOUR * selectedTimes.length).toLocaleString()} บาท`;
   }
 
   $("prev").addEventListener("click", () => { currentDate.setMonth(currentDate.getMonth() - 1); renderCalendar(); });
