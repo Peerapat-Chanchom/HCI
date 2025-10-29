@@ -6,6 +6,7 @@
   <title>Tutor Booking</title>
   <link rel="stylesheet" href="../CSS/Home.css">
   <link rel="stylesheet" href="../CSS/navbar.css" />
+  <link rel="stylesheet" href="../CSS/help.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -29,46 +30,6 @@
 
     <!-- RIGHT AREA -->
     <div class="cc-right">
-      <button class="cc-btn ghost" id="btnRefer">แนะนำเพื่อน</button>
-
- <!-- Language & Currency Dropdown -->
-  <div class="cc-select" id="lcSelect" aria-expanded="false">
-  <button class="cc-select-toggle" id="lcToggle" aria-haspopup="listbox" aria-expanded="false">
-    ภาษาไทย, THB
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
-  </button>
-
-  <div class="cc-select-menu" role="listbox" aria-label="เลือกภาษาและสกุลเงิน">
-    <!-- Asia -->
-    <button role="option" data-lang="th" data-cur="THB" aria-selected="true">ภาษาไทย, THB</button>
-    <button role="option" data-lang="en" data-cur="USD">English, USD</button>
-    <button role="option" data-lang="en" data-cur="EUR">English, EUR</button>
-    <button role="option" data-lang="zh" data-cur="CNY">中文 (简体), CNY</button>
-    <button role="option" data-lang="ja" data-cur="JPY">日本語, JPY</button>
-    <button role="option" data-lang="ko" data-cur="KRW">한국어, KRW</button>
-    <button role="option" data-lang="vi" data-cur="VND">Tiếng Việt, VND</button>
-    <button role="option" data-lang="id" data-cur="IDR">Bahasa Indonesia, IDR</button>
-
-    <!-- Europe -->
-    <button role="option" data-lang="fr" data-cur="EUR">Français, EUR</button>
-    <button role="option" data-lang="de" data-cur="EUR">Deutsch, EUR</button>
-    <button role="option" data-lang="es" data-cur="EUR">Español, EUR</button>
-    <button role="option" data-lang="it" data-cur="EUR">Italiano, EUR</button>
-    <button role="option" data-lang="nl" data-cur="EUR">Nederlands, EUR</button>
-
-    <!-- Middle East -->
-    <button role="option" data-lang="ar" data-cur="AED">العربية, AED</button>
-    <button role="option" data-lang="tr" data-cur="TRY">Türkçe, TRY</button>
-
-    <!-- America -->
-    <button role="option" data-lang="en" data-cur="CAD">English (Canada), CAD</button>
-    <button role="option" data-lang="es" data-cur="MXN">Español (México), MXN</button>
-    <button role="option" data-lang="pt" data-cur="BRL">Português (Brasil), BRL</button>
-
-    <!-- Oceania -->
-    <button role="option" data-lang="en" data-cur="AUD">English (Australia), AUD</button>
-    <button role="option" data-lang="en" data-cur="NZD">English (New Zealand), NZD</button>
-  </div>
 </div>
 
       <!-- RIGHT -->
@@ -79,7 +40,7 @@
         <a class="cc-icon" href="/Teacher/help.html" aria-label="ศูนย์ช่วยเหลือ">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.88 15h-1.8v-1.8h1.8V17zm1.9-6.8c-.22.35-.62.72-1.18 1.11-.4.28-.65.5-.73.66-.09.17-.13.41-.13.74H11v-.32c0-.34.06-.63.18-.86.12-.24.37-.49.73-.76.47-.34.78-.61.93-.82.15-.21.23-.45.23-.74 0-.39-.15-.71-.44-.96-.29-.25-.69-.38-1.2-.38-.49 0-.9.14-1.24.41-.33.27-.56.67-.68 1.19l-1.77-.2c.09-.8.43-1.43 1.01-1.9.58-.47 1.33-.7 2.26-.7 1.01 0 1.8.25 2.38.76.58.5.87 1.16.87 1.98 0 .43-.11.82-.33 1.17z"/></svg>
         </a>
-        <a class="cc-icon" href="/Favortie/favorites.html" aria-label="ถูกใจของฉัน">
+        <a class="cc-icon" href="/Teacher/favorites.html" aria-label="ถูกใจของฉัน">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.4-9.1-7.6C.6 10.8 1.4 7.2 4.4 6 6.3 5.2 8.3 5.7 9.7 7c.5.5.9 1.1 1.1 1.7.3-.6.7-1.2 1.2-1.7 1.4-1.4 3.4-1.8 5.3-.9 3 1.3 3.7 4.8 1.5 7.4C18.7 16.6 12 21 12 21z"/></svg>
         </a>
         <a class="cc-icon" href="/Teacher/notifications.html" aria-label="การแจ้งเตือน">
@@ -126,10 +87,6 @@
       <h3>180+</h3>
       <p>สัญชาติครูสอน</p>
     </div>
-    <div class="stat-item">
-      <h3>4.8 ★★★★★</h3>
-      <p>บน App Store</p>
-    </div>
   </div>
 
   <!-- รายวิชา -->
@@ -165,16 +122,117 @@
 
 </section>
 
+<!-- WHY US -->
+<section class="why-us">
+  <h2>ทำไมต้องเลือก CodeClass?</h2>
+  <p>แพลตฟอร์มการเรียนโค้ดที่รวมครูสอนคุณภาพจากทั่วโลกไว้ในที่เดียว</p>
 
-  <!-- About Us -->
-<section class="about">
-  <h2>About Us</h2>
-  <div class="about-box">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ad cum, porro voluptatem iste saepe odit quia. Vel, sed! Aliquid cumque veritatis quasi excepturi. Nostrum distinctio quidem ipsum iusto nemo, harum, soluta temporibus reprehenderit fugit esse a doloremque nisi. Magni esse quaerat, error, facere eius mollitia soluta dolorum saepe doloribus sequi voluptatibus voluptates nam maiores hic. Laborum tempora at id nobis aperiam expedita, aliquid nisi, laboriosam vitae cum nam, a quia dolore minus magni dolores! Mollitia error voluptatibus et, hic iure soluta iste amet, suscipit optio praesentium eveniet tempore illo dicta? Iure tempore laboriosam eligendi quas vitae deleniti nihil, autem laudantium dolores veritatis. A deleniti perferendis eaque architecto cumque repellat dolorum rem, incidunt quidem delectus quod nisi ex non aliquam dolor quia assumenda laudantium voluptates vitae hic magnam excepturi enim est. Eligendi, nobis, doloribus laboriosam quaerat ab deleniti ut sapiente pariatur maiores laborum autem possimus amet alias a mollitia nihil aliquam odit quo consequuntur, quasi voluptate rerum dolore atque vero? Quod voluptatem nihil pariatur reiciendis quisquam, quidem dicta possimus repellat cum placeat omnis cupiditate soluta aliquam repudiandae officia sint consequuntur temporibus doloremque laborum eligendi ad, ex, animi enim. Magnam nostrum fuga possimus architecto maiores quis tenetur consequuntur pariatur nesciunt repudiandae dolorum suscipit quidem temporibus natus eum minus libero incidunt provident, enim odio. Hic quidem totam vel temporibus, fugiat sint ullam iusto in facilis? At, quasi! Nulla nobis esse molestias tempore hic non sed aperiam fugiat porro, id, quam itaque blanditiis minima eligendi rem exercitationem a consequuntur ipsa maxime optio. Sed minus, ducimus reiciendis quo dolor nesciunt aut numquam, tempore inventore ad, alias veniam praesentium! Nisi maiores quisquam odio saepe assumenda. Aut iste repellat minima, earum adipisci eos vero dolore alias aperiam ab reiciendis cum. Sed veniam vero aliquid possimus libero, magni deleniti quod dolorem, tempore architecto similique minima veritatis excepturi!
-    </p>
+  <div class="why-us-cards">
+    <div class="why-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="ครูมืออาชีพ">
+      <h3>ครูสอนมืออาชีพ</h3>
+      <p>อาจารย์ผ่านการคัดเลือกจากสถาบันชั้นนำทั่วโลก พร้อมประสบการณ์การสอนจริง</p>
+    </div>
+
+    <div class="why-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" alt="เรียนได้ทุกที่">
+      <h3>เรียนได้ทุกที่ ทุกเวลา</h3>
+      <p>เรียนผ่านระบบออนไลน์ได้บนคอมพิวเตอร์ สะดวกทุกที่ที่คุณอยู่</p>
+    </div>
+
+    <div class="why-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="ระบบปลอดภัย">
+      <h3>ระบบปลอดภัย</h3>
+      <p>ชำระเงินผ่านระบบที่ได้รับการรับรอง และปกป้องข้อมูลของคุณอย่างปลอดภัย</p>
+    </div>
+
+    <div class="why-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/4406/4406234.png" alt="เลือกเวลาเรียนเองได้">
+      <h3>เลือกเวลาเรียนเองได้</h3>
+      <p>คุณสามารถกำหนดวันและเวลาเรียนตามความสะดวกของคุณเอง</p>
+    </div>
   </div>
 </section>
+
+  <!-- FAQ -->
+<section class="help-hero">
+    <h1>ศูนย์ช่วยเหลือ CodeClass</h1>
+    <p>เรายินดีช่วยเหลือเกี่ยวกับการใช้งาน แพลตฟอร์ม และการเรียนการสอน</p>
+    <div class="help-search">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="พิมพ์คำถามหรือคำค้นหา เช่น การจองบทเรียน..."
+        aria-label="ค้นหาคำถาม"
+      />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="help-section" id="faqSection">
+    <h2>คำถามที่พบบ่อย (FAQ)</h2>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        ฉันจะจองบทเรียนกับอาจารย์ได้อย่างไร?
+        <svg viewBox="0 0 24 24">
+          <path d="M12 15.4l-8-8L6.4 5 12 10.6 17.6 5 20 7.4z" />
+        </svg>
+      </button>
+      <div class="faq-a">
+        ไปที่หน้า <strong>ครูสอนโค้ด</strong> เลือกอาจารย์ที่ต้องการ จากนั้นกดปุ่ม
+        <strong>“จองบทเรียนทดลอง”</strong> แล้วเลือกเวลาที่สะดวกได้เลย
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        จะยกเลิกหรือเลื่อนบทเรียนได้ไหม?
+        <svg viewBox="0 0 24 24">
+          <path d="M12 15.4l-8-8L6.4 5 12 10.6 17.6 5 20 7.4z" />
+        </svg>
+      </button>
+      <div class="faq-a">
+        ได้ค่ะ สามารถยกเลิกหรือเลื่อนบทเรียนได้ล่วงหน้าอย่างน้อย
+        24 ชั่วโมงก่อนเริ่มเรียน โดยไปที่หน้าการจองของคุณ
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        การชำระเงินปลอดภัยหรือไม่?
+        <svg viewBox="0 0 24 24">
+          <path d="M12 15.4l-8-8L6.4 5 12 10.6 17.6 5 20 7.4z" />
+        </svg>
+      </button>
+      <div class="faq-a">
+        ระบบชำระเงินของ CodeClass ใช้มาตรฐานการเข้ารหัสแบบ SSL
+        และผ่านผู้ให้บริการที่ได้รับใบอนุญาตด้านความปลอดภัยระดับสากล
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">
+        ฉันสามารถพูดคุยกับอาจารย์ก่อนเรียนได้ไหม?
+        <svg viewBox="0 0 24 24">
+          <path d="M12 15.4l-8-8L6.4 5 12 10.6 17.6 5 20 7.4z" />
+        </svg>
+      </button>
+      <div class="faq-a">
+        ได้ค่ะ คุณสามารถส่งข้อความพูดคุยกับอาจารย์ได้โดยตรงใน
+        <strong>กล่องข้อความ (Inbox)</strong> ก่อนเริ่มจองบทเรียน
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="help-section">
+    <div class="contact-box">
+      <h2>ติดต่อทีมงาน CodeClass</h2>
+      <p>หากคุณมีคำถามเพิ่มเติม สามารถติดต่อเราได้ทุกวันเวลา 09:00–21:00 น.</p>
+      <a href="mailto:support@codeclass.com" class="btn primary">ส่งอีเมลถึงเรา</a>
+    </div>
+  </section>
 
 
   <!-- Footer -->
@@ -399,6 +457,26 @@
       initSmoothScroll();
     })();
   </script>
+<script>
+    // Accordion
+    document.querySelectorAll(".faq-q").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item");
+        item.classList.toggle("active");
+      });
+    });
 
+    // Search
+    const searchInput = document.getElementById("searchInput");
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    searchInput.addEventListener("input", () => {
+      const q = searchInput.value.trim().toLowerCase();
+      faqItems.forEach((item) => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(q) ? "block" : "none";
+      });
+    });
+  </script>
 </body>
 </html>
