@@ -493,5 +493,22 @@
       initSmoothScroll();
     })();
   </script>
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const subject = params.get('subject'); // อ่านค่า ?subject=
+
+  if(subject){
+    const cards = document.querySelectorAll('#teacherList .card');
+    cards.forEach(card => {
+      const langs = (card.dataset.langs || '').toLowerCase();
+      const name = (card.dataset.name || '').toLowerCase();
+      const show = langs.includes(subject.toLowerCase()) || name.includes(subject.toLowerCase());
+      card.style.display = show ? '' : 'none';
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
