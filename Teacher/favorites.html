@@ -88,25 +88,33 @@
 
   <!-- CARD TEMPLATE -->
   <template id="tpl-card">
-    <article class="card">
-      <button class="fav-toggle on" aria-pressed="true" aria-label="นำออกจากบุ๊คมาร์ค">❤</button>
-      <a class="avatar" href="#" aria-label="เปิดโปรไฟล์">
-        <img src="" alt="ภาพโปรไฟล์">
-      </a>
-      <div class="body">
-        <header class="card-top">
-          <h2><a class="title" href="#"></a></h2>
-          <div class="meta">
-            <span class="light">รายการที่ถูกใจ</span>
-          </div>
-        </header>
-        <footer class="card-bottom">
-          <div class="stats"><span class="price">—</span></div>
-          <div class="cta"><a class="btn primary open-profile" href="#">ดูโปรไฟล์</a></div>
-        </footer>
-      </div>
-    </article>
-  </template>
+  <article class="card">
+    <button class="fav-toggle on" aria-pressed="true" aria-label="นำออกจากบุ๊คมาร์ค">❤</button>
+
+    <a class="avatar" href="#" aria-label="เปิดโปรไฟล์">
+      <img src="" alt="ภาพโปรไฟล์">
+    </a>
+
+    <div class="body">
+      <header class="card-top">
+        <h2><a class="title" href="#"></a></h2>
+        <div class="meta">
+          <span class="subject light"></span> <!-- ✅ แสดงวิชาที่สอน -->
+        </div>
+      </header>
+
+      <p class="excerpt small" style="margin:.25rem 0 .5rem 0;"></p> <!-- ✅ คำโปรย -->
+
+      <div class="chips" aria-label="แท็ก" style="display:flex;flex-wrap:wrap;gap:.4rem;"></div> <!-- ✅ แท็ก -->
+
+      <footer class="card-bottom" style="margin-top:.6rem;">
+        <div class="stats"><span class="price">—</span></div>
+        <div class="cta"><a class="btn primary open-profile" href="#">ดูโปรไฟล์</a></div>
+      </footer>
+    </div>
+  </article>
+</template>
+
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -149,6 +157,7 @@
       if(Number.isNaN(n)) return '—';
       return `฿${n.toLocaleString('th-TH')} <small>/ 50–55 นาที</small>`;
     }
+
 
     function sortItems(items, mode){
       const cp = items.slice();
@@ -205,6 +214,33 @@
         titleA.textContent = item.title || 'Unknown';
         priceEl.innerHTML = formatPrice(item.price);
         openBtn.href = item.href || '#';
+
+        // แสดงวิชาที่สอน
+const subjectEl = node.querySelector('.subject');
+subjectEl.textContent = item.subject ? `สอน: ${item.subject}` : 'รายการที่ถูกใจ';
+
+// แสดงคำโปรย (ถ้ามี)
+const excerptEl = node.querySelector('.excerpt');
+if (item.excerpt) {
+  excerptEl.textContent = item.excerpt;
+} else {
+  excerptEl.style.display = 'none';
+}
+
+// แสดงแท็ก (chips)
+const chipsWrap = node.querySelector('.chips');
+chipsWrap.innerHTML = '';
+if (Array.isArray(item.chips) && item.chips.length) {
+  item.chips.forEach(t => {
+    const sp = document.createElement('span');
+    sp.className = 'chip';
+    sp.textContent = t.startsWith('#') ? t : `#${t}`;
+    chipsWrap.appendChild(sp);
+  });
+} else {
+  chipsWrap.style.display = 'none';
+}
+
 
         btnFav.title = 'นำออกจากบุ๊คมาร์ค';
         btnFav.addEventListener('click', e=>{
