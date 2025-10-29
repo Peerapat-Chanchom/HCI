@@ -199,3 +199,58 @@ footer {
 footer h3 {
   margin-bottom: 1rem;
 }
+.why-us {
+  text-align: center;
+  padding: 80px 20px;
+  background: #f9fafb;
+  font-family: 'Prompt', sans-serif;
+}
+
+.why-us h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.why-us p {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.why-us-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.why-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.why-card img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 15px;
+}
+
+.why-card h3 {
+  font-size: 1.2em;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.why-card p {
+  font-size: 0.95em;
+  color: #555;
+}
+

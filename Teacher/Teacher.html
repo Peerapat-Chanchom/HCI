@@ -31,49 +31,8 @@
 
 
     <!-- RIGHT AREA -->
-    <div class="cc-right">
-      <button class="cc-btn ghost" id="btnRefer">แนะนำเพื่อน</button>
-
- <!-- Language & Currency Dropdown -->
-  <div class="cc-select" id="lcSelect" aria-expanded="false">
-  <button class="cc-select-toggle" id="lcToggle" aria-haspopup="listbox" aria-expanded="false">
-    ภาษาไทย, THB
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
-  </button>
-
-  <div class="cc-select-menu" role="listbox" aria-label="เลือกภาษาและสกุลเงิน">
-    <!-- Asia -->
-    <button role="option" data-lang="th" data-cur="THB" aria-selected="true">ภาษาไทย, THB</button>
-    <button role="option" data-lang="en" data-cur="USD">English, USD</button>
-    <button role="option" data-lang="en" data-cur="EUR">English, EUR</button>
-    <button role="option" data-lang="zh" data-cur="CNY">中文 (简体), CNY</button>
-    <button role="option" data-lang="ja" data-cur="JPY">日本語, JPY</button>
-    <button role="option" data-lang="ko" data-cur="KRW">한국어, KRW</button>
-    <button role="option" data-lang="vi" data-cur="VND">Tiếng Việt, VND</button>
-    <button role="option" data-lang="id" data-cur="IDR">Bahasa Indonesia, IDR</button>
-
-    <!-- Europe -->
-    <button role="option" data-lang="fr" data-cur="EUR">Français, EUR</button>
-    <button role="option" data-lang="de" data-cur="EUR">Deutsch, EUR</button>
-    <button role="option" data-lang="es" data-cur="EUR">Español, EUR</button>
-    <button role="option" data-lang="it" data-cur="EUR">Italiano, EUR</button>
-    <button role="option" data-lang="nl" data-cur="EUR">Nederlands, EUR</button>
-
-    <!-- Middle East -->
-    <button role="option" data-lang="ar" data-cur="AED">العربية, AED</button>
-    <button role="option" data-lang="tr" data-cur="TRY">Türkçe, TRY</button>
-
-    <!-- America -->
-    <button role="option" data-lang="en" data-cur="CAD">English (Canada), CAD</button>
-    <button role="option" data-lang="es" data-cur="MXN">Español (México), MXN</button>
-    <button role="option" data-lang="pt" data-cur="BRL">Português (Brasil), BRL</button>
-
-    <!-- Oceania -->
-    <button role="option" data-lang="en" data-cur="AUD">English (Australia), AUD</button>
-    <button role="option" data-lang="en" data-cur="NZD">English (New Zealand), NZD</button>
-  </div>
-</div>
-
+  <div class="cc-right">
+  <a href="/Home/Home.html" class="cc-btn ghost" id="btnRefer">หน้าหลัก</a>
       <!-- RIGHT -->
       <div class="cc-actions">
         <a class="cc-icon" href="inbox.html" aria-label="กล่องข้อความ">
@@ -98,351 +57,242 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>พบอาจารย์สอนโค้ดกว่า <span>500+</span> คน</h1>
-      <p>เริ่มต้นเขียนโปรแกรมให้เป็นระบบภายใน <span>4 สัปดาห์</span> ด้วยการเรียนตัวต่อตัว</p>
+<section class="hero">
+  <div class="container">
+    <h1>พบติวเตอร์วิชาทั่วไปกว่า <span>500+</span> คน</h1>
+    <p>เรียนตัวต่อตัว ปรับแผนตามพื้นฐานของคุณ ภายใน <span>4 สัปดาห์</span></p>
 
-      <div class="filters" role="region" aria-label="ตัวกรองค้นหา">
-        <div class="filter">
-          <label for="lang">ภาษาโปรแกรม</label>
-          <select id="lang">
-            <option value="">ทั้งหมด</option>
-            <option>Python</option><option>JavaScript</option>
-            <option>TypeScript</option><option>HTML / CSS</option>
-            <option>Java</option><option>C++</option>
-          </select>
-        </div>
-        <div class="filter">
-          <label for="level">ระดับ</label>
-          <select id="level">
-            <option value="">ทั้งหมด</option>
-            <option>พื้นฐาน</option><option>กลาง</option><option>ขั้นสูง</option>
-          </select>
-        </div>
-        <div class="filter">
-          <label for="price">ช่วงราคา (฿/50–55 นาที)</label>
-          <select id="price">
-            <option value="">ทั้งหมด</option>
-            <option>0–500</option><option>501–800</option><option>801–1200</option>
-          </select>
-        </div>
-        <div class="filter search">
-          <label for="q">ค้นหา</label>
-          <input id="q" type="search" placeholder="พิมพ์ชื่ออาจารย์ หรือภาษาโค้ด…"/>
-        </div>
+    <div class="filters" role="region" aria-label="ตัวกรองค้นหา">
+      <!-- วิชาเรียน -->
+      <div class="filter">
+        <label for="subject">วิชาเรียน</label>
+        <select id="subject">
+          <option value="">ทั้งหมด</option>
+          <option value="English">ภาษาอังกฤษ</option>
+          <option value="Math">คณิตศาสตร์</option>
+          <option value="Science">วิทยาศาสตร์</option>
+          <option value="Thai">ภาษาไทย</option>
+          <option value="Social">สังคมศึกษา</option>
+          <option value="Art">ศิลปะ</option>
+        </select>
+      </div>
+
+      <!-- ระดับ -->
+      <div class="filter">
+        <label for="level">ระดับ</label>
+        <select id="level">
+          <option value="">ทั้งหมด</option>
+          <option>พื้นฐาน</option>
+          <option>กลาง</option>
+          <option>ขั้นสูง</option>
+        </select>
+      </div>
+
+      <!-- ราคา -->
+      <div class="filter">
+        <label for="price">ช่วงราคา (฿/50–55 นาที)</label>
+        <select id="price">
+          <option value="">ทั้งหมด</option>
+          <option>0–500</option>
+          <option>501–800</option>
+          <option>801–1200</option>
+        </select>
+      </div>
+
+      <!-- ค้นหา -->
+      <div class="filter search">
+        <label for="q">ค้นหา</label>
+        <input id="q" type="search" placeholder="พิมพ์ชื่ออาจารย์ หรือวิชา…"/>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
  <main class="container cards" id="teacherList">
-    <!-- ตัวอย่าง: เพิ่มปุ่มหัวใจ .fav-toggle ใน footer ของแต่ละการ์ด -->
-     <!-- Card 1 -->
-<article class="card"
-  data-id="michiel"
-  data-langs="Python, HTML / CSS"
-  data-level="พื้นฐาน"
-  data-price="649"
-  data-name="Michiel B. beginner webbasic git">
 
-  <a class="avatar" href="profile-michiel.html" aria-label="ดูโปรไฟล์ Michiel B.">
-    <img src="https://i.pravatar.cc/240?img=12" alt="ภาพโปรไฟล์ Michiel B." />
-  </a>
-
-  <div class="body">
-    <header class="card-top">
-      <h2><a href="profile-michiel.html">Michiel B.</a></h2>
-      <div class="meta">
-        <span class="badge pro">ผู้สอนมืออาชีพ</span><span class="dot"></span>
-        <span class="light">สอน: Python, HTML, CSS</span>
+  <!-- 1. ครูพิมพ์ – ภาษาอังกฤษ -->
+  <article class="card" data-id="pim" data-subjects="English" data-level="พื้นฐาน" data-price="550" data-name="Pim S. english grammar conversation">
+    <a class="avatar" href="profile-pim.html" aria-label="ดูโปรไฟล์ Pim S.">
+      <img src="https://i.pravatar.cc/240?img=49" alt="ภาพโปรไฟล์ Pim S." />
+    </a>
+    <div class="body">
+      <header class="card-top">
+        <h2><a href="profile-pim.html">Pim S.</a></h2>
+        <div class="meta">
+          <span class="badge pro">ภาษาอังกฤษ</span><span class="dot"></span>
+          <span class="light">สอน: Grammar, Conversation</span>
+        </div>
+      </header>
+      <p class="excerpt">
+        ปูพื้นฐาน Grammar และ Speaking สำหรับนักเรียนมัธยม–มหาวิทยาลัย พร้อมเทคนิคการออกเสียงและสนทนาในชีวิตจริง
+      </p>
+      <div class="chips">
+        <span class="chip">#Grammar</span><span class="chip">#Speaking</span><span class="chip">#IELTS</span>
       </div>
-    </header>
-
-    <p class="excerpt">ปูพื้นฐานให้แน่นผ่านโปรเจกต์เล็ก ๆ: CSV Tool, เว็บพอร์ต, ฟอร์ม พร้อมรีวิวโค้ดรายสัปดาห์</p>
-
-    <div class="chips">
-      <span class="chip">#Beginner</span>
-      <span class="chip">#WebBasic</span>
-      <span class="chip">#Git</span>
+      <footer class="card-bottom">
+        <div class="stats"><span>⭐ 4.9</span><span>· 124 รีวิว</span><span>· เรียนแล้ว 980 ครั้ง</span></div>
+        <div class="cta">
+          <div class="price">฿550 <small>/ 50 นาที</small></div>
+          <a class="btn primary" href="profile-pim.html">จองบทเรียนทดลอง</a>
+          <button class="fav-toggle" aria-pressed="false" data-title="Pim S." data-href="profile-pim.html" data-avatar="https://i.pravatar.cc/240?img=49">❤</button>
+        </div>
+      </footer>
     </div>
+  </article>
 
-    <footer class="card-bottom">
-      <div class="stats">
-        <span>⭐ 4.9</span><span>· 120 รีวิว</span><span>· เรียนแล้ว 1,130 ครั้ง</span>
+  <!-- 2. ครูแบงค์ – คณิตศาสตร์ -->
+  <article class="card" data-id="bank" data-subjects="Math" data-level="กลาง" data-price="600" data-name="Bank K. math algebra geometry">
+    <a class="avatar" href="profile-bank.html" aria-label="ดูโปรไฟล์ Bank K.">
+      <img src="https://i.pravatar.cc/240?img=13" alt="ภาพโปรไฟล์ Bank K." />
+    </a>
+    <div class="body">
+      <header class="card-top">
+        <h2><a href="profile-bank.html">Bank K.</a></h2>
+        <div class="meta">
+          <span class="badge pro">คณิตศาสตร์</span><span class="dot"></span>
+          <span class="light">สอน: พื้นฐาน–สอบเข้ามหาวิทยาลัย</span>
+        </div>
+      </header>
+      <p class="excerpt">
+        ติวเข้มโจทย์คณิต ม.ปลาย เตรียมสอบ PAT1 และ 9 วิชาสามัญ ด้วยวิธีอธิบายที่เข้าใจง่าย เหมาะกับคนไม่ถนัดเลข
+      </p>
+      <div class="chips">
+        <span class="chip">#Algebra</span><span class="chip">#Geometry</span><span class="chip">#PAT1</span>
       </div>
-
-      <div class="cta">
-        <div class="price">฿649 <small>/ 50 นาที</small></div>
-        <a class="btn primary" href="profile-michiel.html">จองบทเรียนทดลอง</a>
-        <a class="btn ghost" href="profile-michiel.html#contact">ส่งข้อความ</a>
-
-        <!-- ✅ ปุ่มหัวใจ ต้องอยู่ตรงนี้เท่านั้น -->
-        <button class="fav-toggle"
-                aria-pressed="false"
-                aria-label="เพิ่มในบุ๊คมาร์ค"
-                data-title="Michiel B."
-                data-href="profile-michiel.html"
-                data-avatar="https://i.pravatar.cc/240?img=12">
-          ❤
-        </button>
-      </div>
-    </footer>
-  </div>
-</article>
-
-<!-- Card 2 (แก้แล้ว) -->
-<article class="card"
-  data-id="holly"
-  data-langs="JavaScript, HTML / CSS, TypeScript"
-  data-level="กลาง"
-  data-price="746"
-  data-name="Holly G. react vite frontend">
-
-  <a class="avatar" href="profile-holly.html" aria-label="ดูโปรไฟล์ Holly G.">
-    <img src="https://i.pravatar.cc/240?img=32" alt="ภาพโปรไฟล์ Holly G." />
-  </a>
-
-  <div class="body">
-    <header class="card-top">
-      <h2><a href="profile-holly.html">Holly G.</a></h2>
-      <div class="meta">
-        <span class="badge pro">Front-end</span><span class="dot"></span>
-        <span class="light">สอน: JavaScript, React</span>
-      </div>
-    </header>
-
-    <p class="excerpt">ทำ React App ด้วย Vite ตั้งแต่ศูนย์ถึงดีพลอย โครงสร้างโค้ดอ่านง่าย ใช้งานจริงได้</p>
-
-    <div class="chips">
-      <span class="chip">#React</span><span class="chip">#Hooks</span><span class="chip">#Tailwind</span>
+      <footer class="card-bottom">
+        <div class="stats"><span>⭐ 5.0</span><span>· 212 รีวิว</span><span>· เรียนแล้ว 1,240 ครั้ง</span></div>
+        <div class="cta">
+          <div class="price">฿600 <small>/ 50 นาที</small></div>
+          <a class="btn primary" href="profile-bank.html">จองบทเรียนทดลอง</a>
+          <button class="fav-toggle" aria-pressed="false" data-title="Bank K." data-href="profile-bank.html" data-avatar="https://i.pravatar.cc/240?img=13">❤</button>
+        </div>
+      </footer>
     </div>
+  </article>
 
-    <footer class="card-bottom">
-      <div class="stats"><span>⭐ 4.8</span><span>· 89 รีวิว</span><span>· เรียนแล้ว 649 ครั้ง</span></div>
-      <div class="cta">
-        <div class="price">฿746 <small>/ 50 นาที</small></div>
-        <a class="btn primary" href="profile-holly.html">จองบทเรียนทดลอง</a>
-        <a class="btn ghost" href="profile-holly.html#contact">ส่งข้อความ</a>
-
-        <!-- ปุ่มหัวใจต้องอยู่ตรงนี้ -->
-        <button class="fav-toggle"
-                aria-pressed="false"
-                aria-label="เพิ่มในบุ๊คมาร์ค"
-                data-title="Holly G."
-                data-href="profile-holly.html"
-                data-avatar="https://i.pravatar.cc/240?img=32">
-          ❤
-        </button>
+  <!-- 3. ครูมิน – วิทยาศาสตร์ -->
+  <article class="card" data-id="min" data-subjects="Science" data-level="พื้นฐาน" data-price="530" data-name="Min T. science physics chemistry bio">
+    <a class="avatar" href="profile-min.html" aria-label="ดูโปรไฟล์ Min T.">
+      <img src="https://i.pravatar.cc/240?img=22" alt="ภาพโปรไฟล์ Min T." />
+    </a>
+    <div class="body">
+      <header class="card-top">
+        <h2><a href="profile-min.html">Min T.</a></h2>
+        <div class="meta">
+          <span class="badge pro">วิทยาศาสตร์</span><span class="dot"></span>
+          <span class="light">สอน: ฟิสิกส์ เคมี ชีวะ</span>
+        </div>
+      </header>
+      <p class="excerpt">
+        ติวเนื้อหาวิทย์ ม.ต้น–ปลาย ด้วยสื่ออินโฟกราฟิกและแบบฝึกหัดแนวสอบจริง พร้อมอธิบายให้เข้าใจลึก
+      </p>
+      <div class="chips">
+        <span class="chip">#Physics</span><span class="chip">#Chemistry</span><span class="chip">#Biology</span>
       </div>
-    </footer>
-  </div>
-</article>
-
-   <!-- Card 3 (แก้แล้ว) -->
-<article class="card"
-  data-id="nurgyady"
-  data-langs="C++, Java"
-  data-level="ขั้นสูง"
-  data-price="487"
-  data-name="Nurgyady S. algorithm data structure">
-
-  <a class="avatar" href="profile-nurgyady.html" aria-label="ดูโปรไฟล์ Nurgyady S.">
-    <img src="https://i.pravatar.cc/240?img=5" alt="ภาพโปรไฟล์ Nurgyady S." />
-  </a>
-
-  <div class="body">
-    <header class="card-top">
-      <h2><a href="profile-nurgyady.html">Nurgyady S.</a></h2>
-      <div class="meta">
-        <span class="badge pro">Algorithm</span><span class="dot"></span>
-        <span class="light">สอน: C++, Java</span>
-      </div>
-    </header>
-
-    <p class="excerpt">
-      เจาะอัลกอริทึม & โครงสร้างข้อมูล ตั้งแต่ Big-O ถึง Graph/DP พร้อมโจทย์และรีวิวโค้ด
-    </p>
-
-    <div class="chips">
-      <span class="chip">#DataStructure</span>
-      <span class="chip">#Algorithm</span>
-      <span class="chip">#Interview</span>
+      <footer class="card-bottom">
+        <div class="stats"><span>⭐ 4.8</span><span>· 178 รีวิว</span><span>· เรียนแล้ว 864 ครั้ง</span></div>
+        <div class="cta">
+          <div class="price">฿530 <small>/ 50 นาที</small></div>
+          <a class="btn primary" href="profile-min.html">จองบทเรียนทดลอง</a>
+          <button class="fav-toggle" aria-pressed="false" data-title="Min T." data-href="profile-min.html" data-avatar="https://i.pravatar.cc/240?img=22">❤</button>
+        </div>
+      </footer>
     </div>
+  </article>
 
-    <footer class="card-bottom">
-      <div class="stats">
-        <span>⭐ 5.0</span><span>· 210 รีวิว</span><span>· เรียนแล้ว 708 ครั้ง</span>
+  <!-- 4. ครูอาย – ภาษาไทย -->
+  <article class="card" data-id="eye" data-subjects="Thai" data-level="พื้นฐาน" data-price="490" data-name="Eye P. thai writing reading grammar">
+    <a class="avatar" href="profile-eye.html" aria-label="ดูโปรไฟล์ Eye P.">
+      <img src="https://i.pravatar.cc/240?img=45" alt="ภาพโปรไฟล์ Eye P." />
+    </a>
+    <div class="body">
+      <header class="card-top">
+        <h2><a href="profile-eye.html">Eye P.</a></h2>
+        <div class="meta">
+          <span class="badge pro">ภาษาไทย</span><span class="dot"></span>
+          <span class="light">สอน: การอ่าน เขียน วิเคราะห์บทความ</span>
+        </div>
+      </header>
+      <p class="excerpt">
+        พัฒนาทักษะการอ่านจับใจความ เขียนย่อความ และวิเคราะห์วรรณคดีสำหรับนักเรียนระดับมัธยม
+      </p>
+      <div class="chips">
+        <span class="chip">#Reading</span><span class="chip">#Writing</span><span class="chip">#Analysis</span>
       </div>
-      <div class="cta">
-        <div class="price">฿487 <small>/ 50 นาที</small></div>
-        <a class="btn primary" href="profile-nurgyady.html">จองบทเรียนทดลอง</a>
-        <a class="btn ghost" href="profile-nurgyady.html#contact">ส่งข้อความ</a>
-
-        <!-- ✅ ปุ่มหัวใจถูกที่ -->
-        <button class="fav-toggle"
-                aria-pressed="false"
-                aria-label="เพิ่มในบุ๊คมาร์ค"
-                data-title="Nurgyady S."
-                data-href="profile-nurgyady.html"
-                data-avatar="https://i.pravatar.cc/240?img=5">
-          ❤
-        </button>
-      </div>
-    </footer>
-  </div>
-</article>
-
-    <!-- Card 4: Akira (แก้แล้ว) -->
-<article class="card"
-  data-id="akira"
-  data-langs="Python, SQL"
-  data-level="กลาง"
-  data-price="890"
-  data-name="Akira T. data science pandas machine learning streamlit">
-
-  <a class="avatar" href="profile-akira.html" aria-label="ดูโปรไฟล์ Akira T.">
-    <img src="https://i.pravatar.cc/240?img=15" alt="ภาพโปรไฟล์ Akira T." />
-  </a>
-
-  <div class="body">
-    <header class="card-top">
-      <h2><a href="profile-akira.html">Akira T.</a></h2>
-      <div class="meta">
-        <span class="badge pro">Data Science</span><span class="dot"></span>
-        <span class="light">สอน: Python, Pandas, ML</span>
-      </div>
-    </header>
-
-    <p class="excerpt">จากพื้นฐาน Python → วิเคราะห์ข้อมูล → โมเดล ML → ทำแดชบอร์ด Streamlit และดีพลอย</p>
-
-    <div class="chips">
-      <span class="chip">#Python</span><span class="chip">#Pandas</span><span class="chip">#ML</span>
+      <footer class="card-bottom">
+        <div class="stats"><span>⭐ 4.7</span><span>· 132 รีวิว</span><span>· เรียนแล้ว 740 ครั้ง</span></div>
+        <div class="cta">
+          <div class="price">฿490 <small>/ 50 นาที</small></div>
+          <a class="btn primary" href="profile-eye.html">จองบทเรียนทดลอง</a>
+          <button class="fav-toggle" aria-pressed="false" data-title="Eye P." data-href="profile-eye.html" data-avatar="https://i.pravatar.cc/240?img=45">❤</button>
+        </div>
+      </footer>
     </div>
+  </article>
 
-    <footer class="card-bottom">
-      <div class="stats"><span>⭐ 5.0</span><span>· 1,204 ครั้ง</span></div>
-      <div class="cta">
-        <div class="price">฿890 <small>/ 55 นาที</small></div>
-        <a class="btn primary" href="profile-akira.html">จองบทเรียนทดลอง</a>
-        <a class="btn ghost" href="profile-akira.html#contact">ส่งข้อความ</a>
-
-        <!-- ปุ่มหัวใจถูกที่ -->
-        <button class="fav-toggle"
-                aria-pressed="false"
-                aria-label="เพิ่มในบุ๊คมาร์ค"
-                data-title="Akira T."
-                data-href="profile-akira.html"
-                data-avatar="https://i.pravatar.cc/240?img=15">
-          ❤
-        </button>
+  <!-- 5. ครูภีม – สังคมศึกษา -->
+  <article class="card" data-id="pheem" data-subjects="Social" data-level="กลาง" data-price="520" data-name="Pheem J. social history geography civics">
+    <a class="avatar" href="profile-pheem.html" aria-label="ดูโปรไฟล์ Pheem J.">
+      <img src="https://i.pravatar.cc/240?img=56" alt="ภาพโปรไฟล์ Pheem J." />
+    </a>
+    <div class="body">
+      <header class="card-top">
+        <h2><a href="profile-pheem.html">Pheem J.</a></h2>
+        <div class="meta">
+          <span class="badge pro">สังคมศึกษา</span><span class="dot"></span>
+          <span class="light">สอน: ประวัติศาสตร์ ภูมิศาสตร์ หน้าที่พลเมือง</span>
+        </div>
+      </header>
+      <p class="excerpt">
+        อธิบายเนื้อหาสังคมด้วยเรื่องเล่าและภาพจำง่าย สรุปเนื้อหาแต่ละบทในแบบจำเร็ว พร้อมแนวข้อสอบจริง
+      </p>
+      <div class="chips">
+        <span class="chip">#History</span><span class="chip">#Geography</span><span class="chip">#Civics</span>
       </div>
-    </footer>
-  </div>
-</article>
-
-<!-- Card 5: Lina (แก้แล้ว) -->
-<article class="card"
-  data-id="lina"
-  data-langs="HTML / CSS, JavaScript"
-  data-level="พื้นฐาน"
-  data-price="820"
-  data-name="Lina S. ux ui figma webflow design">
-
-  <a class="avatar" href="profile-lina.html" aria-label="ดูโปรไฟล์ Lina S.">
-    <img src="https://i.pravatar.cc/240?img=47" alt="ภาพโปรไฟล์ Lina S." />
-  </a>
-
-  <div class="body">
-    <header class="card-top">
-      <h2><a href="profile-lina.html">Lina S.</a></h2>
-      <div class="meta">
-        <span class="badge pro">UX/UI</span><span class="dot"></span>
-        <span class="light">สอน: UX/UI, HTML/CSS, Webflow</span>
-      </div>
-    </header>
-
-    <p class="excerpt">
-      ออกแบบประสบการณ์ผู้ใช้ด้วย Figma แล้วแปลงเป็นเว็บจริงด้วย Webflow/HTML
-    </p>
-
-    <div class="chips">
-      <span class="chip">#UXUI</span><span class="chip">#Figma</span><span class="chip">#Webflow</span>
+      <footer class="card-bottom">
+        <div class="stats"><span>⭐ 4.85</span><span>· 90 รีวิว</span><span>· เรียนแล้ว 540 ครั้ง</span></div>
+        <div class="cta">
+          <div class="price">฿520 <small>/ 50 นาที</small></div>
+          <a class="btn primary" href="profile-pheem.html">จองบทเรียนทดลอง</a>
+          <button class="fav-toggle" aria-pressed="false" data-title="Pheem J." data-href="profile-pheem.html" data-avatar="https://i.pravatar.cc/240?img=56">❤</button>
+        </div>
+      </footer>
     </div>
+  </article>
 
-    <footer class="card-bottom">
-      <div class="stats"><span>⭐ 4.9</span><span>· 980 ครั้ง</span></div>
-      <div class="cta">
-        <div class="price">฿820 <small>/ 50 นาที</small></div>
-        <a class="btn primary" href="profile-lina.html">จองบทเรียนทดลอง</a>
-        <a class="btn ghost" href="profile-lina.html#contact">ส่งข้อความ</a>
-
-        <!-- ❤️ ปุ่มหัวใจ -->
-        <button class="fav-toggle"
-                aria-pressed="false"
-                aria-label="เพิ่มในบุ๊คมาร์ค"
-                data-title="Lina S."
-                data-href="profile-lina.html"
-                data-avatar="https://i.pravatar.cc/240?img=47">
-          ❤
-        </button>
+ <!-- 6. ครูต้า – ศิลปะ -->
+  <article class="card" data-id="ta" data-subjects="Art" data-level="พื้นฐาน" data-price="570" data-name="Ta W. art drawing painting design">
+    <a class="avatar" href="profile-ta.html" aria-label="ดูโปรไฟล์ Ta W.">
+      <img src="https://i.pravatar.cc/240?img=44" alt="ภาพโปรไฟล์ Ta W." />
+    </a>
+    <div class="body">
+      <header class="card-top">
+        <h2><a href="profile-ta.html">Ta W.</a></h2>
+        <div class="meta">
+          <span class="badge pro">ศิลปะ</span><span class="dot"></span>
+          <span class="light">สอน: วาดเส้น ระบายสี และออกแบบพื้นฐาน</span>
+        </div>
+      </header>
+      <p class="excerpt">
+        สอนพื้นฐานศิลปะ การสเก็ตช์ภาพ ระบายสีโปสเตอร์และสีน้ำ พร้อมเทคนิคเตรียมพอร์ตเข้ามหาวิทยาลัย
+      </p>
+      <div class="chips">
+        <span class="chip">#Drawing</span><span class="chip">#Painting</span><span class="chip">#Portfolio</span>
       </div>
-    </footer>
-  </div>
-</article>
-
-<!-- Card 6: Diego (แก้แล้ว) -->
-<article class="card"
-  data-id="diego"
-  data-langs="JavaScript, TypeScript"
-  data-level="ขั้นสูง"
-  data-price="940"
-  data-name="Diego R. backend devops node docker aws">
-
-  <a class="avatar" href="profile-diego.html" aria-label="ดูโปรไฟล์ Diego R.">
-    <img src="https://i.pravatar.cc/240?img=64" alt="ภาพโปรไฟล์ Diego R." />
-  </a>
-
-  <div class="body">
-    <header class="card-top">
-      <h2><a href="profile-diego.html">Diego R.</a></h2>
-      <div class="meta">
-        <span class="badge pro">Backend/DevOps</span><span class="dot"></span>
-        <span class="light">สอน: Node.js, Docker, AWS</span>
-      </div>
-    </header>
-
-    <p class="excerpt">
-      ออกแบบ API → เขียนเทสต์ → Docker/CI/CD → ดีพลอยขึ้น AWS ใช้งานจริงได้ทันที
-    </p>
-
-    <div class="chips">
-      <span class="chip">#Node</span><span class="chip">#Docker</span><span class="chip">#AWS</span>
+      <footer class="card-bottom">
+        <div class="stats"><span>⭐ 4.95</span><span>· 210 รีวิว</span><span>· เรียนแล้ว 820 ครั้ง</span></div>
+        <div class="cta">
+          <div class="price">฿570 <small>/ 50 นาที</small></div>
+          <a class="btn primary" href="profile-ta.html">จองบทเรียนทดลอง</a>
+          <button class="fav-toggle" aria-pressed="false" data-title="Ta W." data-href="profile-ta.html" data-avatar="https://i.pravatar.cc/240?img=18">❤</button>
+        </div>
+      </footer>
     </div>
-
-    <footer class="card-bottom">
-      <div class="stats"><span>⭐ 4.95</span><span>· 1,560 ครั้ง</span></div>
-      <div class="cta">
-        <div class="price">฿940 <small>/ 55 นาที</small></div>
-        <a class="btn primary" href="profile-diego.html">จองบทเรียนทดลอง</a>
-        <a class="btn ghost" href="profile-diego.html#contact">ส่งข้อความ</a>
-
-        <!-- ❤️ ปุ่มหัวใจ -->
-        <button class="fav-toggle"
-                aria-pressed="false"
-                aria-label="เพิ่มในบุ๊คมาร์ค"
-                data-title="Diego R."
-                data-href="profile-diego.html"
-                data-avatar="https://i.pravatar.cc/240?img=64">
-          ❤
-        </button>
-      </div>
-    </footer>
-  </div>
-</article>
-
+  </article>
 <footer class="site-footer">
   <div class="footer-inner">
-    © 2025 CodeClass · เรียนเขียนโปรแกรมกับอาจารย์คุณภาพทั่วโลก
+    © 2025 CodeClass · เรียนติวเข้มกับติวเตอร์
   </div>
 </footer>
 
@@ -508,40 +358,43 @@
 })();
 </script>
 
-  <!-- Filter script (ของเดิม) -->
-  <script>
-    (function(){
-      const $$ = s => Array.from(document.querySelectorAll(s));
-      const q = document.getElementById('q');
-      const lang = document.getElementById('lang');
-      const level = document.getElementById('level');
-      const price = document.getElementById('price');
-      const cards = $$('#teacherList .card');
+<script>
+ (function(){
+    const $$ = s => Array.from(document.querySelectorAll(s));
+    const q = document.getElementById('q');
+    const subject = document.getElementById('subject'); // เปลี่ยนจาก lang → subject
+    const level = document.getElementById('level');
+    const price = document.getElementById('price');
+    const cards = $$('#teacherList .card');
 
-      function inRange(priceNum, rangeText){
-        if(!rangeText) return true;
-        const [a,b] = rangeText.split('–').map(x=>parseInt(x,10));
-        return priceNum >= a && priceNum <= b;
-      }
-      function apply(){
-        const qv = (q?.value || '').trim().toLowerCase();
-        const lv = level?.value || '';
-        const lg = lang?.value || '';
-        const pr = price?.value || '';
-        cards.forEach(c => {
-          const name = (c.dataset.name||'').toLowerCase();
-          const langs = (c.dataset.langs||'').split(',').map(s=>s.trim());
-          const levelMatch = !lv || c.dataset.level === lv;
-          const langMatch = !lg || langs.includes(lg);
-          const priceMatch = inRange(parseInt(c.dataset.price,10), pr);
-          const textMatch = !qv || name.includes(qv);
-          c.style.display = (levelMatch && langMatch && priceMatch && textMatch) ? '' : 'none';
-        });
-      }
-      [q, lang, level, price].forEach(el => el && el.addEventListener('input', apply));
-      apply();
-    })();
-  </script>
+    function inRange(priceNum, rangeText){
+      if(!rangeText) return true;
+      const [a,b] = rangeText.split('–').map(x=>parseInt(x,10));
+      return priceNum >= a && priceNum <= b;
+    }
+
+    function apply(){
+      const qv = (q?.value || '').trim().toLowerCase();
+      const lv = level?.value || '';
+      const sj = subject?.value || '';              // ค่าเช็ควิชา
+      const pr = price?.value || '';
+
+      cards.forEach(c => {
+        const name = (c.dataset.name||'').toLowerCase();
+        const subjects = (c.dataset.subjects||'').split(',').map(s=>s.trim()); // ใช้ data-subjects
+        const levelMatch = !lv || c.dataset.level === lv;
+        const subjectMatch = !sj || subjects.includes(sj);
+        const priceMatch = inRange(parseInt(c.dataset.price,10), pr);
+        const textMatch = !qv || name.includes(qv);
+
+        c.style.display = (levelMatch && subjectMatch && priceMatch && textMatch) ? '' : 'none';
+      });
+    }
+
+    [q, subject, level, price].forEach(el => el && el.addEventListener('input', apply));
+    apply();
+  })();
+</script>
 
   <!-- 2) JS บุ๊คมาร์ค + smooth scroll -->
   <script>
@@ -640,5 +493,22 @@
       initSmoothScroll();
     })();
   </script>
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const subject = params.get('subject'); // อ่านค่า ?subject=
+
+  if(subject){
+    const cards = document.querySelectorAll('#teacherList .card');
+    cards.forEach(card => {
+      const langs = (card.dataset.langs || '').toLowerCase();
+      const name = (card.dataset.name || '').toLowerCase();
+      const show = langs.includes(subject.toLowerCase()) || name.includes(subject.toLowerCase());
+      card.style.display = show ? '' : 'none';
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

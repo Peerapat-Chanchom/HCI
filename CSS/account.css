@@ -199,3 +199,78 @@ body {
   color: #4f628e;
   border-top: 1px solid var(--pastel-200);
 }
+/* ====== LAYOUT ปรับสำหรับ sidebar ====== */
+.account-main {
+  width: min(1100px, 94%);
+  margin: 2rem auto 4rem;
+  display: flex;
+  flex-direction: row; /* เดิมเป็น column */
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/* ====== SIDEBAR ====== */
+.sidebar {
+  background: var(--white);
+  border: 1px solid var(--pastel-200);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  width: 240px;
+  flex-shrink: 0;
+  padding: 1.5rem 0;
+  height: fit-content;
+}
+
+.sidebar h3 {
+  font-size: 1.1rem;
+  color: var(--blue-900);
+  padding: 0 1.5rem 0.6rem;
+  margin: 0;
+  border-bottom: 1px solid var(--blue-100);
+}
+
+.sidebar .menu {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.sidebar .menu li {
+  margin: 0;
+}
+
+.sidebar .menu a {
+  display: block;
+  padding: 0.7rem 1.5rem;
+  color: var(--blue-800);
+  text-decoration: none;
+  font-weight: 600;
+  border-left: 4px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.sidebar .menu a:hover {
+  background: var(--blue-100);
+  color: var(--blue-900);
+}
+
+.sidebar .menu a.active {
+  background: var(--blue-100);
+  border-left: 4px solid var(--blue-400);
+  color: var(--blue-900);
+}
+
+/* ====== CONTENT ขวา ====== */
+.account-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+}
+
+/* ปรับ card ด้านในให้มีระยะเท่าเดิม */
+.account-content > section,
+.account-content > form,
+.account-content > .danger-zone {
+  width: 100%;
+}
