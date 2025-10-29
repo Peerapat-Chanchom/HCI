@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ยืนยันการชำระเงิน - ติวเตอร์ออนไลน์</title>
     <link rel="stylesheet" href="../CSS/Conform.css">
+    <link rel="stylesheet" href="../CSS/inbox.css" />
+    <link rel="stylesheet" href="../CSS/navbar.css" />
+
+
 </head>
 <body>
     <div class="container">
@@ -24,32 +28,48 @@
             <!-- ข้อมูลผู้ซื้อ -->
             <div class="receipt-info">
                 <div class="info-row">
-                    <span class="info-label">ชื่อผู้เรียน:</span>
-                    <span class="info-value" id="buyerName">—</span>
+                    <span class="info-label">บทเรียน</span>
+                    <span class="info-value" id="">ภาษาอังกฤษ</span>
                 </div>
+
                 <div class="info-row">
-                    <span class="info-label">เบอร์โทรศัพท์:</span>
-                    <span class="info-value" id="buyerPhone">—</span>
+                    <span class="info-label">ผู้สอน</span>
+                    <span class="info-value" id="">สมศรี</span>
                 </div>
+
                 <div class="info-row">
-                    <span class="info-label">วันที่เรียน:</span>
-                    <span class="info-value" id="sumDate">—</span>
+                    <span class="info-label">ชื่อผู้เรียน</span>
+                    <span class="info-value" id="buyerName"></span>
                 </div>
+
                 <div class="info-row">
-                    <span class="info-label">เวลาเรียน:</span>
-                    <span class="info-value" id="sumTime">—</span>
+                    <span class="info-label">เบอร์โทรศัพท์</span>
+                    <span class="info-value" id="buyerPhone"></span>
                 </div>
+                
                 <div class="info-row">
-                    <span class="info-label">วิธีการชำระเงิน:</span>
-                    <span class="info-value" id="paymentMethod">PromptPay</span>
+                    <span class="info-label">วันที่เรียน</span>
+                    <span class="info-value" id="sumDate"></span>
                 </div>
+
                 <div class="info-row">
-                    <span class="info-label">ราคาต่อชั่วโมง:</span>
-                    <span class="info-value" id="sumRate">PromptPay</span>
+                    <span class="info-label">เวลาเรียน</span>
+                    <span class="info-value" id="sumTime"></span>
                 </div>
+
+                <div class="info-row">
+                    <span class="info-label">วิธีการชำระเงิน</span>
+                    <span class="info-value" id="paymentMethod"></span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">ราคาต่อชั่วโมง</span>
+                    <span class="info-value" id="sumRate"></span>
+                </div>
+
                 <div class="info-row">
                     <span class="info-label">ยอดรวมทั้งหมด:</span>
-                    <span class="info-value" id="sumTotal">PromptPay</span>
+                    <span class="info-value" id="sumTotal"></span>
                 </div>
             </div>
 
@@ -61,8 +81,86 @@
         </div>
 
         <!-- ปุ่มเริ่มเรียน -->
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="Booked.html" class="btn btn-primary">เริ่มเรียนเลย</a>
+        <div>
+            <p>เริ่มเรียนเลย</p>
+            <!-- ส่วนเข้าสู่ห้องเรียน -->
+            <div class="classroom-access">
+                <h1 class="section-title">เข้าห้องเรียนออนไลน์</h1>
+                <div class="access-buttons">
+                    <a href="https://zoom.us/j/1234567890" target="_blank" class="btn btn-primary">เข้าห้องเรียนผ่าน Zoom</a>
+                </div>
+            </div>
+
+        <!-- ระบบแชท/ส่งข้อความ -->
+        <section class="inbox-hero">
+            <div class="container">
+            <h1>กล่องข้อความ</h1>
+            <p>ติดต่อพูดคุยกับอาจารย์ของคุณได้โดยตรงที่นี่</p>
+            </div>
+        </section>
+
+  <!-- MAIN -->
+  <main class="inbox-main">
+    <!-- รายชื่อแชต -->
+    <aside class="chat-list" aria-label="รายชื่อการสนทนา">
+      <div class="chat-item active">
+        <img src="https://i.pravatar.cc/48?img=15" alt="Akira T.">
+        <div class="info">
+          <div class="name">Akira T.</div>
+          <div class="preview">มีเวลาว่างวันพฤหัส 19:00 น. สนใจไหมครับ?</div>
+        </div>
+        <span class="time">12 ชม.</span>
+      </div>
+      <div class="chat-item">
+        <img src="https://i.pravatar.cc/48?img=47" alt="Lina S.">
+        <div class="info">
+          <div class="name">Lina S.</div>
+          <div class="preview">แนบไฟล์ Figma ให้ดูนะคะ!</div>
+        </div>
+        <span class="time">1 วัน</span>
+      </div>
+      <div class="chat-item">
+        <img src="https://i.pravatar.cc/48?img=64" alt="Diego R.">
+        <div class="info">
+          <div class="name">Diego R.</div>
+          <div class="preview">ขอบคุณครับ เจอกันวันอังคาร 19:00!</div>
+        </div>
+        <span class="time">2 วัน</span>
+      </div>
+    </aside>
+
+    <!-- กล่องแชตหลัก1 -->
+    <section class="chat-window" aria-label="พื้นที่สนทนา">
+      <header class="chat-header">
+        <img src="https://i.pravatar.cc/48?img=15" alt="">
+        <div class="chat-meta">
+          <h2>Akira T.</h2>
+          <span class="status online">ออนไลน์</span>
+        </div>
+      </header>
+
+      <div class="chat-body">
+        <div class="msg other">
+          <div class="bubble">สวัสดีครับ มีเวลาว่างวันพฤหัส 19:00 น. สนใจไหมครับ?</div>
+          <div class="time">12 ชม.ที่แล้ว</div>
+        </div>
+
+        <div class="msg me">
+          <div class="bubble">สวัสดีค่ะ ได้เลยค่ะ วันพฤหัสสะดวกมากเลย</div>
+          <div class="time">11 ชม.ที่แล้ว</div>
+        </div>
+      </div>
+
+      <form class="chat-input" onsubmit="return false;">
+        <input type="text" id="msgBox" placeholder="พิมพ์ข้อความ..." aria-label="พิมพ์ข้อความ" />
+        <button class="btn-send" aria-label="ส่งข้อความ">ส่ง</button>
+      </form>
+    </section>
+  </main>
+
+        <div>
+            <button>กลับไปหน้ารายละเอียดการจอง</button>
+        </div>
         </div>
     </div>
 
@@ -76,22 +174,34 @@
         const bookingTotal  = localStorage.getItem("bookingTotal");
         const bookingRate   = 746; // ราคาต่อชั่วโมงคงที่
         const bookingMethod = localStorage.getItem("bookingMethod") || "PromptPay";
-
+        const form = document.querySelector('.chat-input');
+        const input = document.getElementById('msgBox');
+        const chatBody = document.querySelector('.chat-body');
         // ✅ แสดงข้อมูลบนหน้าใบเสร็จ
         if (bookingDate && bookingHours && bookingTotal) {
             document.getElementById("buyerName").textContent = bookingName || "—";
             document.getElementById("buyerPhone").textContent = bookingPhone || "—";
             document.getElementById("sumDate").textContent = bookingDate;
             document.getElementById("sumTime").textContent = bookingTime;
-            document.getElementById("sumRate").textContent = `฿${bookingRate.toLocaleString()}`;
-            document.getElementById("sumTotal").textContent = `฿${parseFloat(bookingTotal).toLocaleString()}`;
+            document.getElementById("sumRate").textContent = `${bookingRate.toLocaleString()} บาท`;
+            document.getElementById("sumTotal").textContent = `${parseFloat(bookingTotal).toLocaleString()} บาท`;
             document.getElementById("paymentMethod").textContent = bookingMethod;
         } else {
             document.body.innerHTML = "<div class='container'><div class='card'><p>ไม่พบข้อมูลการชำระเงิน</p></div></div>";
         }
+           form.addEventListener('submit', e => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if(!text) return;
+      const msg = document.createElement('div');
+      msg.className = 'msg me';
+      msg.innerHTML = '<div class="bubble"></div><div class="time">ขณะนี้</div>';
+      msg.querySelector('.bubble').textContent = text;
+      chatBody.appendChild(msg);
+      input.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+    });
 
-        // ✅ ล้างข้อมูลหลังจากยืนยันสำเร็จ (เลือกได้)
-        // localStorage.clear();
     </script>
 </body>
 </html>

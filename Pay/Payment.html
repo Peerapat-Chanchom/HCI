@@ -41,15 +41,15 @@
     const time  = localStorage.getItem("bookingTime");
     const hours = localStorage.getItem("bookingHours");
     const total = localStorage.getItem("bookingTotal");
-    const rate  = 746; // ราคาต่อชั่วโมง
+    const rate  = 300; // ราคาต่อชั่วโมง
 
     // ตรวจสอบว่ามีข้อมูลไหม
     if (date && hours && total) {
       document.getElementById("sumDate").textContent  = date;
       document.getElementById("sumTime").textContent  = time || "—";
       document.getElementById("sumHours").textContent = hours;
-      document.getElementById("sumRate").textContent  = `฿${rate.toLocaleString()}`;
-      document.getElementById("sumTotal").textContent = `฿${parseFloat(total).toLocaleString()}`;
+      document.getElementById("sumRate").textContent  = `${rate.toLocaleString()} บาท`;
+      document.getElementById("sumTotal").textContent = `${parseFloat(total).toLocaleString()} บาท`;
     } else {
       document.body.innerHTML = "<div class='container'><div class='card'><p>ไม่พบข้อมูลการจอง</p></div></div>";
     }
@@ -71,11 +71,11 @@
       const qrUrl = `https://promptpay.io/${phonePromptPay}/${amount}.png`;
 
       qrImg.src = qrUrl;
-      qrAmount.textContent = `ยอดชำระ: ฿${amount}`;
+      qrAmount.textContent = `ยอดชำระ: ${amount} บาท`;
       overlay.classList.add("active");
     });
 
-    // ▶ เมื่อกด “ชำระเงินแล้ว” → ไป Conform.html
+    // 
     document.getElementById("confirmPayBtn").addEventListener("click", () => {
       const bookingDetails = {
         bookingName: name,
@@ -86,14 +86,12 @@
         bookingTotal: total,
         bookingMethod: selectedMethod
       };
-      console.log("✅ บันทึกข้อมูลการจอง:", bookingDetails);
-
       // เก็บข้อมูลทั้งหมดกลับไปยัง localStorage
       for (const [key, value] of Object.entries(bookingDetails)) {
         localStorage.setItem(key, value);
       }
 
-      alert("✅ ชำระเงินสำเร็จ!");
+      alert("ชำระเงินสำเร็จ");
       window.location.href = "Conform.html";
     });
   </script>
