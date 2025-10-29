@@ -1,11 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>การจองคลาส | CodeClass</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Navbar -->
+  <link rel="stylesheet" href="../CSS/navbar.css" />
+  <!-- หน้าการจองคลาส -->
+  <link rel="stylesheet" href="../CSS/booking.css" />
+  <style>
+    html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.site-footer {
+  margin-top: auto;
+}
+  </style>
 </head>
+
 <body>
-    
+  <!-- NAVBAR -->
+  <header class="cc-navbar">
+    <div class="cc-nav-wrap">
+      <a class="cc-brand" href="/Home/Home.html">
+        <span class="cc-logo">⬢</span>
+        <strong class="cc-site">CodeClass</strong>
+      </a>
+      <ul class="cc-links">
+        <li><a href="teacher.html">ครูสอนโค้ด</a></li>
+      </ul>
+      <div class="cc-right">
+        <button class="cc-btn ghost" onclick="location.href='teacher.html'">ไปเลือกอาจารย์</button>
+        <div class="cc-actions">
+          <a class="cc-avatar" href="/Profile/account.html">
+            <img src="https://i.pravatar.cc/36?img=68" alt="ภาพโปรไฟล์ผู้ใช้">
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="notif-hero">
+    <div class="container">
+      <h1>การจองคลาส</h1>
+    </div>
+  </section>
+
+  <!-- LIST -->
+  <main class="container notif-list" id="bookingList">
+    <!-- JS จะเติมรายการตรงนี้ -->
+  </main>
+
+  <!-- Template Booking Item -->
+  <template id="tpl-item">
+    <article class="notif" role="listitem">
+      <div class="left">
+        <div class="avatar-wrap">
+          <img class="avatar" src="" alt="">
+          <div class="type-icon" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="content">
+        <header class="title-row">
+          <h3 class="title"></h3>
+          <time class="time" datetime=""></time>
+        </header>
+        <p class="body"></p>
+        <div class="row-actions">
+          <a class="btn primary start" href="https://zoom.us/j/1234567890" target="_blank">เริ่มเรียน</a>
+          <a class="btn primary open" href="/Pay/Conform.html">รายละเอียด</a>
+
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      © 2025 CodeClass · เรียนเขียนโปรแกรมกับอาจารย์คุณภาพทั่วโลก
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+  (function(){
+    'use strict';
+    const $  = s => document.querySelector(s);
+    const listEl = $('#bookingList');
+
+    // ตัวอย่างข้อมูลการจอง
+    const bookings = [
+      {
+        id:'b1',
+        title:'จองคลาสกับ Diego R.',
+        body:'วันอังคาร 19:00–19:55 (เวลาไทย) ผ่าน Google Meet',
+        href:'booking-detail.html',
+        avatar:'https://i.pravatar.cc/64?img=64',
+        time: new Date().toISOString()
+      },
+      
+    ];
+
+    function relTime(iso){
+      const d = new Date(iso);
+      const diff = Math.floor((Date.now() - d.getTime())/1000);
+      if(diff < 60) return 'เมื่อสักครู่';
+      const m = Math.floor(diff/60);
+      if(m < 60) return m+' นาทีที่แล้ว';
+      const h = Math.floor(m/60);
+      if(h < 24) return h+' ชม.ที่แล้ว';
+      const dday = Math.floor(h/24);
+      if(dday === 1) return 'เมื่อวาน';
+      return d.toLocaleDateString('th-TH');
+    }
+
+    function render(){
+      listEl.innerHTML = '';
+      const tpl = $('#tpl-item');
+      bookings.forEach(n=>{
+        const node = document.importNode(tpl.content, true);
+        node.querySelector('.avatar').src = n.avatar;
+        node.querySelector('.title').textContent = n.title;
+        node.querySelector('.body').textContent = n.body;
+        const t = node.querySelector('.time');
+        t.textContent = relTime(n.time);
+        t.setAttribute('datetime', n.time);
+      
+        listEl.appendChild(node);
+      });
+    }
+
+    render();
+  })();
+  </script>
 </body>
 </html>

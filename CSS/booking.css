@@ -1,0 +1,96 @@
+:root{
+  --ink:#192338; --blue-900:#1E2E4F; --blue-800:#31487A; --blue-400:#8FB3E2;
+  --blue-100:#D9E1F1; --pastel-200:#D6E2EF; --cream:#E4DAD1; --bg:#F7F9FB; --white:#fff;
+  --shadow:0 10px 24px rgba(30,46,79,.10);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; color:var(--ink);
+  font-family:"Prompt",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Thai",sans-serif;
+  background:linear-gradient(180deg,var(--blue-100) 0%, var(--bg) 18%, var(--bg) 100%);
+}
+.container{ width:min(1120px,92%); margin-inline:auto }
+
+/* HERO */
+.notif-hero{
+  padding:28px 0 16px;
+  border-bottom:1px solid var(--pastel-200);
+  background:
+    radial-gradient(150px 80px at 12% -10%, rgba(143,179,226,.35), transparent 70%),
+    radial-gradient(200px 120px at 88% -20%, rgba(228,218,209,.45), transparent 70%);
+}
+.notif-hero h1{ margin:0 0 .8rem; font-size:clamp(22px,2.2vw,32px) }
+.badge-count{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:28px; height:28px; padding:0 8px; margin-left:8px;
+  border-radius:999px; background:var(--blue-100); color:var(--blue-800);
+  border:1px solid var(--pastel-200); font-weight:700; font-size:.95rem;
+}
+.toolbar{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+}
+.tabs{ display:flex; gap:8px; flex-wrap:wrap }
+.tab{
+  height:36px; padding:0 12px; border-radius:999px; border:1px solid var(--pastel-200);
+  background:#fff; color:var(--blue-800); font-weight:600; cursor:pointer;
+}
+.tab:hover{ background:var(--blue-100) }
+.tab.active{ background:var(--blue-400); color:#fff; border-color:var(--blue-400) }
+.actions{ display:flex; gap:8px }
+
+/* LIST + ITEM */
+.notif-list{ padding:20px 0 56px; display:grid; gap:14px }
+.notif{
+  display:grid; grid-template-columns:64px 1fr; gap:14px;
+  background:#fff; border:1px solid var(--pastel-200); border-radius:16px; box-shadow:var(--shadow); padding:14px;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.notif:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(30,46,79,.14) }
+.notif.unread{ background:linear-gradient(180deg,rgba(217,225,241,.45),#fff) }
+.avatar-wrap{ position:relative; width:64px; height:64px }
+.avatar{ width:64px; height:64px; object-fit:cover; border-radius:12px; border:3px solid var(--blue-100) }
+.type-icon{
+  position:absolute; right:-6px; bottom:-6px;
+  width:28px; height:28px; display:grid; place-items:center;
+  border-radius:8px; background:#fff; border:1px solid var(--pastel-200); color:var(--blue-800);
+  box-shadow:var(--shadow);
+}
+.content{ display:flex; flex-direction:column; gap:8px }
+.title-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap }
+.title{ margin:0; font-size:1.02rem }
+.time{ color:#5d6c90; font-size:.92rem }
+.body{ margin:0; color:#3e4b6b }
+.row-actions{ display:flex; gap:8px; margin-top:4px; flex-wrap:wrap }
+
+.btn{ height:36px; padding:0 12px; border-radius:10px; font-weight:700; text-decoration:none; display:inline-grid; place-items:center; cursor:pointer; transition:.15s ease }
+.btn.primary{ background:var(--blue-400); color:#fff; border:1px solid var(--blue-400) }
+.btn.primary:hover{ background:var(--blue-800); border-color:var(--blue-800) }
+.btn.ghost{ background:#fff; color:var(--blue-800); border:1px solid var(--blue-100) }
+.btn.ghost:hover{ background:var(--blue-100) }
+.btn.danger{ color:#7a2542; border-color:#f1c3d4 }
+.btn.danger:hover{ background:#ffe9f2 }
+
+/* EMPTY */
+.empty{ padding:36px 0 64px }
+.empty-card{
+  margin:0 auto; width:min(760px, 92%);
+  background:#fff; border:1px solid var(--pastel-200); border-radius:18px; box-shadow:var(--shadow); padding:24px; text-align:center;
+}
+.empty-emoji{ font-size:48px; margin-bottom:8px }
+.empty h2{ margin:.4rem 0 .6rem }
+.empty p{ color:#4f628e; margin:0 0 1rem }
+
+/* FOOTER (เต็มความกว้าง) */
+.site-footer{
+  border-top:1px solid var(--pastel-200);
+  background:var(--blue-100); color:var(--blue-900);
+  width:100%; text-align:center; padding:20px 0; margin-top:auto;
+}
+.footer-inner{ max-width:1120px; margin:0 auto; font-size:.95rem; font-weight:500 }
+
+/* Responsive */
+@media (max-width:680px){
+  .notif{ grid-template-columns:48px 1fr }
+  .avatar-wrap, .avatar{ width:48px; height:48px }
+  .type-icon{ width:24px; height:24px; right:-6px; bottom:-6px }
+}
