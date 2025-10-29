@@ -215,30 +215,11 @@
         priceEl.innerHTML = formatPrice(item.price);
         openBtn.href = item.href || '#';
 
-        // แสดงวิชาที่สอน
+// แสดงแท็กวิชาแบบหัวกลม
 const subjectEl = node.querySelector('.subject');
-subjectEl.textContent = item.subject ? `สอน: ${item.subject}` : 'รายการที่ถูกใจ';
-
-// แสดงคำโปรย (ถ้ามี)
-const excerptEl = node.querySelector('.excerpt');
-if (item.excerpt) {
-  excerptEl.textContent = item.excerpt;
-} else {
-  excerptEl.style.display = 'none';
-}
-
-// แสดงแท็ก (chips)
-const chipsWrap = node.querySelector('.chips');
-chipsWrap.innerHTML = '';
-if (Array.isArray(item.chips) && item.chips.length) {
-  item.chips.forEach(t => {
-    const sp = document.createElement('span');
-    sp.className = 'chip';
-    sp.textContent = t.startsWith('#') ? t : `#${t}`;
-    chipsWrap.appendChild(sp);
-  });
-} else {
-  chipsWrap.style.display = 'none';
+if (item.subject) {
+  subjectEl.innerHTML = `<span class="badge pro">${item.subject}</span> 
+  <span class="light">• สอน: ${item.tags || '-'}</span>`;
 }
 
 
