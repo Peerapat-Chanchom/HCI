@@ -81,6 +81,12 @@ body {
   background: var(--blue-400) !important;
 }
 
+.title-class {
+  margin: 20px;
+  font-size: 2rem;
+}
+
+
 /* Sections */
 .details {
   width: 85%;
@@ -100,13 +106,13 @@ body {
 }
 
 .stat-item h3 {
-  font-size: 1.8em;
+  font-size: 1.5rem;
   color: var(--blue-800);
   margin-bottom: 5px;
 }
 
 .stat-item p {
-  font-size: 0.9em;
+  font-size: 1.2rem;
   color: #555;
 }
 
@@ -136,7 +142,7 @@ body {
 }
 
 .course-card .icon {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   margin-right: 15px;
 }
 
@@ -146,15 +152,8 @@ body {
 }
 
 .course-card .text h4 {
-  margin: 0;
-  font-size: 1.1em;
+  font-size: 1.2rem;
   color: var(--blue-800);
-}
-
-.course-card .text p {
-  margin: 3px 0 0;
-  font-size: 0.9em;
-  color: #666;
 }
 
 .course-card .arrow {
@@ -192,8 +191,8 @@ body {
   width: 100vw; /* ให้เต็มความกว้าง viewport */
   margin-left: calc(50% - 50vw); /* ดึงให้ชิดซ้ายสุดจริง ๆ */
   text-align: center;
-  font-size: .9rem;
-  padding: 1.8rem 1rem;
+  font-size: em;
+  padding: 1.8em 1em;
   background: linear-gradient(to top, var(--blue-100), #f8fafc);
   color: #4f628e;
   border-top: 1px solid var(--pastel-200);
@@ -214,12 +213,13 @@ body {
 }
 
 .why-us h2 {
-  font-size: 2em;
+  font-size: 2rem;
   color: #333;
   margin-bottom: 10px;
 }
 
 .why-us p {
+  font-size: 1.2rem;
   color: #555;
   margin-bottom: 40px;
 }
@@ -248,6 +248,7 @@ body {
 }
 
 .why-card {
+  font-size: 1rem;
   background: #fff;
   border-radius: 16px;
   padding: 30px 20px;

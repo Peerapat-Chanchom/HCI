@@ -1,24 +1,30 @@
+/* 🌐 ----------------------------- */
+/* RESET & BASE STYLE              */
+/* ------------------------------- */
+:root {
+  --ink: #192338;
+  --blue-900: #1E2E4F;
+  --blue-800: #31487A;
+  --blue-400: #8FB3E2;
+  --blue-100: #D9E1F1;
+  --pastel-200: #D6E2EF;
+  --cream: #E4DAD1;
+  --white: #fff;
+  --shadow: 0 14px 34px rgba(30,46,79,.12);
+}
+
 body {
   font-family: "Prompt", sans-serif;
   background: #f5f5f5;
-  margin: 0;
   color: #222;
+  margin: 0;
 }
 
-:root {
-  --ink:#192338;
-  --blue-900:#1E2E4F;
-  --blue-800:#31487A;
-  --blue-400:#8FB3E2;
-  --blue-100:#D9E1F1;
-  --pastel-200:#D6E2EF;
-  --cream:#E4DAD1;
-  --white:#fff;
-  --shadow:0 14px 34px rgba(30,46,79,.12);
-}
-
+/* 🧱 ----------------------------- */
+/* LAYOUT STRUCTURE                */
+/* ------------------------------- */
 .container {
-  max-width: 1000px;
+  max-width: 100%;
   margin: 40px auto;
   display: grid;
   grid-template-columns: 1fr 350px;
@@ -34,41 +40,84 @@ body {
 }
 
 .hd {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: bold;
   margin-bottom: 16px;
 }
 
+.bd, .detail {
+  font-size: 1.2rem;
+}
+
+/* -------------------------------- */
+/* FORM ELEMENTS                    */
+/* -------------------------------- */
 label {
   display: block;
   margin-top: 10px;
-  font-weight: 500;
+  font-weight: bold;
 }
 
-input[type="text"], input[type="tel"] {
+input[type="text"],
+input[type="tel"] {
+  font-size: 1rem;
   width: 100%;
-  padding: 8px 10px;
+  padding: 15px 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
   margin-top: 5px;
 }
 
-.btn.primary {
+/* -------------------------------- */
+/* BUTTONS                          */
+/* -------------------------------- */
+.btn-confirm {
   display: inline-block;
-  background: var(--blue-400);
+  background-color: var(--blue-400);
   color: var(--white);
-  padding: 0.6rem 1.4rem;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
   border: 1px solid var(--blue-400);
-  transition: all 0.2s ease;
-  margin: 10px;
+  border-radius: 12px;
+  padding: 0.9rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(30, 46, 79, 0.15);
+  margin-top: 15px;
 }
 
-.btn.primary:hover {
-  background: var(--blue-800);
+/* Hover – สีเข้มขึ้นและยกตัว */
+.btn-confirm:hover {
+  background-color: var(--blue-800);
   border-color: var(--blue-800);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(30, 46, 79, 0.2);
+}
+
+/* Active – กดลง */
+.btn-confirm:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(30, 46, 79, 0.1);
+}
+
+/* Disabled (ถ้ามี) */
+.btn-confirm:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+/* -------------------------------- */
+/* TEACHER PROFILE                  */
+/* -------------------------------- */
+.teacher {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .summary img.avatar {
@@ -78,13 +127,11 @@ input[type="text"], input[type="tel"] {
   margin-right: 10px;
 }
 
-.teacher {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
+/* -------------------------------- */
+/* SEPARATORS & ROWS                */
+/* -------------------------------- */
 .hr {
+  font-size: 1.2rem;
   border-top: 1px solid #eee;
   margin: 10px 0;
 }
@@ -92,17 +139,32 @@ input[type="text"], input[type="tel"] {
 .rowline {
   display: flex;
   justify-content: space-between;
-  margin: 6px 0;
+  margin: 10px 0;
 }
 
-/* ===== ปฏิทิน ===== */
-/* ปฏิทินหลัก */
+/* 🗓️ ----------------------------- */
+/* CALENDAR SECTION                 */
+/* ------------------------------- */
+.calendar-box {
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  margin: 20px auto;
+  text-align: center;
+}
+
+.calendar-header {
+  margin: 20px;
+}
+
+/* ตารางหลัก */
 #calendar {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 8px; /* เว้นช่องระหว่างวันเท่ากัน */
+  border-spacing: 8px;
+  table-layout: fixed;
   margin-top: 15px;
-  table-layout: fixed; /* ทำให้ทุก cell มีขนาดเท่ากัน */
 }
 
 /* ช่องวัน */
@@ -111,11 +173,10 @@ input[type="text"], input[type="tel"] {
   height: 60px;
   text-align: center;
   vertical-align: middle;
-  background: #ffffff;
-  border: 1px solid #e5e7eb; /* เส้นขอบเทาอ่อน */
+  background: #fff;
+  border: 1px solid #e5e7eb;
   border-radius: 12px;
   color: #444;
-  font-weight: 500;
   cursor: pointer;
   transition: all 0.25s ease;
   box-sizing: border-box;
@@ -123,7 +184,7 @@ input[type="text"], input[type="tel"] {
 
 /* วันที่ปกติ hover */
 #calendar td.available:hover {
-  background-color: #4CAF50;  /* เขียวมาตรฐาน Material Design */
+  background-color: #4CAF50;
   color: #fff;
   transform: scale(1.05);
   transition: all 0.2s ease;
@@ -131,14 +192,13 @@ input[type="text"], input[type="tel"] {
 
 /* วันที่เลือก */
 #calendar td.selected {
-  background-color: #C8E6C9;  /* เขียวอ่อน */
-  color: #3b8d3f;             /* เขียวเข้มสำหรับตัวอักษร */
-  border: 1px solid #2E7D32;  /* เขียวเข้ม */
-  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3); /* เงาเขียว */
+  background-color: #C8E6C9;
+  color: #3b8d3f;
+  border: 1px solid #2E7D32;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
   transform: scale(1.05);
   transition: all 0.2s ease;
 }
-
 
 /* วันที่จองไม่ได้ */
 #calendar td.unavailable {
@@ -156,23 +216,45 @@ input[type="text"], input[type="tel"] {
   cursor: not-allowed;
 }
 
-/* ✅ จัดกล่องปฏิทินให้อยู่กลางหน้าจอ */
-.calendar-box {
-  border: 1px solid #e0e0e0;
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-  margin: 20px auto;    /* auto = จัดให้อยู่กึ่งกลางแนวนอน */
-  text-align: center;   /* จัดเนื้อหาภายในให้อยู่กลาง */
+/* 🕓 ----------------------------- */
+/* TIME SLOT SECTION                */
+/* ------------------------------- */
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 8px;
 }
 
+.time-slot {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
+.time-slot.selected {
+  background: #10b981;
+  color: white;
+}
 
+.time-slot.unavailable {
+  background: #fee2e2;
+  color: #b91c1c;
+  cursor: not-allowed;
+}
 
+/* 📅 ----------------------------- */
+/* GENERIC TABLE STYLES (optional)  */
+/* ------------------------------- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
 
-
-
-
-
-
-
+th, td {
+  padding: 8px;
+  border-radius: 6px;
+}
