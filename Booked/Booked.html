@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>การจองคลาส | CodeClass</title>
+  <title>การจองคลาส | >Tutoring</title>
 
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
     <div class="cc-nav-wrap">
       <a class="cc-brand" href="/Home/Home.html">
         <span class="cc-logo">⬢</span>
-        <strong class="cc-site">CodeClass</strong>
+        <strong class="cc-site">Tutoring</strong>
       </a>
       <ul class="cc-links">
         <li><a href="teacher.html">ติวเตอร์ออนไลน์</a></li>
@@ -86,7 +86,7 @@
         <div class="row-actions">
           <a class="btn primary start" href="https://zoom.us/j/1234567890" target="_blank">เริ่มเรียน</a>
           <a class="btn primary open" href="/Pay/Conform.html">รายละเอียด</a>
-
+          <a class="btn primary review" href="/Booked/review.html">รีวิว</a>
         </div>
       </div>
     </article>
@@ -132,7 +132,7 @@
       return d.toLocaleDateString('th-TH');
     }
 
-    function render(){
+       function render(){
       listEl.innerHTML = '';
       const tpl = $('#tpl-item');
       bookings.forEach(n=>{
@@ -143,10 +143,18 @@
         const t = node.querySelector('.time');
         t.textContent = relTime(n.time);
         t.setAttribute('datetime', n.time);
-      
+
+        const openBtn   = node.querySelector('.open');
+const reviewBtn = node.querySelector('.review');
+if (openBtn && n.href) openBtn.href = n.href;
+
+
+
+
         listEl.appendChild(node);
       });
     }
+
 
     render();
   })();
