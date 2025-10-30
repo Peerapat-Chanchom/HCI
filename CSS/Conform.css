@@ -1,449 +1,417 @@
-/* การรีเซ็ตและพื้นฐาน */
+/* 🎨 โทนสีหลักให้ตรงกับหน้าแรก CodeClass */
 :root {
-    --primary-color: #007bff; /* สีน้ำเงินหลัก */
-    --secondary-color: #6c757d; /* สีเทารอง */
-    --success-color: #28a745; /* สีเขียวสำหรับความสำเร็จ */
-    --background-color: #f4f7f6;
-    --card-background: #ffffff;
-    --border-radius: 8px;
-    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --blue-900: #1E2E4F;
+  --blue-800: #31487A;
+  --blue-400: #8FB3E2;
+  --blue-100: #E9EEF9;
+  --white: #ffffff;
+  --shadow: 0 8px 24px rgba(30, 46, 79, 0.08);
+  --radius: 18px;
+  --text: #192338;
+  --muted: #6b7280;
 }
 
+/* 🌤 พื้นหลังและโครงสร้าง */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+  font-family: "Prompt", sans-serif;
+  background-color: var(--blue-100);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text);
 }
 
-
-/* --- ส่วนหัวข้อ/ความสำเร็จ --- */
+/* 🎉 ส่วนหัวข้อความสำเร็จ */
 .success-animation {
-    text-align: center;
-    margin-bottom: 25px;
-    padding-top: 20px;
+  text-align: center;
+  margin-bottom: 25px;
+  padding-top: 40px;
 }
 
 .success-title {
-    color: var(--success-color);
-    font-size: 2.2em;
-    font-weight: bold;
-    margin-bottom: 15px;
+  color: var(--blue-800);
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
-/* --- ส่วนใบเสร็จรับเงิน (Receipt Card) --- */
+/* 💳 กล่องใบเสร็จ */
 .receipt-card {
-    background-color: var(--card-background);
-    padding: 30px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    max-width: 700px; /* จำกัดความกว้างสำหรับใบเสร็จ */
-    width: 100%;
-    margin: 0 auto 30px auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 700px;
+  width: 90%;
+  padding: 40px 50px;
+  margin: 20px auto 30px;
+  transition: all 0.25s ease;
 }
 
+.receipt-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(30, 46, 79, 0.12);
+}
+
+/* หัวใบเสร็จ */
 .receipt-header {
-    text-align: center;
-    border-bottom: 2px dashed #ddd;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px dashed #dce2f3;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .receipt-logo {
-    font-size: 3em;
-    margin-bottom: 10px;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: var(--blue-800);
 }
 
 .receipt-title {
-    color: #333;
-    margin: 0;
-    font-size: 1.5em;
+  color: var(--blue-900);
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 600;
 }
 
 .receipt-number {
-    color: var(--secondary-color);
-    font-size: 0.9em;
-    margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.9em;
+  margin-top: 5px;
 }
 
-/* ข้อมูลในใบเสร็จ */
+/* เนื้อหาในใบเสร็จ */
 .receipt-info {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .info-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #edf0f7;
 }
 
 .info-label {
-    font-weight: normal;
-    color: #555;
+  color: var(--muted);
 }
 
 .info-value {
-    font-weight: bold;
-    color: #333;
-    text-align: right;
+  font-weight: 600;
+  color: var(--blue-900);
 }
 
-/* เน้นยอดรวม */
+/* ยอดรวม */
 .receipt-info .info-row:last-child {
-    font-size: 1.1em;
-    border-bottom: none;
-    border-top: 2px solid #333;
-    padding-top: 15px;
-    margin-top: 10px;
+  font-size: 1.1em;
+  border-bottom: none;
+  border-top: 2px solid var(--blue-800);
+  padding-top: 15px;
+  margin-top: 10px;
 }
 
-/* --- ปุ่มดำเนินการในใบเสร็จ --- */
+/* 🔘 ปุ่มดำเนินการ */
 .action-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 25px;
 }
 
 .btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: all 0.25s ease;
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
-    color: white;
+  background-color: var(--blue-400);
+  color: var(--white);
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+  background-color: var(--blue-800);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
-    background-color: var(--secondary-color);
-    color: white;
+  background-color: #d1d5db;
+  color: #333;
 }
 
 .btn-secondary:hover {
-    background-color: #5a6268;
+  background-color: #9ca3af;
 }
 
-/* --- ส่วนเข้าห้องเรียน (Classroom Access) --- */
+/* 🎥 ส่วนเข้าห้องเรียน */
 .classroom-access {
-    background-color: var(--card-background);
-    padding: 25px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    max-width: 550px;
-    width: 100%;
-    margin: 20px auto 30px auto;
-    text-align: center;
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 20px auto 40px auto;
+  text-align: center;
 }
 
 .section-title {
-    color: var(--primary-color);
-    font-size: 1.5em;
-    margin-bottom: 15px;
+  color: var(--blue-800);
+  font-size: 1.4em;
+  margin-bottom: 15px;
 }
 
 .access-buttons a.btn-primary {
-    display: inline-block;
-    text-decoration: none;
-    width: auto;
-    padding: 12px 30px;
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 10px;
 }
 
-/* --- ส่วนกล่องข้อความ (Inbox/Chat) --- */
+/* 💬 กล่องแชท */
 .inbox-hero {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 30px 0;
-    margin-bottom: 20px;
-    width: 100%;
-    text-align: center;
-}
-
-.inbox-hero .container {
-    padding: 0 20px;
+  background: var(--blue-800);
+  color: white;
+  padding: 30px 0;
+  margin-bottom: 25px;
+  width: 100%;
+  text-align: center;
+  border-radius: 0 0 25px 25px;
 }
 
 .inbox-hero h1 {
-    margin: 0 0 10px 0;
+  margin: 0;
+  font-size: 1.6em;
+  font-weight: 600;
 }
 
 .inbox-main {
-    display: flex;
-    background-color: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-    height: 500px; /* กำหนดความสูงเพื่อให้ส่วนแชทมีขอบเขต */
-    margin: 0 auto 30px auto;
-    max-width: 1000px;
+  display: flex;
+  background-color: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  height: 500px;
+  margin: 0 auto 40px auto;
+  max-width: 1000px;
 }
 
-/* รายชื่อแชท */
+/* รายชื่อแชต */
 .chat-list {
-    width: 300px;
-    border-right: 1px solid #eee;
-    overflow-y: auto;
-    padding: 0;
-    flex-shrink: 0;
+  width: 300px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  background-color: #f9fafc;
 }
 
 .chat-item {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    cursor: pointer;
-    border-bottom: 1px solid #f0f0f0;
-    transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: 0.2s;
 }
 
 .chat-item:hover {
-    background-color: #f8f8f8;
+  background-color: #edf2ff;
 }
 
 .chat-item.active {
-    background-color: #e6f0ff; /* สีฟ้าอ่อนสำหรับแชทที่ถูกเลือก */
-    border-left: 3px solid var(--primary-color);
+  background-color: #e3ebff;
+  border-left: 4px solid var(--blue-400);
 }
 
 .chat-item img {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.chat-item .info {
-    flex-grow: 1;
-    overflow: hidden;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .chat-item .name {
-    font-weight: bold;
-    color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-weight: 600;
+  color: var(--blue-900);
 }
 
 .chat-item .preview {
-    font-size: 0.9em;
-    color: var(--secondary-color);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-size: 0.9em;
+  color: var(--muted);
 }
 
-.chat-item .time {
-    font-size: 0.8em;
-    color: var(--secondary-color);
-    flex-shrink: 0;
-    margin-left: 10px;
-}
-
-/* กล่องแชทหลัก */
+/* หน้าต่างแชต */
 .chat-window {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .chat-header {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
 }
 
 .chat-header img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .chat-meta h2 {
-    margin: 0;
-    font-size: 1.2em;
+  margin: 0;
+  font-size: 1.1em;
+  color: var(--blue-900);
 }
 
 .chat-meta .status.online {
-    color: var(--success-color);
-    font-size: 0.8em;
+  color: var(--success);
+  font-size: 0.8em;
 }
 
+/* เนื้อหาแชต */
 .chat-body {
-    flex-grow: 1;
-    padding: 20px;
-    overflow-y: auto;
-    background-color: #fafafa;
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #fafafa;
 }
 
-/* ข้อความ */
+/* 💬 ข้อความแชท */
 .msg {
-    display: flex;
-    margin-bottom: 15px;
+  display: flex;
+  margin-bottom: 12px;
+  width: 100%;
 }
 
+/* 🧑‍🏫 ข้อความฝั่งอาจารย์ (ฝ่ายตรงข้าม) */
 .msg.other {
-    justify-content: flex-start;
-}
-
-.msg.me {
-    justify-content: flex-end;
-}
-
-.bubble {
-    padding: 10px 15px;
-    border-radius: 18px;
-    max-width: 60%;
-    position: relative;
-    font-size: 0.95em;
+  justify-content: flex-start;
 }
 
 .msg.other .bubble {
-    background-color: white;
-    border: 1px solid #ddd;
-    color: #333;
-    border-bottom-left-radius: 4px;
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 18px 18px 18px 4px;
+  padding: 10px 15px;
+  max-width: 70%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+/* 🧑‍🎓 ข้อความของเรา (ฝั่งขวา) */
+.msg.me {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* กล่องข้อความของเรา */
 .msg.me .bubble {
-    background-color: var(--primary-color);
-    color: white;
-    border-bottom-right-radius: 4px;
+  background-color: #8FB3E2;
+  color: #fff;
+  border-radius: 18px 18px 4px 18px;
+  padding: 10px 15px;
+  max-width: 70%;
+  min-width: 80px; /* ✅ ป้องกันบับเบิลสั้นเกินไป */
+  text-align: left;
+  word-wrap: break-word;
+  align-self: flex-end; /* ✅ ให้ชิดล่างเหมือนกัน */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-right: 6px; /* ✅ ช่องว่างขวาเล็กน้อย */
 }
 
-.msg .time {
-    font-size: 0.75em;
-    color: var(--secondary-color);
-    margin-top: 5px;
-    align-self: flex-end;
-    margin: 0 5px;
+/* เวลาในข้อความของเรา */
+.msg.me .time {
+  text-align: right;
+  margin-right: 12px;
+  color: #999;
+  font-size: 0.8em;
 }
 
-/* ช่องพิมพ์ข้อความ */
+
+/* กล่องพิมพ์ข้อความ */
 .chat-input {
-    display: flex;
-    padding: 15px;
-    border-top: 1px solid #eee;
-    background-color: var(--card-background);
+  display: flex;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  padding: 10px;
 }
 
 .chat-input input[type="text"] {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    margin-right: 10px;
-    font-size: 1em;
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 1em;
+  outline: none;
 }
 
 .btn-send {
-    padding: 10px 20px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
+  background-color: #8FB3E2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .btn-send:hover {
-    background-color: #0056b3;
+  background-color: #31487A;
 }
 
-/* ปุ่มกลับไปหน้ารายละเอียดการจอง */
-.container > div:last-child {
-    text-align: center;
-    padding-bottom: 20px;
+/* กล่องห่อปุ่ม */
+.back-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* 👉 ชิดขวา */
+  padding-right: 10px;
+  margin-top: 20px;
 }
 
-.container > div:last-child > button {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    margin-top: 20px;
+/* ปุ่มกลับ */
+.back {
+  background-color: var(--blue-400);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(30, 46, 79, 0.1);
 }
 
-.container > div:last-child > button:hover {
-    background-color: #5a6268;
+.back:hover {
+  background-color: var(--blue-800);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(30, 46, 79, 0.15);
+}
+
+.back:active {
+  transform: scale(0.97);
 }
 
 
 
-/* --- 🖨️ MEDIA QUERY สำหรับการพิมพ์ (PRINT) --- */
+/* 🖨️ ปรับเฉพาะตอนพิมพ์ */
 @media print {
-    /* ซ่อนทุกอย่างใน body ก่อน */
-    body * {
-        visibility: hidden;
-    }
-
-    /* 1. ทำให้ใบเสร็จและภาชนะหลักกลับมาแสดงผล */
-    .container,
-    .receipt-card {
-        visibility: visible;
-    }
-
-    /* 2. จัดวางใบเสร็จให้อยู่ตรงกลางและเต็มหน้ากระดาษ */
-    .container {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        max-width: none; /* ยกเลิกการจำกัดความกว้าง */
-        padding: 0;
-        margin: 0;
-    }
-
-    .receipt-card {
-        max-width: 700px; /* จำกัดความกว้างใบเสร็จให้พอดีกับกระดาษ */
-        box-shadow: none; /* ลบเงา */
-        border: none; /* ลบขอบ */
-        margin: 50px auto; /* จัดให้อยู่ตรงกลางหน้ากระดาษแนวตั้ง */
-        padding: 0;
-    }
-    
-    /* 3. ซ่อนปุ่มที่ไม่เกี่ยวข้องกับการพิมพ์บนหน้าพิมพ์ */
-    .success-animation, /* ซ่อนหัวข้อหลัก "รายละเอียดการจอง" */
-    .action-buttons, /* ซ่อนปุ่ม 'พิมพ์' และ 'ดาวน์โหลด PDF' */
-    .classroom-access,
-    .inbox-hero,
-    .inbox-main,
-    .container > div:last-child { /* ซ่อนปุ่ม "กลับไปหน้ารายละเอียด..." */
-        display: none !important;
-    }
-
-    /* 4. ทำให้เนื้อหาใบเสร็จด้านในมองเห็นได้ */
-    .receipt-card * {
-        visibility: visible;
-    }
-
-    /* ปรับแต่งเพื่อให้ดูเหมือนใบเสร็จจริงเมื่อพิมพ์ */
-    .receipt-header {
-        border-bottom: 2px solid #000; /* เปลี่ยนเส้นประเป็นเส้นทึบสีดำ */
-    }
-    .info-row {
-        border-bottom: 1px dashed #999;
-    }
-    .receipt-info .info-row:last-child {
-        border-top: 3px double #000;
-    }
+  body * { visibility: hidden; }
+  .receipt-card, .receipt-card * { visibility: visible; }
+  .receipt-card {
+    box-shadow: none;
+    border: none;
+    max-width: 700px;
+    margin: 50px auto;
+  }
 }

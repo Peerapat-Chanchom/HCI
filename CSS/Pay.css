@@ -5,6 +5,18 @@ body {
   color: #222;
 }
 
+:root {
+  --ink:#192338;
+  --blue-900:#1E2E4F;
+  --blue-800:#31487A;
+  --blue-400:#8FB3E2;
+  --blue-100:#D9E1F1;
+  --pastel-200:#D6E2EF;
+  --cream:#E4DAD1;
+  --white:#fff;
+  --shadow:0 14px 34px rgba(30,46,79,.12);
+}
+
 .container {
   max-width: 1000px;
   margin: 40px auto;
@@ -41,15 +53,22 @@ input[type="text"], input[type="tel"] {
   margin-top: 5px;
 }
 
-.btn {
-  background: #4caf50;
-  border: none;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 20px;
+.btn.primary {
+  display: inline-block;
+  background: var(--blue-400);
+  color: var(--white);
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--blue-400);
+  transition: all 0.2s ease;
+  margin: 10px;
+}
+
+.btn.primary:hover {
+  background: var(--blue-800);
+  border-color: var(--blue-800);
 }
 
 .summary img.avatar {
@@ -77,57 +96,83 @@ input[type="text"], input[type="tel"] {
 }
 
 /* ===== ปฏิทิน ===== */
-.calendar-box {
-  margin-top: 20px;
-  border: 1px solid #ddd;
-  border-radius: 14px;
-  padding: 16px;
-  text-align: center;
-}
-
-.calendar-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin: 10px 0;
-}
-
-.calendar-header button {
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-table {
+/* ปฏิทินหลัก */
+#calendar {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 8px; /* เว้นช่องระหว่างวันเท่ากัน */
+  margin-top: 15px;
+  table-layout: fixed; /* ทำให้ทุก cell มีขนาดเท่ากัน */
 }
 
-th, td {
+/* ช่องวัน */
+#calendar td {
   width: 14.28%;
-  padding: 10px 0;
+  height: 60px;
   text-align: center;
-  border-radius: 8px;
+  vertical-align: middle;
+  background: #ffffff;
+  border: 1px solid #e5e7eb; /* เส้นขอบเทาอ่อน */
+  border-radius: 12px;
+  color: #444;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
 }
 
-td.full {
-  color: #b71c1c;
-  font-weight: bold;
+/* วันที่ปกติ hover */
+#calendar td.available:hover {
+  background-color: #4CAF50;  /* เขียวมาตรฐาน Material Design */
+  color: #fff;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
 }
 
-td.selected {
-  background: #4caf50;
-  color: white;
+/* วันที่เลือก */
+#calendar td.selected {
+  background-color: #C8E6C9;  /* เขียวอ่อน */
+  color: #3b8d3f;             /* เขียวเข้มสำหรับตัวอักษร */
+  border: 1px solid #2E7D32;  /* เขียวเข้ม */
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3); /* เงาเขียว */
+  transform: scale(1.05);
+  transition: all 0.2s ease;
 }
 
-td.available:hover {
-  background: #f0f0f0;
+
+/* วันที่จองไม่ได้ */
+#calendar td.unavailable {
+  background-color: #fceaea;
+  color: #d9534f;
+  border: 1px solid #f1b0b7;
+  cursor: not-allowed;
 }
 
-.subtitle {
-  color: #4caf50;
-  margin: 8px 0;
+/* วันที่ผ่านมา */
+#calendar td.disabled {
+  background-color: #f5f5f5;
+  color: #aaa;
+  border: 1px solid #ddd;
+  cursor: not-allowed;
 }
+
+/* ✅ จัดกล่องปฏิทินให้อยู่กลางหน้าจอ */
+.calendar-box {
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  margin: 20px auto;    /* auto = จัดให้อยู่กึ่งกลางแนวนอน */
+  text-align: center;   /* จัดเนื้อหาภายในให้อยู่กลาง */
+}
+
+
+
+
+
+
+
+
+
+
+

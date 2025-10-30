@@ -75,6 +75,7 @@
 
       <div class="calendar-box">
         <h3>เลือกวันและเวลาที่ต้องการเรียน</h3>
+        <div><span>วันที่</span><span id="sumDate"> — </span></div>
         <div class="calendar-header">
           <button type="button" id="prev">&#10094;</button>
           <span id="month-year"></span>
@@ -97,7 +98,7 @@
         <p>เวลาที่เลือก: <span id="selected-time">ยังไม่ได้เลือก</span></p>
       </div>
 
-      <button class="btn" id="confirmBtn">ยืนยันการจอง</button>
+      <button class="btn primary" id="confirmBtn">ยืนยันการจอง</button>
     </div>
   </form>
 
@@ -127,7 +128,7 @@
   }
 
   // === ข้อมูลจำลองเวลาที่ไม่ว่าง ===
-  const unavailableDays = [3, 5, 9, 17];
+  const unavailableDays = [3, 5, 9, 17,25,29,30];
   const unavailableTimes = {
     "2025-10-7": ["09:00", "10:00", "15:00", "16:00"],
     "2025-10-10": ["13:00", "14:00"]
@@ -172,7 +173,7 @@
             cell.classList.add("disabled");
           } else if (unavailableDays.includes(date)) {
             cell.classList.add("unavailable");
-            cell.textContent += " ✕";
+            cell.textContent += " ✕ ";
           } else {
             cell.classList.add("available");
             cell.addEventListener("click", () => selectDate(thisDate, localKey));

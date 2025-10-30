@@ -1,202 +1,153 @@
-/* การรีเซ็ตพื้นฐาน */
+/* 🎨 Theme สีหลักให้เหมือนหน้าแรก */
+:root {
+  --blue-900: #1E2E4F;
+  --blue-800: #31487A;
+  --blue-400: #8FB3E2;
+  --blue-100: #E9EEF9;
+  --white: #ffffff;
+  --shadow: 0 6px 20px rgba(30, 46, 79, 0.08);
+  --radius: 16px;
+  --text: #192338;
+}
+
+/* 🧭 โครงสร้างหลัก */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7f6; /* สีพื้นหลังอ่อนๆ */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
-    min-height: 100vh;
+  font-family: "Prompt", sans-serif;
+  background-color: var(--blue-100);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text);
 }
 
-/* ภาชนะหลัก */
+/* 🧾 กล่องหลัก */
 .container {
-    width: 90%;
-    max-width: 600px; /* จำกัดความกว้างสูงสุด */
-    padding: 20px;
-    /* background-color: #fff; */
-    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
-    border-radius: 8px;
-    margin-top: 20px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 50px;
+  margin-top: 80px;
+  max-width: 700px;
+  width: 90%;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-/* ส่วนหัวข้อการชำระเงิน */
+.container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(30, 46, 79, 0.1);
+}
+
+/* 🧾 หัวข้อ */
 .payment-options h2 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.8em;
+  font-size: 1.9em;
+  color: var(--blue-900);
+  font-weight: 700;
+  margin-bottom: 25px;
 }
 
-/* กล่องรายละเอียดการจอง (Card) */
-.card {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
-}
+
 
 .card p {
-    font-size: 1.1em;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    display: flex; /* จัดให้อยู่ในบรรทัดเดียวกัน */
-    justify-content: space-between; /* กระจายเนื้อหาไปซ้ายและขวา */
+  font-size: 1.1em;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 
 .card strong {
-    color: #333;
-    font-weight: bold;
-    text-align: right;
+  color: var(--blue-800);
+  font-weight: 600;
 }
 
-/* ปุ่มหลัก */
+/* 🔘 ปุ่มชำระเงิน */
 .btn-primary {
-    /* คุณสมบัติเดิม */
-    display: block;
-    width: 100%; /* กำหนดความกว้างตามที่ต้องการ */
-    padding: 10px;
-    background-color: #728497;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.1em;
-    cursor: pointer;
-    margin-top: 10px;
-
-    /* 💡 การจัดกึ่งกลางองค์ประกอบ Block-level ที่มีความกว้างจำกัด */
-    margin-left: auto;
-    margin-right: auto;
+  background: var(--blue-400);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  font-weight: 600;
+  width: 100%;
+  transition: background-color 0.25s ease, transform 0.2s ease;
 }
 
-
-/* ภาชนะสำหรับปุ่ม */
-.payment-options {
-    width: 100%;
-    max-width: 600px;
-    margin-top: 15px;
+.btn-primary:hover {
+  background-color: var(--blue-800);
+  transform: translateY(-2px);
 }
 
-/* --- ส่วนของ Popup/Overlay QR Code --- */
-
-/* พื้นหลังมืดทึบ */
+/* 💡 Popup QR */
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* ดำโปร่งแสง */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-/* แสดงเมื่อมีคลาส active */
 .overlay.active {
-    visibility: visible;
-    opacity: 1;
+  display: flex;
 }
 
-/* กล่อง Popup */
+/* กล่อง QR */
 .popup {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
-}
-
-.overlay.active .popup {
-    transform: scale(1);
+  background: var(--white);
+  border-radius: 16px;
+  padding: 25px 30px;
+  width: 320px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.25s ease;
 }
 
 .popup h3 {
-    margin-top: 0;
-    color: #333;
-    font-size: 1.3em;
+  color: var(--blue-900);
+  margin-top: 0;
+  font-size: 1.3em;
 }
 
-/* รูปภาพ QR */
-#qrImage {
-    width: 100%;
-    max-width: 220px; /* จำกัดขนาด QR */
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.popup img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border: 1px solid var(--blue-100);
+  border-radius: 10px;
+  margin: 20px 0;
 }
 
-/* ข้อความจำนวนเงินใน Popup */
 #qrAmount {
-    font-size: 1.2em;
-    color: #d9534f; /* สีแดงสำหรับเน้นยอดเงิน */
-    font-weight: bold;
-    margin-bottom: 30px;
+  color: var(--blue-800);
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 15px;
 }
 
-/* ปุ่มใน Popup */
 .popup .btn-primary {
-    margin-top: 15px;
+  margin-top: 10px;
 }
 
-    /* ✅ เพิ่ม CSS popup */
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    .overlay.active { display: flex; }
+/* 🩵 เอฟเฟกต์เปิด */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
 
-    .popup {
-      background: white;
-      border-radius: 10px;
-      padding: 25px 30px;
-      width: 320px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    }
-    .popup img {
-      width: 200px;
-      height: 200px;
-      border-radius: 8px;
-      border: 1px solid #eee;
-      margin: 15px 0;
-      object-fit: contain;
-    }
-    .btn-primary {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      padding: 10px 20px;
-      margin-top: 10px;
-      width: 100%;
-      font-size: 1em;
-      transition: background-color 0.3s ease;
-    }
-    .btn-primary:hover { background-color: #0056b3; }
-    .container {
-      max-width: 700px;
-      margin: 40px auto;
-      text-align: center;
-    }
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 25px;
+  }
+  .card p {
+    font-size: 1em;
+  }
+}
