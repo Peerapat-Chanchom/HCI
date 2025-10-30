@@ -1,673 +1,449 @@
-/* ============================================
-   Reset & Base Styles
-   ============================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* การรีเซ็ตและพื้นฐาน */
+:root {
+    --primary-color: #007bff; /* สีน้ำเงินหลัก */
+    --secondary-color: #6c757d; /* สีเทารอง */
+    --success-color: #28a745; /* สีเขียวสำหรับความสำเร็จ */
+    --background-color: #f4f7f6;
+    --card-background: #ffffff;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #b1c3d5 0%, #8fa9c4 100%);
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-height: 100vh;
-    padding: 2rem;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
 
-/* ============================================
-   Success Animation Section
-   ============================================ */
+/* --- ส่วนหัวข้อ/ความสำเร็จ --- */
 .success-animation {
     text-align: center;
-    margin-bottom: 2rem;
-    animation: fadeInDown 0.6s ease-out;
-}
-
-.checkmark {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: #fff6e9;
-    margin: 0 auto 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    animation: scaleIn 0.5s ease-out;
-}
-
-.checkmark svg {
-    width: 60px;
-    height: 60px;
-    stroke: #10b981;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
-    animation: checkmark 0.8s ease-out 0.3s forwards;
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
+    margin-bottom: 25px;
+    padding-top: 20px;
 }
 
 .success-title {
-    color: #fff6e9;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: var(--success-color);
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-.success-subtitle {
-    color: #fff6e9;
-    font-size: 1.1rem;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-/* ============================================
-   Receipt Card
-   ============================================ */
+/* --- ส่วนใบเสร็จรับเงิน (Receipt Card) --- */
 .receipt-card {
-    background: #fff6e9;
-    border-radius: 20px;
-    padding: 2.5rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    margin-bottom: 1.5rem;
-    animation: fadeInUp 0.6s ease-out 0.2s both;
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 700px; /* จำกัดความกว้างสำหรับใบเสร็จ */
+    width: 100%;
+    margin: 0 auto 30px auto;
 }
 
 .receipt-header {
     text-align: center;
-    padding-bottom: 1.5rem;
-    border-bottom: 2px dashed #b1c3d5;
-    margin-bottom: 2rem;
+    border-bottom: 2px dashed #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .receipt-logo {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 3em;
+    margin-bottom: 10px;
 }
 
 .receipt-title {
-    font-size: 1.5rem;
-    color: #2d3748;
-    margin-bottom: 0.5rem;
+    color: #333;
+    margin: 0;
+    font-size: 1.5em;
 }
 
 .receipt-number {
-    color: #6b7280;
-    font-size: 0.9rem;
+    color: var(--secondary-color);
+    font-size: 0.9em;
+    margin-top: 5px;
 }
 
-/* ============================================
-   Receipt Info Section
-   ============================================ */
+/* ข้อมูลในใบเสร็จ */
 .receipt-info {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 25px;
 }
 
 .info-row {
     display: flex;
     justify-content: space-between;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #e8dcc8;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
 }
 
 .info-label {
-    color: #6b7280;
-    font-weight: 500;
+    font-weight: normal;
+    color: #555;
 }
 
 .info-value {
-    color: #2d3748;
-    font-weight: 600;
+    font-weight: bold;
+    color: #333;
     text-align: right;
 }
 
-/* ============================================
-   Course Details
-   ============================================ */
-.course-details {
-    background: linear-gradient(135deg, #f5eee0 0%, #f0e7d5 100%);
-    padding: 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    border: 1px solid #e8dcc8;
-}
-
-.course-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e8dcc8;
-}
-
-.course-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
+/* เน้นยอดรวม */
+.receipt-info .info-row:last-child {
+    font-size: 1.1em;
     border-bottom: none;
+    border-top: 2px solid #333;
+    padding-top: 15px;
+    margin-top: 10px;
 }
 
-.course-name {
-    flex: 1;
-    font-weight: 600;
-    color: #2d3748;
-}
-
-.course-meta {
-    color: #6b7280;
-    font-size: 0.9rem;
-    margin-top: 0.25rem;
-}
-
-.course-price {
-    font-weight: 600;
-    color: #7a95b0;
-    margin-left: 1rem;
-}
-
-/* ============================================
-   Total Section
-   ============================================ */
-.total-section {
-    background: linear-gradient(135deg, #b1c3d5 0%, #8fa9c4 100%);
-    padding: 1.5rem;
-    border-radius: 12px;
-    color: #fff6e9;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(177, 195, 213, 0.3);
-}
-
-.total-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-}
-
-.total-row.main {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 0.5rem;
-    padding-top: 0.75rem;
-    border-top: 2px solid rgba(255, 246, 233, 0.4);
-}
-
-/* ============================================
-   Action Buttons
-   ============================================ */
+/* --- ปุ่มดำเนินการในใบเสร็จ --- */
 .action-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 1.5rem;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .btn {
-    padding: 0.875rem 1.5rem;
+    padding: 10px 20px;
     border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #b1c3d5 0%, #8fa9c4 100%);
-    color: #fff6e9;
-    box-shadow: 0 4px 15px rgba(177, 195, 213, 0.4);
+    background-color: var(--primary-color);
+    color: white;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(177, 195, 213, 0.5);
+    background-color: #0056b3;
 }
 
 .btn-secondary {
-    background: #fff6e9;
-    color: #7a95b0;
-    border: 2px solid #b1c3d5;
+    background-color: var(--secondary-color);
+    color: white;
 }
 
 .btn-secondary:hover {
-    background: #f5eee0;
-    transform: translateY(-2px);
+    background-color: #5a6268;
 }
 
-/* ============================================
-   Next Steps Section
-   ============================================ */
-.next-steps {
-    background: #fff6e9;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    animation: fadeInUp 0.6s ease-out 0.4s both;
-}
-
-.steps-title {
-    font-size: 1.3rem;
-    color: #2d3748;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.step {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: linear-gradient(135deg, #f5eee0 0%, #f0e7d5 100%);
-    border-radius: 10px;
-    transition: all 0.3s;
-    border: 1px solid #e8dcc8;
-}
-
-.step:hover {
-    background: linear-gradient(135deg, #f0e7d5 0%, #ebe0cc 100%);
-    transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(177, 195, 213, 0.2);
-}
-
-.step-number {
-    width: 35px;
-    height: 35px;
-    background: linear-gradient(135deg, #b1c3d5 0%, #8fa9c4 100%);
-    color: #fff6e9;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    flex-shrink: 0;
-}
-
-.step-content h3 {
-    color: #2d3748;
-    margin-bottom: 0.25rem;
-    font-size: 1rem;
-}
-
-.step-content p {
-    color: #6b7280;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-/* ============================================
-   Support Info
-   ============================================ */
-.support-info {
-    background: linear-gradient(135deg, #e8f2fb 0%, #dce9f5 100%);
-    border-left: 4px solid #b1c3d5;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    margin-top: 1.5rem;
-}
-
-.support-info p {
-    color: #2d3748;
-    margin-bottom: 0.5rem;
-}
-
-.support-info a {
-    color: #7a95b0;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.support-info a:hover {
-    color: #5f7d99;
-    text-decoration: underline;
-}
-
-/* ============================================
-   Animations
-   ============================================ */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
-}
-
-@keyframes checkmark {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-/* ============================================
-   Print Styles
-   ============================================ */
-@media print {
-    body {
-        background: white;
-        padding: 0;
-    }
-    
-    .action-buttons, 
-    .next-steps, 
-    .success-animation {
-        display: none;
-    }
-    
-    .receipt-card {
-        box-shadow: none;
-        border: 1px solid #e5e7eb;
-    }
-}
-
-/* ============================================
-   Responsive Design - Mobile
-   ============================================ */
-@media (max-width: 768px) {
-    body {
-        padding: 1rem;
-    }
-
-    .receipt-card, 
-    .next-steps {
-        padding: 1.5rem;
-    }
-
-    .success-title {
-        font-size: 1.5rem;
-    }
-
-    .action-buttons {
-        grid-template-columns: 1fr;
-    }
-
-    .course-item {
-        flex-direction: column;
-    }
-
-    .course-price {
-        margin-left: 0;
-        margin-top: 0.5rem;
-    }
-}
-/* ============================================
-   Classroom Access & Chat
-   ============================================ */
-.classroom-access, .chat-system, .user-guide {
-    background: #fff6e9;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    margin-bottom: 2rem;
-    animation: fadeInUp 0.6s ease-out both;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    color: #2d3748;
-    margin-bottom: 0.5rem;
-}
-
-.section-subtitle {
-    color: #6b7280;
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-}
-
-.access-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.access-buttons .btn {
-    flex: 1;
+/* --- ส่วนเข้าห้องเรียน (Classroom Access) --- */
+.classroom-access {
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 550px;
+    width: 100%;
+    margin: 20px auto 30px auto;
     text-align: center;
 }
 
-.chat-box {
-    max-height: 250px;
-    overflow-y: auto;
-    background: #f5eee0;
-    border: 1px solid #e8dcc8;
-    border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 1rem;
+.section-title {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    margin-bottom: 15px;
 }
 
-.chat-message {
-    padding: 0.5rem 0.75rem;
-    border-radius: 10px;
-    margin-bottom: 0.5rem;
-    max-width: 80%;
+.access-buttons a.btn-primary {
+    display: inline-block;
+    text-decoration: none;
+    width: auto;
+    padding: 12px 30px;
 }
 
-.chat-message.tutor {
-    background: #dce9f5;
-    color: #2d3748;
+/* --- ส่วนกล่องข้อความ (Inbox/Chat) --- */
+.inbox-hero {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 30px 0;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
 }
 
-.chat-message.student {
-    background: #e8f2fb;
-    color: #2d3748;
-    margin-left: auto;
+.inbox-hero .container {
+    padding: 0 20px;
 }
 
-.chat-input {
+.inbox-hero h1 {
+    margin: 0 0 10px 0;
+}
+
+.inbox-main {
     display: flex;
-    gap: 0.5rem;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    height: 500px; /* กำหนดความสูงเพื่อให้ส่วนแชทมีขอบเขต */
+    margin: 0 auto 30px auto;
+    max-width: 1000px;
 }
 
-.chat-input input {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    border-radius: 10px;
-    border: 1px solid #b1c3d5;
-    outline: none;
+/* รายชื่อแชท */
+.chat-list {
+    width: 300px;
+    border-right: 1px solid #eee;
+    overflow-y: auto;
+    padding: 0;
+    flex-shrink: 0;
 }
 
-.guide-items {
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.chat-item:hover {
+    background-color: #f8f8f8;
+}
+
+.chat-item.active {
+    background-color: #e6f0ff; /* สีฟ้าอ่อนสำหรับแชทที่ถูกเลือก */
+    border-left: 3px solid var(--primary-color);
+}
+
+.chat-item img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-item .info {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.chat-item .name {
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-item .preview {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-item .time {
+    font-size: 0.8em;
+    color: var(--secondary-color);
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+/* กล่องแชทหลัก */
+.chat-window {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
 }
 
-.guide-item a {
-    color: #7a95b0;
-    text-decoration: none;
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
 }
 
-.guide-item a:hover {
-    text-decoration: underline;
+.chat-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
-/* ============================================
-   Info & Contact Section
-   ============================================ */
-.info-contact {
-    background: #fff6e9;
+.chat-meta h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.chat-meta .status.online {
+    color: var(--success-color);
+    font-size: 0.8em;
+}
+
+.chat-body {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+
+/* ข้อความ */
+.msg {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.msg.other {
+    justify-content: flex-start;
+}
+
+.msg.me {
+    justify-content: flex-end;
+}
+
+.bubble {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 60%;
+    position: relative;
+    font-size: 0.95em;
+}
+
+.msg.other .bubble {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #333;
+    border-bottom-left-radius: 4px;
+}
+
+.msg.me .bubble {
+    background-color: var(--primary-color);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.msg .time {
+    font-size: 0.75em;
+    color: var(--secondary-color);
+    margin-top: 5px;
+    align-self: flex-end;
+    margin: 0 5px;
+}
+
+/* ช่องพิมพ์ข้อความ */
+.chat-input {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    background-color: var(--card-background);
+}
+
+.chat-input input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    margin-bottom: 2rem;
-    animation: fadeInUp 0.6s ease-out both;
+    margin-right: 10px;
+    font-size: 1em;
 }
 
-.info-contact h2 {
-    font-size: 1.5rem;
-    color: #2d3748;
-    margin-bottom: 1rem;
-}
-
-.info-contact p {
-    color: #6b7280;
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-    line-height: 1.5;
-}
-
-/* About Us */
-.about-us {
-    margin-bottom: 2rem;
-}
-
-/* FAQ */
-.faq {
-    margin-bottom: 2rem;
-}
-
-.faq-item {
-    background: #f5eee0;
-    border: 1px solid #e8dcc8;
-    border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.faq-item:hover {
-    background: #f0e7d5;
-    transform: translateX(3px);
-}
-
-.faq-question {
-    font-weight: 600;
-    color: #2d3748;
-    margin-bottom: 0.25rem;
-}
-
-.faq-answer {
-    display: none;
-    color: #6b7280;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-/* Contact Form */
-.contact-form {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 10px;
-    border: 1px solid #b1c3d5;
-    outline: none;
-    font-size: 1rem;
-}
-
-.contact-form button {
-    padding: 0.875rem 1.5rem;
+.btn-send {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
+    border-radius: 20px;
     cursor: pointer;
-    background: linear-gradient(135deg, #b1c3d5 0%, #8fa9c4 100%);
-    color: #fff6e9;
-    transition: all 0.3s;
+    font-size: 1em;
+    transition: background-color 0.3s;
 }
 
-.contact-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(177, 195, 213, 0.5);
+.btn-send:hover {
+    background-color: #0056b3;
 }
 
-/* Tutor Join Us */
-.join-us {
-    background: #e8f2fb;
-    border-left: 4px solid #b1c3d5;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
+/* ปุ่มกลับไปหน้ารายละเอียดการจอง */
+.container > div:last-child {
+    text-align: center;
+    padding-bottom: 20px;
 }
 
-.join-us a {
-    color: #7a95b0;
-    font-weight: 600;
-    text-decoration: none;
+.container > div:last-child > button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
 }
 
-.join-us a:hover {
-    text-decoration: underline;
+.container > div:last-child > button:hover {
+    background-color: #5a6268;
 }
 
-/* ============================================
-   Responsive - Mobile adjustments
-   ============================================ */
-@media (max-width: 768px) {
-    .contact-form {
-        gap: 0.75rem;
+
+
+/* --- 🖨️ MEDIA QUERY สำหรับการพิมพ์ (PRINT) --- */
+@media print {
+    /* ซ่อนทุกอย่างใน body ก่อน */
+    body * {
+        visibility: hidden;
     }
 
-    .faq-item {
-        padding: 0.75rem;
+    /* 1. ทำให้ใบเสร็จและภาชนะหลักกลับมาแสดงผล */
+    .container,
+    .receipt-card {
+        visibility: visible;
     }
-}
 
-    @media print {
-      .action-buttons,
-      a.btn,
-      .btn,
-      [onclick],
-      [href*="Booked.html"],
-      [style*="margin-top: 2rem"],
-      .btn-primary,
-      .btn-secondary {
-        display: none !important;
-        visibility: hidden !important;
-      }
-
-      body {
-        background: #fff;
-        -webkit-print-color-adjust: exact;
-      }
-
-      .container {
+    /* 2. จัดวางใบเสร็จให้อยู่ตรงกลางและเต็มหน้ากระดาษ */
+    .container {
+        position: absolute;
+        left: 0;
+        top: 0;
         width: 100%;
-        box-shadow: none;
-        margin: 0;
+        max-width: none; /* ยกเลิกการจำกัดความกว้าง */
         padding: 0;
-      }
+        margin: 0;
     }
 
+    .receipt-card {
+        max-width: 700px; /* จำกัดความกว้างใบเสร็จให้พอดีกับกระดาษ */
+        box-shadow: none; /* ลบเงา */
+        border: none; /* ลบขอบ */
+        margin: 50px auto; /* จัดให้อยู่ตรงกลางหน้ากระดาษแนวตั้ง */
+        padding: 0;
+    }
+    
+    /* 3. ซ่อนปุ่มที่ไม่เกี่ยวข้องกับการพิมพ์บนหน้าพิมพ์ */
+    .success-animation, /* ซ่อนหัวข้อหลัก "รายละเอียดการจอง" */
+    .action-buttons, /* ซ่อนปุ่ม 'พิมพ์' และ 'ดาวน์โหลด PDF' */
+    .classroom-access,
+    .inbox-hero,
+    .inbox-main,
+    .container > div:last-child { /* ซ่อนปุ่ม "กลับไปหน้ารายละเอียด..." */
+        display: none !important;
+    }
+
+    /* 4. ทำให้เนื้อหาใบเสร็จด้านในมองเห็นได้ */
+    .receipt-card * {
+        visibility: visible;
+    }
+
+    /* ปรับแต่งเพื่อให้ดูเหมือนใบเสร็จจริงเมื่อพิมพ์ */
+    .receipt-header {
+        border-bottom: 2px solid #000; /* เปลี่ยนเส้นประเป็นเส้นทึบสีดำ */
+    }
+    .info-row {
+        border-bottom: 1px dashed #999;
+    }
+    .receipt-info .info-row:last-child {
+        border-top: 3px double #000;
+    }
+}

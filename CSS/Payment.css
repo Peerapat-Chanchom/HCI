@@ -1,102 +1,202 @@
+/* การรีเซ็ตพื้นฐาน */
 body {
-  font-family: "Prompt", sans-serif;
-  background: #f5fbfa;
-  margin: 0;
-  padding: 0;
-  color: #2f2f2f;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6; /* สีพื้นหลังอ่อนๆ */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    min-height: 100vh;
 }
 
+/* ภาชนะหลัก */
 .container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 16px;
+    width: 90%;
+    max-width: 600px; /* จำกัดความกว้างสูงสุด */
+    padding: 20px;
+    /* background-color: #fff; */
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+    border-radius: 8px;
+    margin-top: 20px;
 }
 
+/* ส่วนหัวข้อการชำระเงิน */
+.payment-options h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+/* กล่องรายละเอียดการจอง (Card) */
 .card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
 }
 
-h2 {
-  margin-top: 0;
-  color: #007bff;
+.card p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    display: flex; /* จัดให้อยู่ในบรรทัดเดียวกัน */
+    justify-content: space-between; /* กระจายเนื้อหาไปซ้ายและขวา */
 }
 
-.payment-options {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 20px;
+.card strong {
+    color: #333;
+    font-weight: bold;
+    text-align: right;
 }
 
-.payment-option {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 12px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.payment-option:hover {
-  border-color: #007bff;
-  background-color: #f4f9ff;
-}
-
-.selected {
-  border-color: #007bff;
-  background-color: #e9f3ff;
-}
-
+/* ปุ่มหลัก */
 .btn-primary {
-  margin-top: 20px;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  padding: 12px;
-  border-radius: 8px;
-  width: 100%;
-  cursor: pointer;
-  font-size: 16px;
+    /* คุณสมบัติเดิม */
+    display: block;
+    width: 100%; /* กำหนดความกว้างตามที่ต้องการ */
+    padding: 10px;
+    background-color: #728497;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 10px;
+
+    /* 💡 การจัดกึ่งกลางองค์ประกอบ Block-level ที่มีความกว้างจำกัด */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.btn-primary:hover {
-  background: #0056b3;
+
+/* ภาชนะสำหรับปุ่ม */
+.payment-options {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 15px;
 }
 
-/* ---------- QR Popup ---------- */
+/* --- ส่วนของ Popup/Overlay QR Code --- */
+
+/* พื้นหลังมืดทึบ */
 .overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* ดำโปร่งแสง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* แสดงเมื่อมีคลาส active */
 .overlay.active {
-  visibility: visible;
+    visibility: visible;
+    opacity: 1;
 }
 
+/* กล่อง Popup */
 .popup {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  max-width: 320px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
 }
 
-.popup img {
-  width: 250px;
-  height: 250px;
-  margin: 10px 0;
+.overlay.active .popup {
+    transform: scale(1);
 }
 
 .popup h3 {
-  margin: 0 0 10px;
-  color: #007bff;
+    margin-top: 0;
+    color: #333;
+    font-size: 1.3em;
 }
+
+/* รูปภาพ QR */
+#qrImage {
+    width: 100%;
+    max-width: 220px; /* จำกัดขนาด QR */
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* ข้อความจำนวนเงินใน Popup */
+#qrAmount {
+    font-size: 1.2em;
+    color: #d9534f; /* สีแดงสำหรับเน้นยอดเงิน */
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* ปุ่มใน Popup */
+.popup .btn-primary {
+    margin-top: 15px;
+}
+
+    /* ✅ เพิ่ม CSS popup */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .overlay.active { display: flex; }
+
+    .popup {
+      background: white;
+      border-radius: 10px;
+      padding: 25px 30px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    }
+    .popup img {
+      width: 200px;
+      height: 200px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      margin: 15px 0;
+      object-fit: contain;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 10px 20px;
+      margin-top: 10px;
+      width: 100%;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover { background-color: #0056b3; }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }

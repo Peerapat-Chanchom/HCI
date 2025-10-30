@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ยืนยันการชำระเงิน - ติวเตอร์ออนไลน์</title>
     <link rel="stylesheet" href="../CSS/Conform.css">
-    <link rel="stylesheet" href="../CSS/inbox.css" />
-    <link rel="stylesheet" href="../CSS/navbar.css" />
-
-
 </head>
 <body>
     <div class="container">
@@ -29,12 +25,12 @@
             <div class="receipt-info">
                 <div class="info-row">
                     <span class="info-label">บทเรียน</span>
-                    <span class="info-value" id="">ภาษาอังกฤษ</span>
+                    <span class="info-value" id="">ภาษาไทย</span>
                 </div>
 
                 <div class="info-row">
                     <span class="info-label">ผู้สอน</span>
-                    <span class="info-value" id="">สมศรี</span>
+                    <span class="info-value" id="">สมศรี มีหวัง</span>
                 </div>
 
                 <div class="info-row">
@@ -91,6 +87,7 @@
                 </div>
             </div>
 
+        <div>
         <!-- ระบบแชท/ส่งข้อความ -->
         <section class="inbox-hero">
             <div class="container">
@@ -157,9 +154,10 @@
       </form>
     </section>
   </main>
+  </div>
 
         <div>
-            <button>กลับไปหน้ารายละเอียดการจอง</button>
+            <button class="container">กลับไปหน้าการจอง</button>
         </div>
         </div>
     </div>
@@ -172,7 +170,7 @@
         const bookingTime   = localStorage.getItem("bookingTime");
         const bookingHours  = localStorage.getItem("bookingHours");
         const bookingTotal  = localStorage.getItem("bookingTotal");
-        const bookingRate   = 746; // ราคาต่อชั่วโมงคงที่
+        const bookingRate   = 300; // ราคาต่อชั่วโมงคงที่
         const bookingMethod = localStorage.getItem("bookingMethod") || "PromptPay";
         const form = document.querySelector('.chat-input');
         const input = document.getElementById('msgBox');
