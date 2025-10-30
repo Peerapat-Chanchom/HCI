@@ -17,7 +17,7 @@ body {
   background-color: var(--blue-100);
   margin: 0;
   padding: 0;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
@@ -44,8 +44,8 @@ body {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   max-width: 700px;
-  width: 90%;
-  padding: 40px 50px;
+  width: 80%;
+  padding: 40px 50px 50px 40px;
   margin: 20px auto 30px;
   transition: all 0.25s ease;
 }
@@ -152,11 +152,14 @@ body {
 /* 🎥 ส่วนเข้าห้องเรียน */
 .classroom-access {
   background-color: var(--white);
-  padding: 25px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  margin: 20px auto 40px auto;
   text-align: center;
+  padding: 40px 0px 50px 0px;         /* ✅ ให้ padding เท่ากับ receipt-card */
+  margin: 20px auto 40px auto;
+  max-width: 700px;           /* ✅ กำหนดขนาดเท่ากัน */
+  width: 90%;
+  transition: all 0.25s ease; /* ✅ เพิ่มเอฟเฟกต์ hover ให้กล่องเนียน */
 }
 
 .section-title {
@@ -373,15 +376,17 @@ body {
 .back-container {
   width: 100%;
   display: flex;
-  justify-content: flex-end; /* 👉 ชิดขวา */
-  padding-right: 10px;
-  margin-top: 20px;
+  justify-content: center;   /* จัดกึ่งกลางแนวนอน */
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
-/* ปุ่มกลับ */
 .back {
+  display: inline-block;
   background-color: var(--blue-400);
   color: var(--white);
+  text-decoration: none;
   border: none;
   border-radius: 12px;
   padding: 12px 28px;
