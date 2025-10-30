@@ -1,0 +1,229 @@
+:root{
+  --ink:#23324d;
+  --ink-2:#314665;
+  --muted:#7b8496;
+  --line:#e6ecf3;
+  --soft:#f5f8fc;
+  --primary:#7aa4df;
+  --primary-ink:#2f5e9a;
+  --chip:#eef3fb;
+  --danger:#cc2f26;
+  --star:#f5b301;
+  --good:#25a572;
+}
+
+html,body{height:100%;background:#fbfcfe;}
+body{
+  display:flex;
+  flex-direction:column;
+  font-family:Prompt,system-ui,-apple-system,Segoe UI,Roboto;
+  color:var(--ink);
+}
+.site-footer{margin-top:auto}
+
+/* Layout */
+.container{max-width:1100px;margin:0 auto;padding:0 1rem}
+.section{padding:1.25rem 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 30px rgba(25,41,72,.05);padding:1rem}
+.h1{font-size:1.6rem;font-weight:700;margin:0 0 .25rem}
+.muted{color:var(--muted)}
+.row{display:flex;gap:1rem;align-items:center}
+.spacer{flex:1}
+
+/* Header */
+.tutor-head{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center}
+.tutor-avatar{width:88px;height:88px;border-radius:16px;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 20px rgba(30,50,90,.08)}
+.tutor-meta .chips{display:flex;gap:.5rem;flex-wrap:wrap;margin:.25rem 0 .5rem}
+.badge{display:inline-flex;align-items:center;padding:.3rem .75rem;border-radius:999px;background:#e6eefc;color:var(--primary-ink);font-weight:700}
+.chip{display:inline-flex;align-items:center;padding:.25rem .6rem;border-radius:999px;background:var(--chip);border:1px solid var(--line);font-size:.9rem}
+.price{font-weight:700}
+.price small{font-weight:400;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.6rem .9rem;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.btn.primary{background:var(--primary);color:#fff;border-color:transparent}
+.btn.ghost{background:#fff;color:var(--ink)}
+.btn.danger{background:var(--danger);color:#fff;border-color:transparent}
+
+/* Summary */
+.summary{display:grid;grid-template-columns:220px 1fr;gap:1rem}
+.score-big{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--soft);border-radius:16px;padding:1rem;border:1px solid var(--line)}
+.score-big .num{font-size:2.8rem;font-weight:800;line-height:1}
+.score-big .stars{margin:.25rem 0}
+.star{color:var(--star);font-size:1.1rem}
+.break{display:grid;gap:.5rem}
+.bar{display:flex;gap:.6rem;align-items:center}
+.bar .track{flex:1;height:10px;border-radius:999px;background:#edf2fa;overflow:hidden}
+.bar .fill{height:100%;background:var(--primary);width:0}
+
+/* Toolbar */
+.toolbar{display:flex;flex-wrap:wrap;gap:.5rem}
+.toolbar .cc-select-inline, .toolbar select, .toolbar input{
+  padding:.5rem .65rem;border:1px solid var(--line);border-radius:10px;background:#fff
+}
+.toolbar .tab{padding:.45rem .8rem;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer}
+.toolbar .tab.active{background:#e9f0ff;border-color:#d8e5ff;color:var(--primary-ink);font-weight:700}
+
+/* Review list */
+.rev-list{display:flex;flex-direction:column;gap:1rem}
+.rev{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;border:1px solid var(--line);border-radius:16px;padding:1rem;background:#fff}
+.rev .avatar{width:52px;height:52px;border-radius:50%;object-fit:cover}
+.rev .name{font-weight:700}
+.rev .time{color:var(--muted);font-size:.9rem}
+.rev .body{margin:.25rem 0 .5rem}
+.rev .photos{display:flex;gap:.5rem;flex-wrap:wrap}
+.rev .photos img{width:90px;height:90px;border-radius:10px;object-fit:cover;border:1px solid var(--line)}
+.rev .actions{display:flex;gap:.4rem}
+.pill{padding:.25rem .5rem;border-radius:8px;background:#f2f6fb;color:var(--muted);font-size:.85rem}
+
+/* Modal */
+.overlay{position:fixed;inset:0;background:rgba(12,23,40,.35);display:none;align-items:center;justify-content:center;padding:1rem;z-index:30}
+.modal{max-width:640px;width:100%;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 80px rgba(20,40,90,.2);padding:1rem}
+.stars-input button{font-size:1.6rem;color:#cdd6e6;background:none;border:none;cursor:pointer}
+.stars-input button.on{color:var(--star)}
+.modal textarea{width:100%;min-height:120px;border:1px solid var(--line);border-radius:12px;padding:.75rem;resize:vertical}
+
+/* Empty */
+.empty{display:grid;place-items:center;background:#fff;border:1px dashed #dae3ef;border-radius:16px;padding:2rem}
+/* ===============================
+   Review Page — CodeCamp Theme
+   ใช้ตัวแปรสีจาก navbar.css :root
+   =============================== */
+
+:root{
+  /* เผื่อบางหน้าที่ไม่ได้โหลด :root จากที่อื่น */
+  --ink: #22324d;
+  --blue-900:#1f3557; --blue-800:#254f9a; --blue-600:#4e7bd1;
+  --blue-200:#cfe0ff; --blue-100:#e9f0ff;
+  --pastel-200:#e6ebf2; --cream:#fffaf3;
+  --muted:#7a8191;
+  --shadow:0 8px 24px rgba(0,0,0,.06);
+}
+
+html,body{
+  margin:0; padding:0;
+  font-family:"Prompt",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Thai",sans-serif;
+  color:var(--ink);
+  background:#f8fafc;
+}
+
+/* ---------- Layout helpers ---------- */
+.container{ width:min(1120px,92%); margin-inline:auto; }
+
+/* ---------- HERO ---------- */
+.review-hero{
+  background: linear-gradient(90deg, var(--blue-100), var(--cream));
+  border-bottom:1px solid var(--pastel-200);
+  padding:28px 0;
+}
+.review-hero h1{
+  margin:0;
+  font-size:1.75rem;
+  font-weight:700;
+  color:var(--blue-900);
+}
+
+/* ---------- Teacher summary card ---------- */
+.teacher-card{
+  margin-top:18px;
+  background:#fff;
+  border:1px solid var(--pastel-200);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  padding:18px;
+  display:flex; align-items:center; gap:16px;
+}
+.teacher-card .avatar{
+  width:96px; height:96px; border-radius:12px; object-fit:cover;
+  border:1px solid var(--pastel-200);
+}
+.teacher-card .info{ flex:1; min-width:0; }
+.teacher-card h2{
+  margin:0 0 6px 0; font-weight:700; color:var(--blue-900);
+}
+.tags{ display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 8px; }
+
+/* ป้ายภาษาให้หน้าตาเดียวกับ badge ในเว็บ */
+.badge.lang{
+  display:inline-flex; align-items:center;
+  background:#d9e5ff; color:var(--blue-800);
+  border:1px solid var(--blue-200);
+  border-radius:999px; padding:4px 10px; font-weight:600; font-size:.85rem;
+}
+.chip{
+  display:inline-flex; align-items:center;
+  background:#eef2f8; color:#475569; border:1px solid var(--pastel-200);
+  border-radius:999px; padding:4px 10px; font-size:.85rem; font-weight:500;
+}
+
+.price{ margin:0; color:var(--ink); font-weight:700; }
+
+/* Actions */
+.actions{ display:flex; gap:8px; margin-left:auto; }
+.btn{
+  --btn-bg:#fff; --btn-fg:var(--blue-800); --btn-bd:var(--blue-100);
+  display:inline-flex; align-items:center; justify-content:center;
+  height:38px; padding:0 14px; border-radius:10px;
+  background:var(--btn-bg); color:var(--btn-fg); border:1px solid var(--btn-bd);
+  text-decoration:none; font-weight:600; transition:.2s ease;
+}
+.btn:hover{ background:var(--blue-100); }
+.btn.primary{
+  --btn-bg:var(--blue-600); --btn-fg:#fff; --btn-bd:var(--blue-600);
+}
+.btn.primary:hover{ filter:brightness(.95); }
+.btn.small{ height:32px; padding:0 12px; border-radius:8px; }
+
+/* ---------- Review stats (คะแนนรวม + แถบดาว) ---------- */
+.review-stats{
+  margin-top:22px; background:#fff;
+  border:1px solid var(--pastel-200); border-radius:16px; box-shadow:var(--shadow);
+  padding:18px;
+}
+.review-stats header{
+  display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;
+}
+.review-stats h2{ margin:0; font-size:1.15rem; font-weight:700; color:var(--blue-900); }
+
+.stats-body{ display:flex; align-items:flex-start; gap:24px; }
+.score{ text-align:center; min-width:120px; }
+.score h3{ margin:0; font-size:2.25rem; color:var(--blue-900); }
+.score p{ margin:4px 0; letter-spacing:2px; color:#f39c12; }
+.score span{ font-size:.9rem; color:var(--muted); }
+
+.bars{ flex:1; }
+.bar{ display:grid; grid-template-columns:64px 1fr 24px; align-items:center; gap:8px; margin:6px 0; }
+.bar > span:first-child{ color:var(--muted); font-size:.9rem; }
+.bar .fill{
+  height:9px; border-radius:6px; background:linear-gradient(90deg,var(--blue-200),var(--blue-600));
+  position:relative; overflow:hidden;
+}
+.bar .fill::after{
+  content:""; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+  transform:translateX(-100%); animation:shine 2.2s linear infinite;
+}
+@keyframes shine { to{ transform:translateX(100%); } }
+
+/* ---------- Review list ---------- */
+.review-list{
+  margin-top:22px; display:flex; flex-direction:column; gap:12px;
+}
+.review-item{
+  background:#fff; border:1px solid var(--pastel-200); border-radius:14px; box-shadow:var(--shadow);
+  padding:14px; display:flex; gap:12px;
+}
+.review-item img{ width:60px; height:60px; border-radius:50%; object-fit:cover; border:1px solid var(--pastel-200); }
+.review-item .content h4{ margin:2px 0 4px; font-weight:700; color:var(--blue-900); }
+.review-item .content p{ margin:0 0 6px; color:#475569; }
+.review-item time{ font-size:.85rem; color:#9aa3af; }
+
+/* ---------- Utilities ---------- */
+.site-footer{
+  text-align:center; color:#64748b; font-size:.95rem; padding:22px 0; margin-top:28px;
+  border-top:1px solid var(--pastel-200); background:#fff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 820px){
+  .teacher-card{ flex-wrap:wrap; }
+  .actions{ margin-left:0; width:100%; justify-content:flex-start; }
+  .stats-body{ flex-direction:column; gap:14px; }
+}

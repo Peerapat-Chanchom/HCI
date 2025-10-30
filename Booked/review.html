@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>รีวิวอาจารย์ |Tutoring</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Navbar -->
+  <link rel="stylesheet" href="../CSS/navbar.css" />
+  <!-- Page CSS (แยกไฟล์) -->
+  <link rel="stylesheet" href="../CSS/reviews.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="cc-navbar" role="navigation" aria-label="หลัก">
+    <div class="cc-nav-wrap">
+      <a class="cc-brand" href="/Home/Home.html" aria-label=">Tutoring หน้าหลัก">
+        <span class="cc-logo" aria-hidden="true">⬢</span>
+        <strong class="cc-site">Tutoring</strong>
+      </a>
+      <ul class="cc-links">
+        <li><a href="/Teacher/teacher.html">ติวเตอร์ออนไลน์</a></li>
+        <li><a href="/Teacher/favorites.html">ถูกใจของฉัน</a></li>
+      </ul>
+      <div class="cc-right">
+        <a class="cc-icon" href="/Teacher/notifications.html" aria-label="การแจ้งเตือน">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v1h16v-1l-2-2z"/></svg>
+        </a>
+        <a class="cc-avatar" href="/Profile/account.html" aria-label="โปรไฟล์ของฉัน">
+          <img src="https://i.pravatar.cc/36?img=68" alt="ภาพโปรไฟล์ผู้ใช้">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO: Tutor header -->
+  <section class="section">
+    <div class="container card tutor-head" id="tutorHead"></div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section class="section">
+    <div class="container card">
+      <div class="row" style="justify-content:space-between;align-items:flex-start">
+        <div>
+          <h2 class="h1" style="margin:0 0 .75rem">รีวิวจากผู้เรียน</h2>
+          <div class="muted">อ่านประสบการณ์จริงจากผู้ที่เรียนกับอาจารย์ท่านนี้</div>
+        </div>
+        <div class="row">
+          <button id="btnWrite" class="btn primary">เขียนรีวิว</button>
+        </div>
+      </div>
+
+      <div class="summary" style="margin-top:1rem">
+        <div class="score-big">
+          <div class="num" id="avgNum">0.0</div>
+          <div class="stars" id="avgStars"></div>
+          <div class="muted"><span id="countReviews">0</span> รีวิว</div>
+        </div>
+        <div class="break" id="breakWrap"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <section class="section">
+    <div class="container card">
+      <div class="toolbar">
+        <button class="tab active" data-filter="all">ทั้งหมด</button>
+        <button class="tab" data-filter="photo">มีรูปภาพ</button>
+        <button class="tab" data-filter="5">5 ดาว</button>
+        <button class="tab" data-filter="4">4 ดาว</button>
+        <button class="tab" data-filter="3">≤ 3 ดาว</button>
+        <div class="spacer"></div>
+        <select id="sortMode" aria-label="เรียงลำดับ">
+          <option value="new">ใหม่ล่าสุด</option>
+          <option value="top">คะแนนสูงสุด</option>
+          <option value="low">คะแนนต่ำสุด</option>
+        </select>
+        <input id="q" type="search" placeholder="ค้นหาในรีวิว…" />
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEW LIST -->
+  <main class="section">
+    <div class="container rev-list" id="revList" aria-live="polite"></div>
+  </main>
+
+  <!-- EMPTY TEMPLATE -->
+  <template id="tpl-empty">
+    <div class="container">
+      <div class="empty">
+        <div style="font-size:2rem">📝</div>
+        <h3 class="h1" style="font-size:1.2rem">ยังไม่มีรีวิว</h3>
+        <div class="muted">เป็นคนแรกที่เล่าประสบการณ์การเรียนของคุณ</div>
+        <div style="margin-top:.75rem">
+          <button id="btnWriteEmpty" class="btn primary">เขียนรีวิว</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- WRITE MODAL -->
+  <div class="overlay" id="ovl">
+    <div class="modal">
+      <div class="row" style="margin-bottom:.5rem">
+        <h3 class="h1" style="font-size:1.3rem">เขียนรีวิว</h3>
+        <button id="btnClose" class="btn ghost">ปิด</button>
+      </div>
+
+      <div class="row">
+        <div>ให้คะแนน</div>
+        <div class="stars-input" id="starInput" aria-label="ให้คะแนนเป็นจำนวนดาว"></div>
+      </div>
+
+      <label class="muted" style="display:block;margin-top:.75rem">ความคิดเห็น</label>
+      <textarea id="txtBody" placeholder="เล่าประสบการณ์เรียนของคุณ…"></textarea>
+
+      <div class="row" style="margin-top:.75rem">
+        <div class="row" style="gap:.5rem">
+          <input type="file" id="imgPick" accept="image/*" multiple />
+          <label><input type="checkbox" id="anon" /> รีวิวแบบไม่เปิดเผยชื่อ</label>
+        </div>
+        <div class="spacer"></div>
+        <button id="btnSubmit" class="btn primary">ส่งรีวิว</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner container" style="padding:1.5rem 0">
+      © 2025 CodeClass · เรียนเขียนโปรแกรมกับอาจารย์คุณภาพทั่วโลก
+    </div>
+  </footer>
+
+  <!-- Navbar badges -->
+  <script src="navbar.js" defer></script>
+
+  <!-- Page Logic (ยังคงรวมไว้ใน HTML ตามที่ขอแยกเฉพาะ CSS) -->
+  <script>
+  (function(){
+    'use strict';
+    const $  = s => document.querySelector(s);
+    const $$ = s => Array.from(document.querySelectorAll(s));
+
+    const url = new URL(location.href);
+    const teacherId = (url.searchParams.get('id') || 'aree').toLowerCase();
+
+    const Profiles = {
+      aree:     { name:'อารี ใจดี',    subject:'ภาษาอังกฤษ', price:550, avatar:'https://i.pinimg.com/736x/9c/e0/6d/9ce06dc2b0b6894de29fb110f2f28d71.jpg', tags:'แกรมม่า สนทนา' },
+      prasit:   { name:'ประสิทธิ์ ตั้งใจดี', subject:'คณิตศาสตร์', price:600, avatar:'https://i.pravatar.cc/120?img=65', tags:'พีชคณิต เรขาคณิต PAT1' },
+      somchai:  { name:'สมชาย ใฝ่รู้', subject:'วิทยาศาสตร์', price:530, avatar:'https://i.pravatar.cc/120?img=13', tags:'ฟิสิกส์ เคมี ชีวะ' },
+      somsri:   { name:'สมศรี มีหวัง', subject:'ภาษาไทย', price:490, avatar:'https://i.pravatar.cc/120?img=32', tags:'อ่าน เขียน วิเคราะห์' },
+      peerapon: { name:'พีระพล รักเรียน', subject:'สังคมศึกษา', price:520, avatar:'https://i.pravatar.cc/120?img=52', tags:'ประวัติศาสตร์ ภูมิศาสตร์ พลเมือง' },
+      tawan:    { name:'ตะวัน แสงดี',  subject:'ศิลปะ', price:570, avatar:'https://i.pravatar.cc/120?img=48', tags:'วาดเส้น ระบายสี พอร์ตโฟลิโอ' }
+    };
+
+    function getProfileFromFav(id){
+      try{
+        const favs = JSON.parse(localStorage.getItem('favorites.items')||'[]');
+        const hit  = favs.find(x => (x.id||'').toLowerCase()===id || (x.href||'').toLowerCase().includes(id));
+        if(!hit) return null;
+        return {
+          name:hit.title || Profiles[id]?.name,
+          subject: hit.subject || Profiles[id]?.subject,
+          price: parseInt(hit.price||Profiles[id]?.price||0,10),
+          avatar: hit.avatar || Profiles[id]?.avatar,
+          tags: hit.tags || Profiles[id]?.tags
+        };
+      }catch{ return null; }
+    }
+    const Profile = getProfileFromFav(teacherId) || Profiles[teacherId] || Profiles['aree'];
+
+    const REV_KEY = `reviews.${teacherId}`;
+    function loadReviews(){ try{ return JSON.parse(localStorage.getItem(REV_KEY))||[]; }catch{ return []; } }
+    function saveReviews(items){ localStorage.setItem(REV_KEY, JSON.stringify(items)); }
+
+    (function seed(){
+      const cur = loadReviews();
+      if(cur.length) return;
+      const now = Date.now();
+      saveReviews([
+        {id:'r1', name:'Nong Mint', avatar:'https://i.pravatar.cc/80?img=12', star:5, body:'สอนเข้าใจง่ายมาก สำเนียงชัด ทำให้กล้าพูดขึ้นเยอะเลยค่ะ', time: new Date(now-60*60*1000).toISOString(), photos:[], liked:3},
+        {id:'r2', name:'Poom', avatar:'https://i.pravatar.cc/80?img=20', star:4, body:'มีการบ้านให้ฝึกต่อเนื่อง โฟกัสจุดอ่อนดีครับ', time: new Date(now-2*24*60*60*1000).toISOString(), photos:[], liked:1},
+        {id:'r3', name:'ผู้ใช้ไม่ระบุชื่อ', avatar:'', star:3, body:'ดีค่ะ แต่บางช่วงเร็วไปนิด ถ้าช้าลงอีกหน่อยจะดีมาก', time: new Date(now-5*24*60*60*1000).toISOString(), photos:[], liked:0}
+      ]);
+    })();
+
+    function starHTML(n){ return `<span class="star">${'★'.repeat(n)}</span><span class="star" style="color:#cfd8ea">${'☆'.repeat(5-n)}</span>`; }
+    function relTime(iso){
+      const d = new Date(iso), sec = (Date.now()-d)/1000;
+      if(sec<60) return 'เมื่อสักครู่';
+      const m=Math.floor(sec/60); if(m<60) return m+' นาทีที่แล้ว';
+      const h=Math.floor(m/60); if(h<24) return h+' ชม.ที่แล้ว';
+      const dd=Math.floor(h/24); if(dd===1) return 'เมื่อวาน'; if(dd<=7) return dd+' วันที่แล้ว';
+      return d.toLocaleDateString('th-TH');
+    }
+    function escapeHTML(s){ return (s||'').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])); }
+
+    function tutorHead(){
+      $('#tutorHead').innerHTML = `
+        <img class="tutor-avatar" src="${Profile.avatar||''}" alt="รูปโปรไฟล์">
+        <div class="tutor-meta">
+          <div class="h1">${Profile.name||'อาจารย์'}</div>
+          <div class="chips">
+            <span class="badge">${Profile.subject||''}</span>
+            ${Profile.tags ? Profile.tags.split(/[, ]+/).filter(Boolean).slice(0,3).map(t=>`<span class="chip">#${t}</span>`).join('') : ''}
+          </div>
+          <div class="price">${(Profile.price||0).toLocaleString('th-TH')} บาท <small>/ 1 ชั่วโมง</small></div>
+        </div>
+        <div class="row" style="gap:.5rem">
+          <a class="btn ghost" href="profile-${teacherId}.html">ดูโปรไฟล์</a>
+        </div>
+      `;
+    }
+
+    const avgNum = $('#avgNum'), avgStars = $('#avgStars'), countReviews = $('#countReviews'), breakWrap = $('#breakWrap');
+    function calcSummary(list){
+      const total=list.length, sum=list.reduce((a,b)=>a+b.star,0);
+      const avg= total? Math.round((sum/total)*10)/10 : 0, buckets=[0,0,0,0,0];
+      list.forEach(r=>buckets[r.star-1]++);
+      return {total,avg,buckets};
+    }
+    function renderSummary(){
+      const list=loadReviews(); const {total,avg,buckets}=calcSummary(list);
+      avgNum.textContent=avg.toFixed(1); avgStars.innerHTML=starHTML(Math.round(avg)); countReviews.textContent=total; breakWrap.innerHTML='';
+      for(let star=5; star>=1; star--){
+        const count=buckets[star-1], pct= total? Math.round(count*100/total):0;
+        const row=document.createElement('div'); row.className='bar';
+        row.innerHTML=`<span class="pill" style="min-width:48px;text-align:center">${star} ดาว</span>
+          <div class="track"><div class="fill" style="width:${pct}%"></div></div>
+          <span class="muted" style="min-width:36px;text-align:right">${count}</span>`;
+        breakWrap.appendChild(row);
+      }
+    }
+
+    const revList = $('#revList'), sortMode=$('#sortMode'), tabs=$$('.tab'), q=$('#q');
+    let currentFilter='all';
+    function matchFilter(r){
+      if(currentFilter==='all') return true;
+      if(currentFilter==='photo') return (r.photos&&r.photos.length);
+      if(currentFilter==='5') return r.star===5;
+      if(currentFilter==='4') return r.star===4;
+      if(currentFilter==='3') return r.star<=3;
+      return true;
+    }
+    function sortBy(list,mode){
+      const cp=list.slice();
+      if(mode==='new') cp.sort((a,b)=> new Date(b.time)-new Date(a.time));
+      else if(mode==='top') cp.sort((a,b)=> b.star-a.star);
+      else if(mode==='low') cp.sort((a,b)=> a.star-b.star);
+      return cp;
+    }
+    function renderList(){
+      const all=loadReviews();
+      const filtered = sortBy(all.filter(r=>matchFilter(r))
+        .filter(r=> !q.value || (r.body||'').toLowerCase().includes(q.value.toLowerCase())), sortMode.value);
+
+      if(!filtered.length){
+        revList.innerHTML = document.querySelector('#tpl-empty').innerHTML;
+        document.getElementById('btnWriteEmpty')?.addEventListener('click', openModal);
+        return;
+      }
+      revList.innerHTML='';
+      filtered.forEach(r=>{
+        const node=document.createElement('article'); node.className='rev';
+        node.innerHTML=`
+          <div><img class="avatar" src="${r.avatar||'https://i.pravatar.cc/80?u=anon'}" alt=""></div>
+          <div>
+            <div class="row" style="align-items:baseline">
+              <div class="name">${r.name||'ผู้ใช้ไม่ระบุชื่อ'}</div>
+              <div class="stars">${starHTML(r.star)}</div>
+              <div class="pill time">${relTime(r.time)}</div>
+            </div>
+            <div class="body">${escapeHTML(r.body||'')}</div>
+            ${(r.photos && r.photos.length)
+  ? `<div class="photos">${
+       r.photos
+        .filter(Boolean) // กันเคสค่าที่เป็น "" หรือ null
+        .map(p => `<img src="${p}" loading="lazy" referrerpolicy="no-referrer"
+                     onerror="this.remove()">`)
+        .join('')
+     }</div>`
+  : ''
+}
+
+          </div>
+          <div class="actions">
+            <button class="btn ghost" aria-label="ถูกใจรีวิวนี้">👍 ${r.liked||0}</button>
+          </div>
+        `;
+        node.querySelector('.actions .btn')?.addEventListener('click', ()=>{
+          const all=loadReviews(); const i=all.findIndex(x=>x.id===r.id);
+          if(i>=0){ all[i].liked=(all[i].liked||0)+1; saveReviews(all); renderList(); }
+        });
+        revList.appendChild(node);
+      });
+    }
+
+    const ovl=$('#ovl'), starInput=$('#starInput'), txtBody=$('#txtBody'), imgPick=$('#imgPick'), anon=$('#anon');
+    function openModal(){ ovl.style.display='flex'; }
+    function closeModal(){ ovl.style.display='none'; resetForm(); }
+    function resetForm(){ txtBody.value=''; anon.checked=false; imgPick.value=null; pickStar(5); }
+    function pickStar(n){
+      starInput.innerHTML=''; starInput.dataset.value=n;
+      for(let i=1;i<=5;i++){ const b=document.createElement('button'); b.type='button'; b.textContent='★'; b.className=i<=n?'on':''; b.addEventListener('click',()=>pickStar(i)); starInput.appendChild(b); }
+    }
+    pickStar(5);
+    $('#btnWrite').addEventListener('click', openModal);
+    $('#btnClose').addEventListener('click', closeModal);
+    $('#btnSubmit').addEventListener('click', ()=>{
+      const star=parseInt(starInput.dataset.value||'0',10), body=txtBody.value.trim();
+      if(!star){ alert('กรุณาให้คะแนน'); return; }
+      if(!body){ alert('กรุณาพิมพ์ความคิดเห็น'); return; }
+      const files=Array.from(imgPick.files||[]);
+      const readers=files.slice(0,4).map(f=> new Promise(res=>{ const fr=new FileReader(); fr.onload=e=>res(e.target.result); fr.readAsDataURL(f); }));
+      Promise.all(readers).then(photos=>{
+        const all=loadReviews();
+        all.unshift({id:'r'+Date.now(), name: anon.checked?'ผู้ใช้ไม่ระบุชื่อ':'ผู้เรียน', avatar: anon.checked?'':'https://i.pravatar.cc/80?u=me', star, body, photos, time:new Date().toISOString(), liked:0});
+        saveReviews(all); closeModal(); renderSummary(); renderList();
+      });
+    });
+
+    tabs.forEach(t=>t.addEventListener('click',()=>{ tabs.forEach(x=>x.classList.remove('active')); t.classList.add('active'); currentFilter=t.dataset.filter; renderList(); }));
+    $('#sortMode').addEventListener('change', renderList);
+    $('#q').addEventListener('input', renderList);
+
+    tutorHead(); renderSummary(); renderList();
+  })();
+  </script>
+<script>
+  // อ่านค่าพารามิเตอร์ id จาก URL เช่น ?id=aree
+  const params = new URLSearchParams(location.search);
+  const teacherId = params.get('id') || 'aree';
+
+  // อัปเดตปุ่ม "ดูโปรไฟล์"
+  const profileBtn = document.querySelector('.btn.ghost');
+  if (profileBtn) {
+    profileBtn.href = `/Teacher/profile-${teacherId}.html`;
+  }
+
+  // ✅ เพิ่ม mapping อาจารย์พร้อมรูป
+  const teacherData = {
+    aree: {
+      name: 'อารี ใจดี',
+      subject: 'ภาษาอังกฤษ',
+      tags: ['แกรมม่า', 'สนทนา'],
+      price: 550,
+      avatar: '/Teacher/images/aree.jpg'
+    },
+    peerapon: {
+      name: 'พีรพล พัฒน์ดี',
+      subject: 'สังคมศึกษา',
+      tags: ['ประวัติศาสตร์', 'ภูมิศาสตร์'],
+      price: 500,
+      avatar: '/Teacher/images/peerapon.jpg'
+    },
+    prasit: {
+      name: 'ประสิทธิ์ เก่งดี',
+      subject: 'คณิตศาสตร์',
+      tags: ['พีชคณิต', 'เรขาคณิต'],
+      price: 580,
+      avatar: '/Teacher/images/prasit.jpg'
+    },
+    somchai: {
+      name: 'สมชาย มีใจ',
+      subject: 'วิทยาศาสตร์',
+      tags: ['ฟิสิกส์', 'เคมี'],
+      price: 600,
+      avatar: '/Teacher/images/somchai.jpg'
+    },
+    somsri: {
+      name: 'สมศรี มีหวัง',
+      subject: 'ภาษาไทย',
+      tags: ['อ่าน', 'เขียน', 'วิเคราะห์'],
+      price: 530,
+      avatar: '/Teacher/images/somsri.jpg'
+    },
+    tawan: {
+      name: 'ตะวัน แสงดี',
+      subject: 'ศิลปะ',
+      tags: ['วาดเส้น', 'พอร์ตโฟลิโอ'],
+      price: 570,
+      avatar: '/Teacher/images/tawan.jpg'
+    }
+  };
+
+  const info = teacherData[teacherId];
+  if (info) {
+    document.querySelector('.teacher-card h2').textContent = info.name;
+    document.querySelector('.badge.lang').textContent = info.subject;
+    document.querySelector('.price').innerHTML = `${info.price.toLocaleString('th-TH')} บาท <small>/ 1 ชั่วโมง</small>`;
+
+    // ✅ อัปเดตรูปโปรไฟล์
+    const avatarImg = document.querySelector('.teacher-card .avatar');
+    if (avatarImg) avatarImg.src = info.avatar;
+
+    // ✅ ล้างแท็กเก่าแล้วเพิ่มใหม่
+    const tagWrap = document.querySelector('.tags');
+    if (tagWrap) {
+      tagWrap.querySelectorAll('.chip').forEach(c => c.remove());
+      info.tags.forEach(tag => {
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.textContent = `#${tag}`;
+        tagWrap.appendChild(chip);
+      });
+    }
+  }
+</script>
+</body>
+</html>

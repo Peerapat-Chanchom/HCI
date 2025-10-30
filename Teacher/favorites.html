@@ -14,15 +14,9 @@
   <link rel="stylesheet" href="../CSS/navbar.css" />
   <!-- หน้านี้ -->
   <link rel="stylesheet" href="../CSS/favorites.css" />
-    <style>
-    html, body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.site-footer {
-  margin-top: auto;
-}
+  <style>
+    html, body { height:100%; display:flex; flex-direction:column; }
+    .site-footer { margin-top:auto; }
   </style>
 </head>
 <body>
@@ -31,7 +25,7 @@
     <div class="cc-nav-wrap">
       <a class="cc-brand" href="/Home/Home.html" aria-label="CodeClass หน้าหลัก">
         <span class="cc-logo" aria-hidden="true">⬢</span>
-        <strong class="cc-site">CodeClass</strong>
+        <strong class="cc-site">Tutoring</strong>
       </a>
 
       <ul class="cc-links">
@@ -40,24 +34,15 @@
       </ul>
 
       <div class="cc-right">
-        <!-- <button class="cc-btn ghost" onclick="location.href='/Teacher/teacher.html'">ไปเลือกอาจารย์</button> -->
-        <!-- <div class="cc-actions">
-          <a class="cc-icon" href="/Teacher/inbox.html" aria-label="กล่องข้อความ">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a> -->
-         <a class="cc-icon" href="/Teacher/favorites.html" aria-label="ถูกใจของฉัน">
+        <a class="cc-icon" href="/Teacher/favorites.html" aria-label="ถูกใจของฉัน">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.4-9.1-7.6C.6 10.8 1.4 7.2 4.4 6 6.3 5.2 8.3 5.7 9.7 7c.5.5.9 1.1 1.1 1.7.3-.6.7-1.2 1.2-1.7 1.4-1.4 3.4-1.8 5.3-.9 3 1.3 3.7 4.8 1.5 7.4C18.7 16.6 12 21 12 21z"/></svg>
         </a>
-          <a class="cc-icon" href="/Teacher/notifications.html" aria-label="การแจ้งเตือน">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v1h16v-1l-2-2z"/></svg>
-          </a>
-          <!-- <a class="cc-icon" href="/Teacher/help.html" aria-label="ศูนย์ช่วยเหลือ">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.88 15h-1.8v-1.8h1.8V17zm1.9-6.8c-.22.35-.62.72-1.18 1.11-.4.28-.65.5-.73.66-.09.17-.13.41-.13.74H11v-.32c0-.34.06-.63.18-.86.12-.24.37-.49.73-.76.47-.34.78-.61.93-.82.15-.21.23-.45.23-.74 0-.39-.15-.71-.44-.96-.29-.25-.69-.38-1.2-.38-.49 0-.9.14-1.24.41-.33.27-.56.67-.68 1.19l-1.77-.2c.09-.8.43-1.43 1.01-1.9.58-.47 1.33-.7 2.26-.7 1.01 0 1.8.25 2.38.76.58.5.87 1.16.87 1.98 0 .43-.11.82-.33 1.17z"/></svg>
-          </a> -->
-          <a class="cc-avatar" href="/Profile/account.html" aria-label="โปรไฟล์ของฉัน">
-            <img src="https://i.pravatar.cc/36?img=68" alt="ภาพโปรไฟล์ผู้ใช้">
-          </a>
-        </div>
+        <a class="cc-icon" href="/Teacher/notifications.html" aria-label="การแจ้งเตือน">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v1h16v-1l-2-2z"/></svg>
+        </a>
+        <a class="cc-avatar" href="/Profile/account.html" aria-label="โปรไฟล์ของฉัน">
+          <img src="https://i.pravatar.cc/36?img=68" alt="ภาพโปรไฟล์ผู้ใช้">
+        </a>
       </div>
     </div>
   </header>
@@ -101,33 +86,32 @@
 
   <!-- CARD TEMPLATE -->
   <template id="tpl-card">
-  <article class="card">
-    <button class="fav-toggle on" aria-pressed="true" aria-label="นำออกจากบุ๊คมาร์ค">❤</button>
+    <article class="card">
+      <button class="fav-toggle on" aria-pressed="true" aria-label="นำออกจากบุ๊คมาร์ค">❤</button>
 
-    <a class="avatar" href="#" aria-label="เปิดโปรไฟล์">
-      <img src="" alt="ภาพโปรไฟล์">
-    </a>
+      <a class="avatar" href="#" aria-label="เปิดโปรไฟล์">
+        <img src="" alt="ภาพโปรไฟล์">
+      </a>
 
-    <div class="body">
-      <header class="card-top">
-        <h2><a class="title" href="#"></a></h2>
-        <div class="meta">
-          <span class="subject light"></span> <!-- ✅ แสดงวิชาที่สอน -->
-        </div>
-      </header>
+      <div class="body">
+        <header class="card-top">
+          <h2><a class="title" href="#"></a></h2>
+          <div class="meta">
+            <span class="subject light"></span>
+          </div>
+        </header>
 
-      <p class="excerpt small" style="margin:.25rem 0 .5rem 0;"></p> <!-- ✅ คำโปรย -->
+        <p class="excerpt small" style="margin:.25rem 0 .5rem 0;"></p>
 
-      <div class="chips" aria-label="แท็ก" style="display:flex;flex-wrap:wrap;gap:.4rem;"></div> <!-- ✅ แท็ก -->
+        <div class="chips" aria-label="แท็ก" style="display:flex;flex-wrap:wrap;gap:.4rem;"></div>
 
-      <footer class="card-bottom" style="margin-top:.6rem;">
-        <div class="stats"><span class="price">—</span></div>
-        <div class="cta"><a class="btn primary open-profile" href="#">ดูโปรไฟล์</a></div>
-      </footer>
-    </div>
-  </article>
-</template>
-
+        <footer class="card-bottom" style="margin-top:.6rem;">
+          <div class="stats"><span class="price">—</span></div>
+          <div class="cta"><a class="btn primary open-profile" href="#">ดูโปรไฟล์</a></div>
+        </footer>
+      </div>
+    </article>
+  </template>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -139,7 +123,7 @@
   <!-- Navbar JS -->
   <script src="navbar.js" defer></script>
 
-  <!-- Favorites JS -->
+  <!-- Favorites JS (เวอร์ชันเดียว ไม่ซ้ำ) -->
   <script>
   (function(){
     'use strict';
@@ -157,143 +141,18 @@
       try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
       catch { return []; }
     }
-
     function saveFavs(items){
       localStorage.setItem(LS_KEY, JSON.stringify(items));
       localStorage.setItem(BADGE_KEY, String(items.length));
       window.dispatchEvent(new StorageEvent('storage', { key: BADGE_KEY, newValue: String(items.length) }));
     }
 
+    // ราคาเป็น "บาท"
     function formatPrice(p){
       if(!p) return '—';
       const n = parseInt(p, 10);
       if(Number.isNaN(n)) return '—';
-      return `฿${n.toLocaleString('th-TH')} <small>/ 50–55 นาที</small>`;
-    }
-
-
-    function sortItems(items, mode){
-      const cp = items.slice();
-      if(mode === 'name'){
-        cp.sort((a,b)=> (a.title||'').localeCompare(b.title||'', 'th'));
-      } else if(mode === 'price-asc'){
-        cp.sort((a,b)=> (parseInt(a.price||999999,10) - parseInt(b.price||999999,10)));
-      } else if(mode === 'price-desc'){
-        cp.sort((a,b)=> (parseInt(b.price||-1,10) - parseInt(a.price||-1,10)));
-      }
-      return cp;
-    }
-
-    function removeById(id){
-      const items = loadFavs();
-      const idx = items.findIndex(x => x.id === id);
-      if(idx >= 0){
-        items.splice(idx,1);
-        saveFavs(items);
-        render();
-      }
-    }
-
-    function render(){
-      listEl.setAttribute('aria-busy', 'true');
-      listEl.innerHTML = '';
-
-      const items = sortItems(loadFavs(), sortEl.value);
-      countEl.textContent = items.length;
-
-      if(items.length === 0){
-        const empty = document.importNode(document.querySelector('#tpl-empty').content, true);
-        listEl.appendChild(empty);
-        listEl.setAttribute('aria-busy', 'false');
-        return;
-      }
-
-      const tpl = document.querySelector('#tpl-card');
-      items.forEach(item=>{
-        const node = document.importNode(tpl.content, true);
-
-        const card = node.querySelector('.card');
-        const btnFav = node.querySelector('.fav-toggle');
-        const avatarA = node.querySelector('.avatar');
-        const img = node.querySelector('img');
-        const titleA = node.querySelector('.title');
-        const priceEl = node.querySelector('.price');
-        const openBtn = node.querySelector('.open-profile');
-
-        avatarA.href = item.href || '#';
-        img.src = item.avatar || '';
-        img.alt = `ภาพโปรไฟล์ ${item.title || ''}`;
-        titleA.href = item.href || '#';
-        titleA.textContent = item.title || 'Unknown';
-        priceEl.innerHTML = formatPrice(item.price);
-        openBtn.href = item.href || '#';
-
-// แสดงแท็กวิชาแบบหัวกลม
-const subjectEl = node.querySelector('.subject');
-if (item.subject) {
-  subjectEl.innerHTML = `<span class="badge pro">${item.subject}</span> 
-  <span class="light">• สอน: ${item.tags || '-'}</span>`;
-}
-
-
-        btnFav.title = 'นำออกจากบุ๊คมาร์ค';
-        btnFav.addEventListener('click', e=>{
-          e.preventDefault();
-          removeById(item.id);
-        });
-
-        listEl.appendChild(node);
-      });
-
-      listEl.setAttribute('aria-busy', 'false');
-    }
-
-    sortEl.addEventListener('change', render);
-    clearBtn.addEventListener('click', ()=>{
-      if(confirm('ต้องการลบรายการที่ถูกใจทั้งหมดหรือไม่?')){
-        saveFavs([]);
-        render();
-      }
-    });
-
-    window.addEventListener('storage', e=>{
-      if(e.key === LS_KEY || e.key === BADGE_KEY) render();
-    });
-
-    render();
-  })();
-  </script>
-
-  <script>
-  (function(){
-    'use strict';
-
-    const LS_KEY = 'favorites.items';
-    const BADGE_KEY = 'favorites.count';
-    const $  = s => document.querySelector(s);
-    
-
-    const listEl   = $('#favList');
-    const countEl  = $('#favCount');
-    const sortEl   = $('#sort');
-    const clearBtn = $('#btnClear');
-
-    function loadFavs(){
-      try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; }
-      catch { return []; }
-    }
-
-    function saveFavs(items){
-      localStorage.setItem(LS_KEY, JSON.stringify(items));
-      localStorage.setItem(BADGE_KEY, String(items.length));
-      window.dispatchEvent(new StorageEvent('storage', { key: BADGE_KEY, newValue: String(items.length) }));
-    }
-
-    function formatPrice(p){
-      if(!p) return '—';
-      const n = parseInt(p, 10);
-      if(Number.isNaN(n)) return '—';
-      return `฿${n.toLocaleString('th-TH')} <small>/ 50–55 นาที</small>`;
+      return `${n.toLocaleString('th-TH')} บาท <small>/ 1 ชั่วโมง</small>`;
     }
 
     function sortItems(items, mode){
@@ -318,112 +177,193 @@ if (item.subject) {
       }
     }
 
-    function render(){
-      listEl.setAttribute('aria-busy', 'true');
-      listEl.innerHTML = '';
+    // อัปเกรด favorites เก่าให้มี subject/tags และ price เป็นตัวเลข
+   (function upgradeOldFavorites(){
+  const raw = localStorage.getItem(LS_KEY);
+  if (!raw) return;
 
-      const items = sortItems(loadFavs(), sortEl.value);
-      countEl.textContent = items.length;
+  let items = [];
+  try { items = JSON.parse(raw) || []; } catch { items = []; }
 
-      if(items.length === 0){
-        const empty = document.importNode(document.querySelector('#tpl-empty').content, true);
-        listEl.appendChild(empty);
-        listEl.setAttribute('aria-busy', 'false');
-        return;
-      }
+  let changed = false;
 
-      const tpl = document.querySelector('#tpl-card');
-      items.forEach(item=>{
-        const node = document.importNode(tpl.content, true);
+  // map ตาม id โปรไฟล์ (กันกรณี subject เดิมว่าง)
+  const id2SubjTH = {
+    aree:'ภาษาอังกฤษ',
+    prasit:'คณิตศาสตร์',
+    somchai:'วิทยาศาสตร์',
+    somsri:'ภาษาไทย',
+    peerapon:'สังคมศึกษา',
+    tawan:'ศิลปะ'
+  };
+  const id2Tags = {
+    aree:'แกรมม่า สนทนา',
+    prasit:'พีชคณิต เรขาคณิต PAT1',
+    somchai:'ฟิสิกส์ เคมี ชีวะ',
+    somsri:'อ่าน เขียน วิเคราะห์',
+    peerapon:'ประวัติศาสตร์ ภูมิศาสตร์ พลเมือง',
+    tawan:'วาดเส้น ระบายสี พอร์ตโฟลิโอ'
+  };
 
-        const card = node.querySelector('.card');
-        const btnFav = node.querySelector('.fav-toggle');
-        const avatarA = node.querySelector('.avatar');
-        const img = node.querySelector('img');
-        const titleA = node.querySelector('.title');
-        const priceEl = node.querySelector('.price');
-        const openBtn = node.querySelector('.open-profile');
+  // แปลงชื่อวิชาอังกฤษ → ไทย “เสมอ” (กรณีมีค่าอยู่แล้วเป็น English)
+  const en2th = {
+    English:'ภาษาอังกฤษ',
+    Math:'คณิตศาสตร์',
+    Science:'วิทยาศาสตร์',
+    Thai:'ภาษาไทย',
+    Social:'สังคมศึกษา',
+    Art:'ศิลปะ'
+  };
 
-        avatarA.href = item.href || '#';
-        img.src = item.avatar || '';
-        img.alt = `ภาพโปรไฟล์ ${item.title || ''}`;
-        titleA.href = item.href || '#';
-        titleA.textContent = item.title || 'Unknown';
-        priceEl.innerHTML = formatPrice(item.price);
-        openBtn.href = item.href || '#';
+  items.forEach(it=>{
+    const key = ((it.id || it.href || '').toLowerCase());
+    const guessId =
+      key.includes('aree') ? 'aree' :
+      key.includes('prasit') ? 'prasit' :
+      key.includes('somchai') ? 'somchai' :
+      key.includes('somsri') ? 'somsri' :
+      key.includes('peerapon') ? 'peerapon' :
+      key.includes('tawan') ? 'tawan' : '';
 
-        btnFav.title = 'นำออกจากบุ๊คมาร์ค';
-        btnFav.addEventListener('click', e=>{
-          e.preventDefault();
-          removeById(item.id);
-        });
-
-        listEl.appendChild(node);
-      });
-
-      listEl.setAttribute('aria-busy', 'false');
+    // ถ้า subject เดิมเป็นอังกฤษ ให้แปลงเป็นไทย
+    if (it.subject && en2th[it.subject]) {
+      it.subject = en2th[it.subject];
+      changed = true;
     }
 
-    sortEl.addEventListener('change', render);
-    clearBtn.addEventListener('click', ()=>{
-      if(confirm('ต้องการลบรายการที่ถูกใจทั้งหมดหรือไม่?')){
-        saveFavs([]);
-        render();
-      }
-    });
+    // ถ้า subject ว่าง ให้เติมจาก id โปรไฟล์
+    if (!it.subject && guessId) {
+      it.subject = id2SubjTH[guessId];
+      changed = true;
+    }
 
-    window.addEventListener('storage', e=>{
-      if(e.key === LS_KEY || e.key === BADGE_KEY) render();
-    });
+    // เติมแท็กถ้าไม่มี
+    if (!it.tags && guessId) {
+      it.tags = id2Tags[guessId];
+      changed = true;
+    }
 
-    render();
-  })();
-  </script>
-
-<script>
-(function(){
-  'use strict';
-  const ICON = document.querySelector('.cc-icon[href="/Teacher/notifications.html"]');
-  if (!ICON) return;
-
-  // 🔔 สร้าง badge
-  const badge = document.createElement('span');
-  badge.className = 'noti-badge';
-  badge.textContent = '0';
-  badge.style.position = 'absolute';
-  badge.style.top = '3px';
-  badge.style.right = '3px';
-  badge.style.background = '#CC2F26';
-  badge.style.color = '#fff';
-  badge.style.borderRadius = '50%';
-  badge.style.fontSize = '10px';
-  badge.style.padding = '2px 5px';
-  badge.style.display = 'none';
-  badge.style.fontWeight = 'bold';
-  badge.style.minWidth = '16px';
-  badge.style.textAlign = 'center';
-  badge.style.lineHeight = '1.2';
-  badge.style.pointerEvents = 'none';
-
-  // ติด badge ไว้บน icon
-  ICON.style.position = 'relative';
-  ICON.appendChild(badge);
-
-  // โหลดจำนวนแจ้งเตือน
-  function updateBadge() {
-    const count = parseInt(localStorage.getItem('notifications.count') || '0', 10);
-    badge.textContent = count;
-    badge.style.display = count > 0 ? 'inline-block' : 'none';
-  }
-
-  // อัปเดตทันทีเมื่อโหลด
-  updateBadge();
-
-  // ฟัง event ถ้ามีการเปลี่ยนค่าใน storage
-  window.addEventListener('storage', e => {
-    if (e.key === 'notifications.count') updateBadge();
+    // ราคาเก็บเป็นตัวเลขล้วน
+    if (typeof it.price === 'string') {
+      const num = it.price.replace(/[^\d]/g, '');
+      if (num) { it.price = num; changed = true; }
+    }
   });
+
+  if (changed) localStorage.setItem(LS_KEY, JSON.stringify(items));
 })();
-</script>
+
+    function render(){
+      listEl.setAttribute('aria-busy', 'true');
+      listEl.innerHTML = '';
+
+      const items = sortItems(loadFavs(), sortEl.value);
+      countEl.textContent = items.length;
+
+      if(items.length === 0){
+        const empty = document.importNode(document.querySelector('#tpl-empty').content, true);
+        listEl.appendChild(empty);
+        listEl.setAttribute('aria-busy', 'false');
+        return;
+      }
+
+      const tpl = document.querySelector('#tpl-card');
+      items.forEach(item=>{
+        const node = document.importNode(tpl.content, true);
+
+        const btnFav   = node.querySelector('.fav-toggle');
+        const avatarA  = node.querySelector('.avatar');
+        const img      = node.querySelector('img');
+        const titleA   = node.querySelector('.title');
+        const priceEl  = node.querySelector('.price');
+        const openBtn  = node.querySelector('.open-profile');
+        const subjectEl= node.querySelector('.subject');
+        const chipsWrap= node.querySelector('.chips');
+
+        avatarA.href = item.href || '#';
+        img.src = item.avatar || '';
+        img.alt = `ภาพโปรไฟล์ ${item.title || ''}`;
+        titleA.href = item.href || '#';
+        titleA.textContent = item.title || 'Unknown';
+        priceEl.innerHTML = formatPrice(item.price);
+        openBtn.href = item.href || '#';
+
+        // ป้ายวิชา + แท็ก
+        subjectEl.innerHTML = '';
+        chipsWrap.innerHTML = '';
+        if (item.subject) {
+          subjectEl.innerHTML = `<span class="badge pro">${item.subject}</span>`;
+        }
+        if (item.tags) {
+          const tags = item.tags.split(/[, ]+/).filter(Boolean);
+          tags.forEach(t=>{
+            const sp = document.createElement('span');
+            sp.className = 'chip';
+            sp.textContent = `#${t}`;
+            chipsWrap.appendChild(sp);
+          });
+        } else {
+          chipsWrap.style.display = 'none';
+        }
+
+        btnFav.title = 'นำออกจากบุ๊คมาร์ค';
+        btnFav.addEventListener('click', e=>{
+          e.preventDefault();
+          removeById(item.id);
+        });
+
+        listEl.appendChild(node);
+      });
+
+      listEl.setAttribute('aria-busy', 'false');
+    }
+
+    sortEl.addEventListener('change', render);
+    clearBtn.addEventListener('click', ()=>{
+      if(confirm('ต้องการลบรายการที่ถูกใจทั้งหมดหรือไม่?')){
+        saveFavs([]);
+        render();
+      }
+    });
+    window.addEventListener('storage', e=>{
+      if(e.key === LS_KEY || e.key === BADGE_KEY) render();
+    });
+
+    render();
+  })();
+  </script>
+
+  <!-- Badge จำนวนแจ้งเตือนบนไอคอนระฆัง -->
+  <script>
+  (function(){
+    'use strict';
+    const ICON = document.querySelector('.cc-icon[href="/Teacher/notifications.html"]');
+    if (!ICON) return;
+
+    const badge = document.createElement('span');
+    badge.className = 'noti-badge';
+    badge.textContent = '0';
+    Object.assign(badge.style, {
+      position:'absolute', top:'3px', right:'3px',
+      background:'#CC2F26', color:'#fff', borderRadius:'50%',
+      fontSize:'10px', padding:'2px 5px', display:'none',
+      fontWeight:'bold', minWidth:'16px', textAlign:'center', lineHeight:'1.2',
+      pointerEvents:'none'
+    });
+
+    ICON.style.position = 'relative';
+    ICON.appendChild(badge);
+
+    function updateBadge() {
+      const count = parseInt(localStorage.getItem('notifications.count') || '0', 10);
+      badge.textContent = count;
+      badge.style.display = count > 0 ? 'inline-block' : 'none';
+    }
+    updateBadge();
+    window.addEventListener('storage', e => {
+      if (e.key === 'notifications.count') updateBadge();
+    });
+  })();
+  </script>
 </body>
 </html>
