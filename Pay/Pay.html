@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>จองคุณครู</title>
+  <title>จองผู้สอน</title>
   <link rel="stylesheet" href="../CSS/Pay.css" />
   <link rel="stylesheet" href="../CSS/teacher-profile.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +15,8 @@
 
   <header class="header">
     <div class="wrap">
-      <div class="brand"><span class="logo">⬢</span><strong><a href="teacher.html">Tutoring</a></strong></div>
-      <nav class="breadcrumbs"><a href="teacher.html">← กลับไปหน้าครูทั้งหมด</a></nav>
+      <div class="brand"><span class="logo">⬢</span><strong><a href="/Home/Home.html">Tutor</a></strong></div>
+      <nav class="breadcrumbs"><a href="/Teacher/Teacher.html">← กลับไปหน้าผู้สอนทั้งหมด</a></nav>
     </div>
   </header>
 
@@ -54,9 +54,10 @@
       </div>
 
       <div class="time-section" id="timeSection" style="display:none;">
-        <h4>เลือกเวลาเรียน</h4>
+        <h4>เลือกเวลาเรียน (1 ชั่วโมง)</h4>
+        <p>เช่น เลือกเวลา 09:00 กับ 20:00 จะเริ่มเรียนตั้งแต่ 09:00 - 10:00 และ 20:00 - 21:00</p>
         <div class="time-grid" id="timeGrid"></div>
-        <p>เวลาที่เลือก: <span id="selected-time">ยังไม่ได้เลือก</span></p>
+        <h4>เวลาที่เลือก: <span id="selected-time">ยังไม่ได้เลือก</span></h4>
       </div>
 
       <button class="btn-confirm" id="confirmBtn">ยืนยันการจอง</button>
