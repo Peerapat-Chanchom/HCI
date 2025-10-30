@@ -84,7 +84,7 @@ body {
 /* Sections */
 .details {
   width: 85%;
-  margin: 40px auto;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -115,6 +115,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
+  justify-content: center;
 }
 
 .course-card {
@@ -187,18 +188,24 @@ body {
 }
 
 /* Footer */
-footer {
-  background-color: var(--blue-800);
-  color: var(--white);
-  padding: 2rem;
-  margin-top: 2rem;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
+.site-footer {
+  width: 100vw; /* ให้เต็มความกว้าง viewport */
+  margin-left: calc(50% - 50vw); /* ดึงให้ชิดซ้ายสุดจริง ๆ */
+  text-align: center;
+  font-size: .9rem;
+  padding: 1.8rem 1rem;
+  background: linear-gradient(to top, var(--blue-100), #f8fafc);
+  color: #4f628e;
+  border-top: 1px solid var(--pastel-200);
+  box-sizing: border-box;
 }
 
-footer h3 {
-  margin-bottom: 1rem;
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  font-weight: 500;
 }
+
 .why-us {
   text-align: center;
   padding: 80px 20px;
@@ -213,6 +220,22 @@ footer h3 {
 }
 
 .why-us p {
+  color: #555;
+  margin-bottom: 40px;
+}
+.subject {
+  text-align: center;
+  background: #f9fafb;
+  font-family: 'Prompt', sans-serif;
+}
+
+.subject h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.subject p {
   color: #555;
   margin-bottom: 40px;
 }
@@ -253,4 +276,21 @@ footer h3 {
   font-size: 0.95em;
   color: #555;
 }
+.cc-icon {
+  position: relative;
+}
 
+.cc-icon .noti-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: #ff3b30;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 2px 5px;
+  font-weight: 600;
+  min-width: 16px;
+  text-align: center;
+  display: none;
+}

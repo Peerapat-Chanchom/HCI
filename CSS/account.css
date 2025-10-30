@@ -20,7 +20,7 @@ body {
 /* HERO */
 .account-hero {
   text-align: center;
-  padding: 3rem 1rem 2rem;
+  padding: 1.5rem 1rem 2rem !important;
   background: linear-gradient(to bottom, var(--blue-100), #f7f9fb);
   border-bottom: 1px solid var(--pastel-200);
 }
@@ -131,18 +131,24 @@ body {
 }
 .actions {
   display: flex;
-  gap: .8rem;
-  margin-top: .6rem;
+  justify-content: flex-end; /* ✅ ชิดขวา */
+  gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+  margin-top: 20px;
 }
+
 
 /* DANGER ZONE */
 .danger-zone {
+  display: flex; /* ✅ เพิ่มบรรทัดนี้ */
+  justify-content: space-between; /* ให้ข้อความอยู่ซ้าย ปุ่มอยู่ขวา */
+  align-items: center; /* จัดให้อยู่แนวเดียวกันตรงกลางแนวตั้ง */
   background: var(--white);
   border: 1px solid var(--pastel-200);
   border-radius: 18px;
   box-shadow: var(--shadow);
   padding: 1.5rem 2rem;
 }
+
 .danger-zone h2 {
   color: #b0372f;
 }

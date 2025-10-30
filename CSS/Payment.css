@@ -1,102 +1,153 @@
+/* 🎨 Theme สีหลักให้เหมือนหน้าแรก */
+:root {
+  --blue-900: #1E2E4F;
+  --blue-800: #31487A;
+  --blue-400: #8FB3E2;
+  --blue-100: #E9EEF9;
+  --white: #ffffff;
+  --shadow: 0 6px 20px rgba(30, 46, 79, 0.08);
+  --radius: 16px;
+  --text: #192338;
+}
+
+/* 🧭 โครงสร้างหลัก */
 body {
   font-family: "Prompt", sans-serif;
-  background: #f5fbfa;
+  background-color: var(--blue-100);
   margin: 0;
   padding: 0;
-  color: #2f2f2f;
-}
-
-.container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 16px;
-}
-
-.card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  margin-top: 0;
-  color: #007bff;
-}
-
-.payment-options {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 20px;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text);
 }
 
-.payment-option {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 12px;
-  cursor: pointer;
-  transition: all 0.3s;
+/* 🧾 กล่องหลัก */
+.container {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 50px;
+  margin-top: 80px;
+  max-width: 700px;
+  width: 90%;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-.payment-option:hover {
-  border-color: #007bff;
-  background-color: #f4f9ff;
+.container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(30, 46, 79, 0.1);
 }
 
-.selected {
-  border-color: #007bff;
-  background-color: #e9f3ff;
+/* 🧾 หัวข้อ */
+.payment-options h2 {
+  font-size: 1.9em;
+  color: var(--blue-900);
+  font-weight: 700;
+  margin-bottom: 25px;
 }
 
+
+
+.card p {
+  font-size: 1.1em;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.card strong {
+  color: var(--blue-800);
+  font-weight: 600;
+}
+
+/* 🔘 ปุ่มชำระเงิน */
 .btn-primary {
-  margin-top: 20px;
-  background: #007bff;
-  color: #fff;
+  background: var(--blue-400);
+  color: var(--white);
   border: none;
-  padding: 12px;
-  border-radius: 8px;
-  width: 100%;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 16px;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  font-weight: 600;
+  width: 100%;
+  transition: background-color 0.25s ease, transform 0.2s ease;
 }
 
 .btn-primary:hover {
-  background: #0056b3;
+  background-color: var(--blue-800);
+  transform: translateY(-2px);
 }
 
-/* ---------- QR Popup ---------- */
+/* 💡 Popup QR */
 .overlay {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
   justify-content: center;
-  visibility: hidden;
+  align-items: center;
+  z-index: 9999;
 }
 
 .overlay.active {
-  visibility: visible;
+  display: flex;
 }
 
+/* กล่อง QR */
 .popup {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 25px 30px;
+  width: 320px;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  max-width: 320px;
-}
-
-.popup img {
-  width: 250px;
-  height: 250px;
-  margin: 10px 0;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.25s ease;
 }
 
 .popup h3 {
-  margin: 0 0 10px;
-  color: #007bff;
+  color: var(--blue-900);
+  margin-top: 0;
+  font-size: 1.3em;
+}
+
+.popup img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border: 1px solid var(--blue-100);
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+#qrAmount {
+  color: var(--blue-800);
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.popup .btn-primary {
+  margin-top: 10px;
+}
+
+/* 🩵 เอฟเฟกต์เปิด */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 25px;
+  }
+  .card p {
+    font-size: 1em;
+  }
 }

@@ -1,132 +1,178 @@
-:root { 
-  --brand: #b1c3d5;
-  --bg: #f5fbfa;
-  --card: #fff;
-  --border: #e6efee;
-  --text: #2f2f2f;
-  --muted: #6b7280;
-  --shadow: 0 4px 20px rgba(0,0,0,0.05);
-  --radius: 14px;
-}
-
-* {
-  box-sizing: border-box;
-  font-family: "Prompt", sans-serif;
-}
-
 body {
+  font-family: "Prompt", sans-serif;
+  background: #f5f5f5;
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  color: #222;
 }
 
-/* โครงหลัก */
+:root {
+  --ink:#192338;
+  --blue-900:#1E2E4F;
+  --blue-800:#31487A;
+  --blue-400:#8FB3E2;
+  --blue-100:#D9E1F1;
+  --pastel-200:#D6E2EF;
+  --cream:#E4DAD1;
+  --white:#fff;
+  --shadow:0 14px 34px rgba(30,46,79,.12);
+}
+
 .container {
-  max-width: 1100px;
-  margin: 24px auto;
+  max-width: 1000px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 24px;
   padding: 0 16px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 24px;
-}
-
-/* การ์ด */
 .card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 24px;
 }
 
-.card .hd {
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--border);
+.hd {
+  font-size: 20px;
   font-weight: 600;
+  margin-bottom: 16px;
 }
 
-.card .bd {
-  padding: 18px 20px;
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
 }
 
-/* ฟอร์ม */
-.row {
-  margin-bottom: 18px;
-  display: grid;
-  gap: 10px;
-}
-
-.cols-2 {
-  grid-template-columns: 1fr 1fr;
-}
-
-.label {
-  font-size: 14px;
-  color: #374151;
-}
-
-input, textarea {
+input[type="text"], input[type="tel"] {
   width: 100%;
-  padding: 10px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  border: 1px solid #d1e7e5;
-  font-size: 15px;
+  margin-top: 5px;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 90px;
-}
-
-/* ปุ่ม */
-.btn {
-  border: none;
-  border-radius: 8px;
-  padding: 10px;
-  cursor: pointer;
+.btn.primary {
+  display: inline-block;
+  background: var(--blue-400);
+  color: var(--white);
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  text-decoration: none;
   font-weight: 600;
+  border: 1px solid var(--blue-400);
+  transition: all 0.2s ease;
+  margin: 10px;
 }
 
-.btn-primary {
-  background: var(--brand);
-  color: #fff;
+.btn.primary:hover {
+  background: var(--blue-800);
+  border-color: var(--blue-800);
 }
 
-/* ส่วนสรุป */
-.summary .rowline {
-  display: flex;
-  justify-content: space-between;
-  margin: 6px 0;
-}
-
-.summary .hr {
-  height: 1px;
-  background: var(--border);
-  margin: 10px 0;
+.summary img.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .teacher {
   display: flex;
   align-items: center;
-  gap: 10px;
+  margin-bottom: 10px;
 }
 
-.avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  object-fit: cover;
+.hr {
+  border-top: 1px solid #eee;
+  margin: 10px 0;
 }
 
-.muted {
-  color: var(--muted);
-  font-size: 13px;
+.rowline {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
 }
 
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+/* ===== ปฏิทิน ===== */
+/* ปฏิทินหลัก */
+#calendar {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 8px; /* เว้นช่องระหว่างวันเท่ากัน */
+  margin-top: 15px;
+  table-layout: fixed; /* ทำให้ทุก cell มีขนาดเท่ากัน */
 }
+
+/* ช่องวัน */
+#calendar td {
+  width: 14.28%;
+  height: 60px;
+  text-align: center;
+  vertical-align: middle;
+  background: #ffffff;
+  border: 1px solid #e5e7eb; /* เส้นขอบเทาอ่อน */
+  border-radius: 12px;
+  color: #444;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+/* วันที่ปกติ hover */
+#calendar td.available:hover {
+  background-color: #4CAF50;  /* เขียวมาตรฐาน Material Design */
+  color: #fff;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+/* วันที่เลือก */
+#calendar td.selected {
+  background-color: #C8E6C9;  /* เขียวอ่อน */
+  color: #3b8d3f;             /* เขียวเข้มสำหรับตัวอักษร */
+  border: 1px solid #2E7D32;  /* เขียวเข้ม */
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3); /* เงาเขียว */
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+
+/* วันที่จองไม่ได้ */
+#calendar td.unavailable {
+  background-color: #fceaea;
+  color: #d9534f;
+  border: 1px solid #f1b0b7;
+  cursor: not-allowed;
+}
+
+/* วันที่ผ่านมา */
+#calendar td.disabled {
+  background-color: #f5f5f5;
+  color: #aaa;
+  border: 1px solid #ddd;
+  cursor: not-allowed;
+}
+
+/* ✅ จัดกล่องปฏิทินให้อยู่กลางหน้าจอ */
+.calendar-box {
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  margin: 20px auto;    /* auto = จัดให้อยู่กึ่งกลางแนวนอน */
+  text-align: center;   /* จัดเนื้อหาภายในให้อยู่กลาง */
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ยืนยันการชำระเงิน - ติวเตอร์ออนไลน์</title>
+  <link rel="stylesheet" href="../CSS/Conform.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- ส่วนแสดงความสำเร็จ -->
+    <div class="success-animation">
+      <h1 class="success-title">รายละเอียดการจอง</h1>
+    </div>
+
+    <!-- ใบเสร็จรับเงิน -->
+    <div class="receipt-card">
+      <div class="receipt-header">
+        <div class="receipt-logo">📚</div>
+        <h2 class="receipt-title">ใบเสร็จรับเงินอิเล็กทรอนิกส์</h2>
+        <p class="receipt-number">หมายเลขใบเสร็จ: #INV-2025-001234</p>
+      </div>
+
+      <!-- ข้อมูลผู้ซื้อ -->
+      <div class="receipt-info">
+        <div class="info-row">
+          <span class="info-label">บทเรียน</span>
+          <span class="info-value">ภาษาไทย</span>
+        </div>
+
+        <div class="info-row">
+          <span class="info-label">ผู้สอน</span>
+          <span class="info-value">สมศรี มีหวัง</span>
+        </div>
+
+        <div class="info-row">
+          <span class="info-label">ชื่อผู้เรียน</span>
+          <span class="info-value" id="buyerName"></span>
+        </div>
+
+        <div class="info-row">
+          <span class="info-label">เบอร์โทรศัพท์</span>
+          <span class="info-value" id="buyerPhone"></span>
+        </div>
+
+        <div class="info-row">
+          <span class="info-label">วันที่เรียน</span>
+          <span class="info-value" id="sumDate"></span>
+        </div>
+
+        <div class="info-row">
+          <span class="info-label">เวลาเรียน</span>
+          <span class="info-value" id="sumTime"></span>
+        </div>
+
+        <div class="info-row">
+          <span class="info-label">วิธีการชำระเงิน</span>
+          <span class="info-value" id="paymentMethod"></span>
+        </div>
+
+        <div class="info-row">
+          <span class="info-label">ราคาต่อชั่วโมง</span>
+          <span class="info-value" id="sumRate"></span>
+        </div>
+
+        <div class="info-row">
+          <span class="info-label">ยอดรวมทั้งหมด:</span>
+          <span class="info-value" id="sumTotal"></span>
+        </div>
+      </div>
+
+      <!-- ปุ่มดำเนินการ -->
+      <div class="action-buttons">
+        <button class="btn btn-primary" onclick="window.print()">พิมพ์ใบเสร็จ</button>
+        <button class="btn btn-secondary" onclick="alert('กำลังดาวน์โหลดใบเสร็จ PDF...')">
+          ดาวน์โหลด PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- ส่วนเข้าห้องเรียน -->
+<div class="classroom-access">
+  <h1 class="section-title">เข้าห้องเรียนออนไลน์</h1>
+  <div class="access-buttons">
+    <a href="https://zoom.us/j/1234567890" target="_blank" class="btn btn-primary">
+      เข้าห้องเรียนผ่าน Zoom
+    </a>
+  </div>
+</div>
+
+<!-- ปุ่มกลับ -->
+<div class="back-container">
+  <a href="/Booked/Booked.html" class="back">กลับไปหน้าการจอง</a>
+</div>
+
+  
+
+  <!-- ✅ SCRIPT -->
+  <script>
+    // โหลดข้อมูลจาก localStorage
+    const bookingName = localStorage.getItem("bookingName");
+    const bookingPhone = localStorage.getItem("bookingPhone");
+    const bookingDate = localStorage.getItem("bookingDate");
+    const bookingTime = localStorage.getItem("bookingTime");
+    const bookingHours = localStorage.getItem("bookingHours");
+    const bookingTotal = localStorage.getItem("bookingTotal");
+    const bookingRate = 300;
+    const bookingMethod = localStorage.getItem("bookingMethod") || "PromptPay";
+
+    const form = document.querySelector(".chat-input");
+    const input = document.getElementById("msgBox");
+    const chatBody = document.querySelector(".chat-body");
+
+    // แสดงข้อมูลใบเสร็จ
+    if (bookingDate && bookingHours && bookingTotal) {
+      document.getElementById("buyerName").textContent = bookingName || "—";
+      document.getElementById("buyerPhone").textContent = bookingPhone || "—";
+      document.getElementById("sumDate").textContent = bookingDate;
+      document.getElementById("sumTime").textContent = bookingTime;
+      document.getElementById("sumRate").textContent = `${bookingRate.toLocaleString()} บาท`;
+      document.getElementById("sumTotal").textContent = `${parseFloat(bookingTotal).toLocaleString()} บาท`;
+      document.getElementById("paymentMethod").textContent = bookingMethod;
+    } else {
+      document.body.innerHTML = "<div class='container'><div class='card'><p>ไม่พบข้อมูลการชำระเงิน</p></div></div>";
+    }
+
+    // ระบบส่งข้อความแชท
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+      const msg = document.createElement("div");
+      msg.className = "msg me";
+      msg.innerHTML = '<div class="bubble"></div><div class="time">ขณะนี้</div>';
+      msg.querySelector(".bubble").textContent = text;
+      chatBody.appendChild(msg);
+      input.value = "";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    });
+
+    // ปุ่มกลับไปหน้าการจอง
+    document.querySelector(".back").addEventListener("click", () => {
+      window.location.href = "/Booked/Booked.html";
+    });
+  </script>
+</body>
+</html>

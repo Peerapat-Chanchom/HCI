@@ -5,113 +5,282 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>จองคุณครู</title>
   <link rel="stylesheet" href="../CSS/Pay.css" />
+  <link rel="stylesheet" href="../CSS/teacher-profile.css" />
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+    }
+    th, td {
+      padding: 8px;
+      border-radius: 6px;
+    }
+    td.available:hover {
+      background: #d1fae5;
+      cursor: pointer;
+    }
+    td.disabled {
+      color: #ccc;
+      background: #f5f5f5;
+    }
+    td.unavailable {
+      background: #fee2e2;
+      color: #b91c1c;
+      cursor: not-allowed;
+    }
+    td.selected {
+      background: #10b981;
+      color: white;
+      font-weight: bold;
+    }
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 8px;
+    }
+    .time-slot {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .time-slot.selected {
+      background: #10b981;
+      color: white;
+    }
+    .time-slot.unavailable {
+      background: #fee2e2;
+      color: #b91c1c;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
 <body>
+
+  <header class="header">
+    <div class="wrap">
+      <div class="brand"><span class="logo">⬢</span><strong><a href="teacher.html">CodeClass</a></strong></div>
+      <nav class="breadcrumbs"><a href="teacher.html">← กลับไปหน้าครูทั้งหมด</a></nav>
+    </div>
+  </header>
+
 <div class="container">
-  <div class="grid">
-    <!-- ฟอร์มด้านซ้าย -->
-    <form class="card" id="bookingForm" onsubmit="event.preventDefault()">
-      <div class="hd">ภาษาอังกฤษ</div>
-      <div class="bd">
-        <div class="row cols-2">
-          <div>
-            <div class="label">วันที่เริ่มเรียน</div>
-            <input type="date" id="date" required>
-          </div>
+  <form class="card" id="bookingForm" onsubmit="event.preventDefault()">
+    <div class="hd">บทเรียน</div>
+    <div class="">
+      <P>ภาษาไทย</P>
+      <p>ผู้สอน: สมศรี มีหวัง</p>
+    </div>
+    <div class="bd">
+      <label for="name">ชื่อผู้จอง:</label>
+      <input type="text" id="name" required>
+
+      <label for="phone">เบอร์โทรศัพท์:</label>
+      <input type="tel" id="phone" required>
+
+      <div class="calendar-box">
+        <h3>เลือกวันและเวลาที่ต้องการเรียน</h3>
+        <div><span>วันที่</span><span id="sumDate"> — </span></div>
+        <div class="calendar-header">
+          <button type="button" id="prev">&#10094;</button>
+          <span id="month-year"></span>
+          <button type="button" id="next">&#10095;</button>
         </div>
 
-        <div class="row cols-2">
-          <div>
-            <div class="label">จำนวนชั่วโมง</div>
-            <input type="number" id="hours" min="1" max="20" value="1">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="label">โน้ตถึงคุณครู (ไม่บังคับ)</div>
-          <textarea id="note" placeholder="ระบุเป้าหมายการเรียน เช่น พูดคล่อง หรือเตรียมสอบ"></textarea>
-        </div>
-
-        <div class="row">
-          <label>
-            <input type="checkbox" id="agree" required>
-            <span> ฉันยอมรับนโยบายการยกเลิกและเงื่อนไขการจอง</span>
-          </label>
-        </div>
-
-        <div class="row">
-          <button class="btn btn-primary" style="width:100%" id="confirmBtn">ยืนยันการจอง</button>
-        </div>
+        <table id="calendar">
+          <thead>
+            <tr>
+              <th>อา.</th><th>จ.</th><th>อ.</th><th>พ.</th><th>พฤ.</th><th>ศ.</th><th>ส.</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </div>
-    </form>
 
-    <!-- สรุปด้านขวา -->
-    <aside class="card summary" id="summary">
-      <div class="hd">สรุปคำสั่งจอง</div>
-      <div class="bd">
-        <div class="teacher">
-          <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300" alt="ครู">
-          <div>
-            <div style="font-weight:600">Holly G.</div>
-            <div class="muted">319 บทเรียน</div>
-          </div>
-        </div>
-
-        <div class="hr"></div>
-
-        <div class="rowline"><span>วันที่</span><span id="sumDate">—</span></div>
-        <div class="rowline"><span>จำนวนชั่วโมง</span><span id="sumHours">1</span></div>
-        <div class="rowline"><span>ราคา/ชั่วโมง</span><span id="sumRate">฿746</span></div>
-
-        <div class="hr"></div>
-
-        <div class="rowline"><strong>รวมทั้งหมด</strong><strong id="sumTotal">฿746</strong></div>
+      <div class="time-section" id="timeSection" style="display:none;">
+        <h4>เลือกเวลาเรียน</h4>
+        <div class="time-grid" id="timeGrid"></div>
+        <p>เวลาที่เลือก: <span id="selected-time">ยังไม่ได้เลือก</span></p>
       </div>
-    </aside>
-  </div>
+
+      <button class="btn primary" id="confirmBtn">ยืนยันการจอง</button>
+    </div>
+  </form>
+
+  <aside class="card summary" id="summary">
+    <div class="hd">สรุปคำสั่งจอง</div>
+    <div class="bd">
+      <div class="rowline"><span>วันที่</span><span id="sumDate">—</span></div>
+      <div class="rowline"><span>เวลา</span><span id="sumTime">—</span></div>
+      <div class="rowline"><span>จำนวนชั่วโมง</span><span id="sumHours">0</span></div>
+      <div class="rowline"><span>ราคาต่อชั่วโมง</span><span id="sumRate">300 บาท</span></div>
+      <div class="hr"></div>
+      <div class="rowline"><strong>รวมทั้งหมด</strong><strong id="sumTotal">0</strong></div>
+    </div>
+  </aside>
 </div>
 
 <script>
-  const PRICE_PER_HOUR = 746; // ราคาต่อชั่วโมง
+  const PRICE_PER_HOUR = 300;
   const $ = id => document.getElementById(id);
 
-  function updateSummary() {
-    const hours = parseFloat($("hours").value) || 0;
-    const dateVal = $("date").value;
-    const total = hours * PRICE_PER_HOUR;
-
-    $("sumDate").textContent = dateVal || "—";
-    $("sumHours").textContent = hours.toString();
-    $("sumTotal").textContent = `฿${total.toFixed(0)}`;
+  // ✅ ฟังก์ชันช่วยสร้างวันที่แบบ local (ไม่เหลื่อมโซนเวลา)
+  function toLocalDateKey(dateObj) {
+    const year = dateObj.getFullYear();
+    const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+    const day = String(dateObj.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
   }
 
-  // อัปเดตเมื่อเปลี่ยนค่า
-  ["hours","date"].forEach(id => $(id).addEventListener("input", updateSummary));
+  // === ข้อมูลจำลองเวลาที่ไม่ว่าง ===
+  const unavailableDays = [3, 5, 9, 17,25,29,30];
+  const unavailableTimes = {
+    "2025-10-7": ["09:00", "10:00", "15:00", "16:00"],
+    "2025-10-10": ["13:00", "14:00"]
+  };
 
-  // โหลดครั้งแรกให้แสดงค่าตั้งต้น
-  updateSummary();
+  const calendar = document.querySelector("#calendar tbody");
+  const monthYear = $("month-year");
+  const timeGrid = $("timeGrid");
+  const selectedTime = $("selected-time");
+  const timeSection = $("timeSection");
 
-  // 👉 เมื่อคลิกปุ่มยืนยันการจอง
+  let currentDate = new Date();
+  let chosenDate = null;
+  let selectedTimes = [];
+
+  // === สร้างปฏิทิน ===
+  function renderCalendar() {
+    calendar.innerHTML = "";
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const monthName = firstDay.toLocaleString("th-TH", { month: "long" });
+    monthYear.textContent = `${monthName} ${year + 543}`;
+    const today = new Date();
+    let date = 1;
+
+    for (let i = 0; i < 6; i++) {
+      const row = document.createElement("tr");
+      for (let j = 0; j < 7; j++) {
+        const cell = document.createElement("td");
+        if (i === 0 && j < firstDay.getDay()) {
+          cell.textContent = "";
+        } else if (date > lastDay.getDate()) break;
+        else {
+          cell.textContent = date;
+          const thisDate = new Date(year, month, date);
+          const localKey = toLocalDateKey(thisDate);
+          cell.dataset.date = localKey;
+
+          if (thisDate < new Date(today.getFullYear(), today.getMonth(), today.getDate())) {
+            cell.classList.add("disabled");
+          } else if (unavailableDays.includes(date)) {
+            cell.classList.add("unavailable");
+            cell.textContent += " ✕ ";
+          } else {
+            cell.classList.add("available");
+            cell.addEventListener("click", () => selectDate(thisDate, localKey));
+          }
+          date++;
+        }
+        row.appendChild(cell);
+      }
+      calendar.appendChild(row);
+    }
+  }
+
+  // === เมื่อคลิกวันที่ ===
+  function selectDate(dateObj, localKey) {
+    document.querySelectorAll("#calendar td").forEach(td => td.classList.remove("selected"));
+    const td = document.querySelector(`[data-date='${localKey}']`);
+    if (td) td.classList.add("selected");
+
+    chosenDate = dateObj;
+    const dateStr = dateObj.toLocaleDateString("th-TH", { day: "numeric", month: "long", year: "numeric" });
+    $("sumDate").textContent = dateStr;
+
+    buildTimeSlots(localKey);
+  }
+
+  // === สร้างช่องเวลาเรียน ===
+  function buildTimeSlots(localKey) {
+    timeGrid.innerHTML = "";
+    selectedTime.textContent = "ยังไม่ได้เลือก";
+    timeSection.style.display = "block";
+    selectedTimes = [];
+
+    const openHour = 8, closeHour = 21;
+    const unavailable = unavailableTimes[localKey] || [];
+
+    for (let h = openHour; h < closeHour; h++) {
+      const label = `${String(h).padStart(2,"0")}:00`;
+      const div = document.createElement("div");
+      div.className = "time-slot";
+      div.textContent = label;
+
+      if (unavailable.includes(label)) {
+        div.classList.add("unavailable");
+      } else {
+        div.addEventListener("click", () => toggleTimeSelection(div, label));
+      }
+      timeGrid.appendChild(div);
+    }
+  }
+
+  // === กดเลือก/ยกเลิกเวลา ===
+  function toggleTimeSelection(div, label) {
+    if (div.classList.contains("selected")) {
+      div.classList.remove("selected");
+      selectedTimes = selectedTimes.filter(t => t !== label);
+    } else {
+      div.classList.add("selected");
+      selectedTimes.push(label);
+    }
+    updateSummary();
+  }
+
+  // === อัปเดตสรุปผล ===
+  function updateSummary() {
+    if (selectedTimes.length === 0) {
+      selectedTime.textContent = "ยังไม่ได้เลือก";
+      $("sumTime").textContent = "—";
+      $("sumHours").textContent = "0";
+      $("sumTotal").textContent = "0 บาท";
+      return;
+    }
+    selectedTimes.sort();
+    const timeText = selectedTimes.join(", ");
+    selectedTime.textContent = timeText;
+    $("sumTime").textContent = timeText;
+    $("sumHours").textContent = selectedTimes.length;
+    $("sumTotal").textContent = `${(PRICE_PER_HOUR * selectedTimes.length).toLocaleString()} บาท`;
+  }
+
+  $("prev").addEventListener("click", () => { currentDate.setMonth(currentDate.getMonth() - 1); renderCalendar(); });
+  $("next").addEventListener("click", () => { currentDate.setMonth(currentDate.getMonth() + 1); renderCalendar(); });
+  renderCalendar();
+
+  // === ยืนยันการจอง ===
   $("confirmBtn").addEventListener("click", () => {
-    if (!$("agree").checked) {
-      alert("กรุณายอมรับเงื่อนไขก่อนทำการจอง");
+    const name = $("name").value.trim();
+    const phone = $("phone").value.trim();
+    if (!name || !phone || !chosenDate || selectedTimes.length === 0) {
+      alert("กรุณากรอกข้อมูลและเลือกวัน/เวลาให้ครบค่ะ");
       return;
     }
 
-    const dateVal = $("date").value;
-    const hours = $("hours").value;
+    localStorage.setItem("bookingName", name);
+    localStorage.setItem("bookingPhone", phone);
+    localStorage.setItem("bookingDate", $("sumDate").textContent);
+    localStorage.setItem("bookingTime", selectedTimes.join(", "));
+    localStorage.setItem("bookingHours", selectedTimes.length);
+    localStorage.setItem("bookingTotal", PRICE_PER_HOUR * selectedTimes.length);
 
-    if (!dateVal || !hours) {
-      alert("กรุณากรอกข้อมูลให้ครบก่อนค่ะ");
-      return;
-    }
-
-    // เก็บข้อมูลไว้ใน localStorage (ไว้ใช้ในหน้าชำระเงิน)
-    localStorage.setItem("bookingDate", dateVal);
-    localStorage.setItem("bookingHours", hours);
-    localStorage.setItem("bookingTotal", hours * PRICE_PER_HOUR);
-
-    // ไปหน้าชำระเงิน
     window.location.href = "Payment.html";
   });
 </script>
