@@ -49,12 +49,12 @@ body{
 .notif.unread{ background:linear-gradient(180deg,rgba(217,225,241,.45),#fff) }
 .avatar-wrap{ position:relative; width:64px; height:64px }
 .avatar{ width:64px; height:64px; object-fit:cover; border-radius:12px; border:3px solid var(--blue-100) }
-.type-icon{
+/* .type-icon{
   position:absolute; right:-6px; bottom:-6px;
   width:28px; height:28px; display:grid; place-items:center;
   border-radius:8px; background:#fff; border:1px solid var(--pastel-200); color:var(--blue-800);
   box-shadow:var(--shadow);
-}
+} */
 .content{ display:flex; flex-direction:column; gap:8px }
 .title-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap }
 .title{ margin:0; font-size:1.02rem }
@@ -81,12 +81,24 @@ body{
 .empty p{ color:#4f628e; margin:0 0 1rem }
 
 /* FOOTER (เต็มความกว้าง) */
-.site-footer{
-  border-top:1px solid var(--pastel-200);
-  background:var(--blue-100); color:var(--blue-900);
-  width:100%; text-align:center; padding:20px 0; margin-top:auto;
+
+.site-footer {
+  width: 100vw; /* ให้เต็มความกว้าง viewport */
+  margin-left: calc(50% - 50vw); /* ดึงให้ชิดซ้ายสุดจริง ๆ */
+  text-align: center;
+  font-size: .9rem;
+  padding: 1.8rem 1rem;
+  background: linear-gradient(to top, var(--blue-100), #f8fafc);
+  color: #4f628e;
+  border-top: 1px solid var(--pastel-200);
+  box-sizing: border-box;
 }
-.footer-inner{ max-width:1120px; margin:0 auto; font-size:.95rem; font-weight:500 }
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  font-weight: 500;
+}
 
 /* Responsive */
 @media (max-width:680px){

@@ -46,6 +46,10 @@ a{color:var(--blue-800)}
 .profile-head {
   position: relative;
 }
+.brand a {
+  text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+  color: inherit; /* ใช้สีเดียวกับข้อความรอบข้าง */
+}
 
 .fav-toggle {
   position: absolute;

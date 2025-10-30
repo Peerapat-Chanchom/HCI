@@ -11,6 +11,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+  <style>
+    html, body {
+  height: 106%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+  </style>
 </head>
 <body>
   <!-- NAVBAR ที่เราทำไว้ -->
@@ -61,6 +74,7 @@
 
 
   <!-- Banner -->
+ <section>
   <div class="banner">
     <div class="slides">
       <img src="https://www.herzing.edu/sites/default/files/styles/fp_960_480/public/images/blog/tutoring.png.webp?itok=hhVXnbd4" alt="Banner1">
@@ -70,6 +84,7 @@
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
   </div>
+</section>
 
 <!-- Details -->
 <section class="details">
@@ -146,7 +161,7 @@
       </div>
       <span class="arrow">➜</span>
     </div>
-    <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=Art'">
+    <div class="course-card" onclick="location.href='/Teacher/teacher.html'">
       <span class="icon">🧑🏼‍🏫</span>
       <div class="text">
         <h4>ครูสอนทั้งหมด</h4>
@@ -270,9 +285,11 @@
 
 
   <!-- Footer -->
-  <footer class="site-footer">
-    © 2025 CodeClass · เรียนเขียนโปรแกรมกับอาจารย์คุณภาพทั่วโลก
-  </footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    © 2025 Tutor · เรียนรู้กับครูผู้สอนคุณภาพทั่วประเทศ
+  </div>
+</footer> 
 
   <script>
   const slides = document.querySelector(".slides");
