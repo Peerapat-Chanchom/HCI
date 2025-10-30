@@ -1,673 +1,417 @@
-/* ============================================
-   Reset & Base Styles
-   ============================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* 🎨 โทนสีหลักให้ตรงกับหน้าแรก CodeClass */
+:root {
+  --blue-900: #1E2E4F;
+  --blue-800: #31487A;
+  --blue-400: #8FB3E2;
+  --blue-100: #E9EEF9;
+  --white: #ffffff;
+  --shadow: 0 8px 24px rgba(30, 46, 79, 0.08);
+  --radius: 18px;
+  --text: #192338;
+  --muted: #6b7280;
 }
 
+/* 🌤 พื้นหลังและโครงสร้าง */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #b1c3d5 0%, #8fa9c4 100%);
-    min-height: 100vh;
-    padding: 2rem;
+  font-family: "Prompt", sans-serif;
+  background-color: var(--blue-100);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text);
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* ============================================
-   Success Animation Section
-   ============================================ */
+/* 🎉 ส่วนหัวข้อความสำเร็จ */
 .success-animation {
-    text-align: center;
-    margin-bottom: 2rem;
-    animation: fadeInDown 0.6s ease-out;
-}
-
-.checkmark {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: #fff6e9;
-    margin: 0 auto 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    animation: scaleIn 0.5s ease-out;
-}
-
-.checkmark svg {
-    width: 60px;
-    height: 60px;
-    stroke: #10b981;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
-    animation: checkmark 0.8s ease-out 0.3s forwards;
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
+  text-align: center;
+  margin-bottom: 25px;
+  padding-top: 40px;
 }
 
 .success-title {
-    color: #fff6e9;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  color: var(--blue-800);
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
-.success-subtitle {
-    color: #fff6e9;
-    font-size: 1.1rem;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-/* ============================================
-   Receipt Card
-   ============================================ */
+/* 💳 กล่องใบเสร็จ */
 .receipt-card {
-    background: #fff6e9;
-    border-radius: 20px;
-    padding: 2.5rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    margin-bottom: 1.5rem;
-    animation: fadeInUp 0.6s ease-out 0.2s both;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 700px;
+  width: 90%;
+  padding: 40px 50px;
+  margin: 20px auto 30px;
+  transition: all 0.25s ease;
 }
 
+.receipt-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(30, 46, 79, 0.12);
+}
+
+/* หัวใบเสร็จ */
 .receipt-header {
-    text-align: center;
-    padding-bottom: 1.5rem;
-    border-bottom: 2px dashed #b1c3d5;
-    margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 2px dashed #dce2f3;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .receipt-logo {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: var(--blue-800);
 }
 
 .receipt-title {
-    font-size: 1.5rem;
-    color: #2d3748;
-    margin-bottom: 0.5rem;
+  color: var(--blue-900);
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 600;
 }
 
 .receipt-number {
-    color: #6b7280;
-    font-size: 0.9rem;
+  color: var(--muted);
+  font-size: 0.9em;
+  margin-top: 5px;
 }
 
-/* ============================================
-   Receipt Info Section
-   ============================================ */
+/* เนื้อหาในใบเสร็จ */
 .receipt-info {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 2rem;
+  margin-bottom: 25px;
 }
 
 .info-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #e8dcc8;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #edf0f7;
 }
 
 .info-label {
-    color: #6b7280;
-    font-weight: 500;
+  color: var(--muted);
 }
 
 .info-value {
-    color: #2d3748;
-    font-weight: 600;
-    text-align: right;
+  font-weight: 600;
+  color: var(--blue-900);
 }
 
-/* ============================================
-   Course Details
-   ============================================ */
-.course-details {
-    background: linear-gradient(135deg, #f5eee0 0%, #f0e7d5 100%);
-    padding: 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    border: 1px solid #e8dcc8;
+/* ยอดรวม */
+.receipt-info .info-row:last-child {
+  font-size: 1.1em;
+  border-bottom: none;
+  border-top: 2px solid var(--blue-800);
+  padding-top: 15px;
+  margin-top: 10px;
 }
 
-.course-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e8dcc8;
-}
-
-.course-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.course-name {
-    flex: 1;
-    font-weight: 600;
-    color: #2d3748;
-}
-
-.course-meta {
-    color: #6b7280;
-    font-size: 0.9rem;
-    margin-top: 0.25rem;
-}
-
-.course-price {
-    font-weight: 600;
-    color: #7a95b0;
-    margin-left: 1rem;
-}
-
-/* ============================================
-   Total Section
-   ============================================ */
-.total-section {
-    background: linear-gradient(135deg, #b1c3d5 0%, #8fa9c4 100%);
-    padding: 1.5rem;
-    border-radius: 12px;
-    color: #fff6e9;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(177, 195, 213, 0.3);
-}
-
-.total-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-}
-
-.total-row.main {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 0.5rem;
-    padding-top: 0.75rem;
-    border-top: 2px solid rgba(255, 246, 233, 0.4);
-}
-
-/* ============================================
-   Action Buttons
-   ============================================ */
+/* 🔘 ปุ่มดำเนินการ */
 .action-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 1.5rem;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 25px;
 }
 
 .btn {
-    padding: 0.875rem 1.5rem;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: all 0.25s ease;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #b1c3d5 0%, #8fa9c4 100%);
-    color: #fff6e9;
-    box-shadow: 0 4px 15px rgba(177, 195, 213, 0.4);
+  background-color: var(--blue-400);
+  color: var(--white);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(177, 195, 213, 0.5);
+  background-color: var(--blue-800);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
-    background: #fff6e9;
-    color: #7a95b0;
-    border: 2px solid #b1c3d5;
+  background-color: #d1d5db;
+  color: #333;
 }
 
 .btn-secondary:hover {
-    background: #f5eee0;
-    transform: translateY(-2px);
+  background-color: #9ca3af;
 }
 
-/* ============================================
-   Next Steps Section
-   ============================================ */
-.next-steps {
-    background: #fff6e9;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    animation: fadeInUp 0.6s ease-out 0.4s both;
-}
-
-.steps-title {
-    font-size: 1.3rem;
-    color: #2d3748;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.step {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: linear-gradient(135deg, #f5eee0 0%, #f0e7d5 100%);
-    border-radius: 10px;
-    transition: all 0.3s;
-    border: 1px solid #e8dcc8;
-}
-
-.step:hover {
-    background: linear-gradient(135deg, #f0e7d5 0%, #ebe0cc 100%);
-    transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(177, 195, 213, 0.2);
-}
-
-.step-number {
-    width: 35px;
-    height: 35px;
-    background: linear-gradient(135deg, #b1c3d5 0%, #8fa9c4 100%);
-    color: #fff6e9;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    flex-shrink: 0;
-}
-
-.step-content h3 {
-    color: #2d3748;
-    margin-bottom: 0.25rem;
-    font-size: 1rem;
-}
-
-.step-content p {
-    color: #6b7280;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-/* ============================================
-   Support Info
-   ============================================ */
-.support-info {
-    background: linear-gradient(135deg, #e8f2fb 0%, #dce9f5 100%);
-    border-left: 4px solid #b1c3d5;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    margin-top: 1.5rem;
-}
-
-.support-info p {
-    color: #2d3748;
-    margin-bottom: 0.5rem;
-}
-
-.support-info a {
-    color: #7a95b0;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.support-info a:hover {
-    color: #5f7d99;
-    text-decoration: underline;
-}
-
-/* ============================================
-   Animations
-   ============================================ */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
-}
-
-@keyframes checkmark {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-/* ============================================
-   Print Styles
-   ============================================ */
-@media print {
-    body {
-        background: white;
-        padding: 0;
-    }
-    
-    .action-buttons, 
-    .next-steps, 
-    .success-animation {
-        display: none;
-    }
-    
-    .receipt-card {
-        box-shadow: none;
-        border: 1px solid #e5e7eb;
-    }
-}
-
-/* ============================================
-   Responsive Design - Mobile
-   ============================================ */
-@media (max-width: 768px) {
-    body {
-        padding: 1rem;
-    }
-
-    .receipt-card, 
-    .next-steps {
-        padding: 1.5rem;
-    }
-
-    .success-title {
-        font-size: 1.5rem;
-    }
-
-    .action-buttons {
-        grid-template-columns: 1fr;
-    }
-
-    .course-item {
-        flex-direction: column;
-    }
-
-    .course-price {
-        margin-left: 0;
-        margin-top: 0.5rem;
-    }
-}
-/* ============================================
-   Classroom Access & Chat
-   ============================================ */
-.classroom-access, .chat-system, .user-guide {
-    background: #fff6e9;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    margin-bottom: 2rem;
-    animation: fadeInUp 0.6s ease-out both;
+/* 🎥 ส่วนเข้าห้องเรียน */
+.classroom-access {
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 20px auto 40px auto;
+  text-align: center;
 }
 
 .section-title {
-    font-size: 1.5rem;
-    color: #2d3748;
-    margin-bottom: 0.5rem;
+  color: var(--blue-800);
+  font-size: 1.4em;
+  margin-bottom: 15px;
 }
 
-.section-subtitle {
-    color: #6b7280;
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+.access-buttons a.btn-primary {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 10px;
 }
 
-.access-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1rem;
+/* 💬 กล่องแชท */
+.inbox-hero {
+  background: var(--blue-800);
+  color: white;
+  padding: 30px 0;
+  margin-bottom: 25px;
+  width: 100%;
+  text-align: center;
+  border-radius: 0 0 25px 25px;
 }
 
-.access-buttons .btn {
-    flex: 1;
-    text-align: center;
+.inbox-hero h1 {
+  margin: 0;
+  font-size: 1.6em;
+  font-weight: 600;
 }
 
-.chat-box {
-    max-height: 250px;
-    overflow-y: auto;
-    background: #f5eee0;
-    border: 1px solid #e8dcc8;
-    border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 1rem;
+.inbox-main {
+  display: flex;
+  background-color: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  height: 500px;
+  margin: 0 auto 40px auto;
+  max-width: 1000px;
 }
 
-.chat-message {
-    padding: 0.5rem 0.75rem;
-    border-radius: 10px;
-    margin-bottom: 0.5rem;
-    max-width: 80%;
+/* รายชื่อแชต */
+.chat-list {
+  width: 300px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  background-color: #f9fafc;
 }
 
-.chat-message.tutor {
-    background: #dce9f5;
-    color: #2d3748;
+.chat-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: 0.2s;
 }
 
-.chat-message.student {
-    background: #e8f2fb;
-    color: #2d3748;
-    margin-left: auto;
+.chat-item:hover {
+  background-color: #edf2ff;
 }
 
+.chat-item.active {
+  background-color: #e3ebff;
+  border-left: 4px solid var(--blue-400);
+}
+
+.chat-item img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chat-item .name {
+  font-weight: 600;
+  color: var(--blue-900);
+}
+
+.chat-item .preview {
+  font-size: 0.9em;
+  color: var(--muted);
+}
+
+/* หน้าต่างแชต */
+.chat-window {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.chat-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chat-meta h2 {
+  margin: 0;
+  font-size: 1.1em;
+  color: var(--blue-900);
+}
+
+.chat-meta .status.online {
+  color: var(--success);
+  font-size: 0.8em;
+}
+
+/* เนื้อหาแชต */
+.chat-body {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #fafafa;
+}
+
+/* 💬 ข้อความแชท */
+.msg {
+  display: flex;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+/* 🧑‍🏫 ข้อความฝั่งอาจารย์ (ฝ่ายตรงข้าม) */
+.msg.other {
+  justify-content: flex-start;
+}
+
+.msg.other .bubble {
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 18px 18px 18px 4px;
+  padding: 10px 15px;
+  max-width: 70%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* 🧑‍🎓 ข้อความของเรา (ฝั่งขวา) */
+.msg.me {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* กล่องข้อความของเรา */
+.msg.me .bubble {
+  background-color: #8FB3E2;
+  color: #fff;
+  border-radius: 18px 18px 4px 18px;
+  padding: 10px 15px;
+  max-width: 70%;
+  min-width: 80px; /* ✅ ป้องกันบับเบิลสั้นเกินไป */
+  text-align: left;
+  word-wrap: break-word;
+  align-self: flex-end; /* ✅ ให้ชิดล่างเหมือนกัน */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-right: 6px; /* ✅ ช่องว่างขวาเล็กน้อย */
+}
+
+/* เวลาในข้อความของเรา */
+.msg.me .time {
+  text-align: right;
+  margin-right: 12px;
+  color: #999;
+  font-size: 0.8em;
+}
+
+
+/* กล่องพิมพ์ข้อความ */
 .chat-input {
-    display: flex;
-    gap: 0.5rem;
+  display: flex;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  padding: 10px;
 }
 
-.chat-input input {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    border-radius: 10px;
-    border: 1px solid #b1c3d5;
-    outline: none;
+.chat-input input[type="text"] {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 1em;
+  outline: none;
 }
 
-.guide-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+.btn-send {
+  background-color: #8FB3E2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.guide-item a {
-    color: #7a95b0;
-    text-decoration: none;
+.btn-send:hover {
+  background-color: #31487A;
 }
 
-.guide-item a:hover {
-    text-decoration: underline;
+/* กล่องห่อปุ่ม */
+.back-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* 👉 ชิดขวา */
+  padding-right: 10px;
+  margin-top: 20px;
 }
 
-/* ============================================
-   Info & Contact Section
-   ============================================ */
-.info-contact {
-    background: #fff6e9;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    margin-bottom: 2rem;
-    animation: fadeInUp 0.6s ease-out both;
+/* ปุ่มกลับ */
+.back {
+  background-color: var(--blue-400);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(30, 46, 79, 0.1);
 }
 
-.info-contact h2 {
-    font-size: 1.5rem;
-    color: #2d3748;
-    margin-bottom: 1rem;
+.back:hover {
+  background-color: var(--blue-800);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(30, 46, 79, 0.15);
 }
 
-.info-contact p {
-    color: #6b7280;
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-    line-height: 1.5;
+.back:active {
+  transform: scale(0.97);
 }
 
-/* About Us */
-.about-us {
-    margin-bottom: 2rem;
-}
 
-/* FAQ */
-.faq {
-    margin-bottom: 2rem;
-}
 
-.faq-item {
-    background: #f5eee0;
-    border: 1px solid #e8dcc8;
-    border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.faq-item:hover {
-    background: #f0e7d5;
-    transform: translateX(3px);
-}
-
-.faq-question {
-    font-weight: 600;
-    color: #2d3748;
-    margin-bottom: 0.25rem;
-}
-
-.faq-answer {
-    display: none;
-    color: #6b7280;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-/* Contact Form */
-.contact-form {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 10px;
-    border: 1px solid #b1c3d5;
-    outline: none;
-    font-size: 1rem;
-}
-
-.contact-form button {
-    padding: 0.875rem 1.5rem;
+/* 🖨️ ปรับเฉพาะตอนพิมพ์ */
+@media print {
+  body * { visibility: hidden; }
+  .receipt-card, .receipt-card * { visibility: visible; }
+  .receipt-card {
+    box-shadow: none;
     border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    background: linear-gradient(135deg, #b1c3d5 0%, #8fa9c4 100%);
-    color: #fff6e9;
-    transition: all 0.3s;
+    max-width: 700px;
+    margin: 50px auto;
+  }
 }
-
-.contact-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(177, 195, 213, 0.5);
-}
-
-/* Tutor Join Us */
-.join-us {
-    background: #e8f2fb;
-    border-left: 4px solid #b1c3d5;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-}
-
-.join-us a {
-    color: #7a95b0;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.join-us a:hover {
-    text-decoration: underline;
-}
-
-/* ============================================
-   Responsive - Mobile adjustments
-   ============================================ */
-@media (max-width: 768px) {
-    .contact-form {
-        gap: 0.75rem;
-    }
-
-    .faq-item {
-        padding: 0.75rem;
-    }
-}
-
-    @media print {
-      .action-buttons,
-      a.btn,
-      .btn,
-      [onclick],
-      [href*="Booked.html"],
-      [style*="margin-top: 2rem"],
-      .btn-primary,
-      .btn-secondary {
-        display: none !important;
-        visibility: hidden !important;
-      }
-
-      body {
-        background: #fff;
-        -webkit-print-color-adjust: exact;
-      }
-
-      .container {
-        width: 100%;
-        box-shadow: none;
-        margin: 0;
-        padding: 0;
-      }
-    }
-
