@@ -88,14 +88,16 @@ body{
    ใช้ตัวแปรสีจาก navbar.css :root
    =============================== */
 
-:root{
-  /* เผื่อบางหน้าที่ไม่ได้โหลด :root จากที่อื่น */
-  --ink: #22324d;
-  --blue-900:#1f3557; --blue-800:#254f9a; --blue-600:#4e7bd1;
-  --blue-200:#cfe0ff; --blue-100:#e9f0ff;
-  --pastel-200:#e6ebf2; --cream:#fffaf3;
-  --muted:#7a8191;
-  --shadow:0 8px 24px rgba(0,0,0,.06);
+:root {
+  --blue-900: #1E2E4F;
+  --blue-800: #31487A;
+  --blue-400: #8FB3E2;
+  --blue-100: #E9EEF9;
+  --white: #ffffff;
+  --shadow: 0 8px 24px rgba(30, 46, 79, 0.08);
+  --radius: 18px;
+  --text: #192338;
+  --muted: #6b7280;
 }
 
 html,body{
@@ -216,10 +218,24 @@ html,body{
 .review-item time{ font-size:.85rem; color:#9aa3af; }
 
 /* ---------- Utilities ---------- */
-.site-footer{
-  text-align:center; color:#64748b; font-size:.95rem; padding:22px 0; margin-top:28px;
-  border-top:1px solid var(--pastel-200); background:#fff;
+.site-footer {
+  width: 100vw; /* ให้เต็มความกว้าง viewport */
+  margin-left: calc(50% - 50vw); /* ดึงให้ชิดซ้ายสุดจริง ๆ */
+  text-align: center;
+  font-size: .9rem;
+  padding: 1.8rem 1rem;
+  background: linear-gradient(to top, var(--blue-100), #f8fafc);
+  color: #4f628e;
+  border-top: 1px solid var(--pastel-200);
+  box-sizing: border-box;
 }
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
 
 /* ---------- Responsive ---------- */
 @media (max-width: 820px){

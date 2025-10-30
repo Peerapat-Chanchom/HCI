@@ -17,23 +17,30 @@
 </head>
 <body>
   <!-- NAVBAR -->
-  <header class="cc-navbar" role="navigation" aria-label="หลัก">
+<header class="cc-navbar">
     <div class="cc-nav-wrap">
-      <a class="cc-brand" href="/Home/Home.html" aria-label=">Tutoring หน้าหลัก">
-        <span class="cc-logo" aria-hidden="true">⬢</span>
+      <a class="cc-brand" href="/Home/Home.html">
+        <span class="cc-logo">⬢</span>
         <strong class="cc-site">Tutoring</strong>
       </a>
       <ul class="cc-links">
-        <li><a href="/Teacher/teacher.html">ติวเตอร์ออนไลน์</a></li>
-        <li><a href="/Teacher/favorites.html">ถูกใจของฉัน</a></li>
+        <li><a href="teacher.html">ติวเตอร์ออนไลน์</a></li>
       </ul>
       <div class="cc-right">
-        <a class="cc-icon" href="/Teacher/notifications.html" aria-label="การแจ้งเตือน">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v1h16v-1l-2-2z"/></svg>
+        <a class="cc-icon" href="/Teacher/inbox.html" aria-label="กล่องข้อความ" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12l4-3h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg>
+          </a>
+          <a class="cc-icon" href="/Teacher/favorites.html" aria-label="ถูกใจของฉัน">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.4-9.1-7.6C.6 10.8 1.4 7.2 4.4 6 6.3 5.2 8.3 5.7 9.7 7c.5.5.9 1.1 1.1 1.7.3-.6.7-1.2 1.2-1.7 1.4-1.4 3.4-1.8 5.3-.9 3 1.3 3.7 4.8 1.5 7.4C18.7 16.6 12 21 12 21z"/></svg>
         </a>
-        <a class="cc-avatar" href="/Profile/account.html" aria-label="โปรไฟล์ของฉัน">
-          <img src="https://i.pravatar.cc/36?img=68" alt="ภาพโปรไฟล์ผู้ใช้">
-        </a>
+          <a class="cc-icon" href="/Teacher/notifications.html" aria-label="การแจ้งเตือน">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a2 2 0 002-2H10a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v1h16v-1l-2-2z"/></svg>
+          </a>
+        <div class="cc-actions">
+          <a class="cc-avatar" href="/Profile/account.html">
+            <img src="https://i.pravatar.cc/36?img=68" alt="ภาพโปรไฟล์ผู้ใช้">
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -135,8 +142,8 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-inner container" style="padding:1.5rem 0">
-      © 2025 CodeClass · เรียนเขียนโปรแกรมกับอาจารย์คุณภาพทั่วโลก
+    <div class="footer-inner">
+ © 2025 Tutor · เรียนรู้กับครูผู้สอนคุณภาพทั่วประเทศ
     </div>
   </footer>
 
@@ -151,13 +158,13 @@
     const $$ = s => Array.from(document.querySelectorAll(s));
 
     const url = new URL(location.href);
-    const teacherId = (url.searchParams.get('id') || 'aree').toLowerCase();
+    const teacherId = (url.searchParams.get('id') || 'somsri').toLowerCase();
 
     const Profiles = {
       aree:     { name:'อารี ใจดี',    subject:'ภาษาอังกฤษ', price:550, avatar:'https://i.pinimg.com/736x/9c/e0/6d/9ce06dc2b0b6894de29fb110f2f28d71.jpg', tags:'แกรมม่า สนทนา' },
       prasit:   { name:'ประสิทธิ์ ตั้งใจดี', subject:'คณิตศาสตร์', price:600, avatar:'https://i.pravatar.cc/120?img=65', tags:'พีชคณิต เรขาคณิต PAT1' },
       somchai:  { name:'สมชาย ใฝ่รู้', subject:'วิทยาศาสตร์', price:530, avatar:'https://i.pravatar.cc/120?img=13', tags:'ฟิสิกส์ เคมี ชีวะ' },
-      somsri:   { name:'สมศรี มีหวัง', subject:'ภาษาไทย', price:490, avatar:'https://i.pravatar.cc/120?img=32', tags:'อ่าน เขียน วิเคราะห์' },
+      somsri:   { name:'สมศรี มีหวัง', subject:'ภาษาไทย', price:300, avatar:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgN_CJHzHV_vh2lcvF8tumbm4ZES0-6M9HsA&s', tags:'อ่าน เขียน วิเคราะห์' },
       peerapon: { name:'พีระพล รักเรียน', subject:'สังคมศึกษา', price:520, avatar:'https://i.pravatar.cc/120?img=52', tags:'ประวัติศาสตร์ ภูมิศาสตร์ พลเมือง' },
       tawan:    { name:'ตะวัน แสงดี',  subject:'ศิลปะ', price:570, avatar:'https://i.pravatar.cc/120?img=48', tags:'วาดเส้น ระบายสี พอร์ตโฟลิโอ' }
     };
