@@ -3,28 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tutor Booking</title>
+  <title>Tutor</title>
   <link rel="stylesheet" href="../CSS/Home.css">
   <link rel="stylesheet" href="../CSS/navbar.css" />
   <link rel="stylesheet" href="../CSS/help.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-  <style>
-    html, body {
-  height: 106%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-  </style>
 </head>
+
 <body>
   <!-- NAVBAR ที่เราทำไว้ -->
   <header class="cc-navbar" role="navigation" aria-label="หลัก">
@@ -32,7 +19,7 @@ body {
       <!-- BRAND -->
       <a class="cc-brand" href="/Home/Home.html" aria-label="CodeClass หน้าหลัก">
         <span class="cc-logo" aria-hidden="true">⬢</span>
-        <strong class="cc-site">CodeClass</strong>
+        <strong class="cc-site">Tutoring</strong>
       </a>
 
       <!-- LEFT LINKS -->
@@ -91,12 +78,12 @@ body {
   <!-- สถิติ -->
   <div class="stats">
     <div class="stat-item">
-      <h3>100,000+</h3>
-      <p>ครูสอนมากประสบการณ์</p>
+      <h3>100+</h3>
+      <p>ผู้สอนมากประสบการณ์</p>
     </div>
     <div class="stat-item">
       <h3>300,000+</h3>
-      <p>รีวิวครูสอน 5 ดาว</p>
+      <p>รีวิวผู้สอน 5 ดาว</p>
     </div>
     <div class="stat-item">
       <h3>120+</h3>
@@ -109,72 +96,71 @@ body {
   </div>
 
 <!-- รายวิชา -->
- <section class="subject">
-    <h2 >รายวิชาของเรา</h2>
-    <p>เรามาหลายหลายวิชามามายที่พร้อมสอนให้กับทุกคน</p>
+<div>
+  <h2 class="title-class"> รายวิชาของเรา </h2>
+    <section class="courses">
+      <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=English'">
+        <span class="icon">🇬🇧</span>
+        <div class="text">
+          <h4>ภาษาอังกฤษ</h4>
+        </div>
+        <span class="arrow">➜</span>
+        </div>
 
-<section class="courses">
-  <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=English'">
-    <span class="icon">🇬🇧</span>
-    <div class="text">
-      <h4>ภาษาอังกฤษ</h4>
-    </div>
-    <span class="arrow">➜</span>
-    </div>
+        <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=Math'">
+          <span class="icon">➗</span>
+          <div class="text">
+            <h4>คณิตศาสตร์</h4>
+          </div>
+          <span class="arrow">➜</span>
+        </div>
 
-    <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=Math'">
-      <span class="icon">➗</span>
-      <div class="text">
-        <h4>คณิตศาสตร์</h4>
-      </div>
-      <span class="arrow">➜</span>
-    </div>
+        <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=Science'">
+          <span class="icon">🧪</span>
+          <div class="text">
+            <h4>วิทยาศาสตร์</h4>
+          </div>
+          <span class="arrow">➜</span>
+        </div>
 
-    <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=Science'">
-      <span class="icon">🧪</span>
-      <div class="text">
-        <h4>วิทยาศาสตร์</h4>
-      </div>
-      <span class="arrow">➜</span>
-    </div>
+        <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=Thai'">
+          <span class="icon">📚</span>
+          <div class="text">
+            <h4>ภาษาไทย</h4>
+          </div>
+          <span class="arrow"> ➜ </span>
+        </div>
 
-    <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=Thai'">
-      <span class="icon">📚</span>
-      <div class="text">
-        <h4>ภาษาไทย</h4>
-      </div>
-      <span class="arrow">➜</span>
-    </div>
+        <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=Social'">
+          <span class="icon">🌏</span>
+          <div class="text">
+            <h4>สังคมศึกษา</h4>
+          </div>
+          <span class="arrow">➜</span>
+        </div>
 
-    <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=Social'">
-      <span class="icon">🌏</span>
-      <div class="text">
-        <h4>สังคมศึกษา</h4>
+        <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=Art'">
+          <span class="icon">🎨</span>
+          <div class="text">
+            <h4>ศิลปะ</h4>
+          </div>
+          <span class="arrow">➜</span>
+        </div>
+        <div class="course-card" onclick="location.href='/Teacher/teacher.html'">
+          <span class="icon">🧑🏼‍🏫</span>
+            <div class="text">
+              <h4>ครูสอนทั้งหมด</h4>
+            </div>
+          <span class="arrow">➜</span>
+        </div>
       </div>
-      <span class="arrow">➜</span>
-    </div>
+    </section>
+</div>
 
-    <div class="course-card" onclick="location.href='/Teacher/teacher.html?subject=Art'">
-      <span class="icon">🎨</span>
-      <div class="text">
-        <h4>ศิลปะ</h4>
-      </div>
-      <span class="arrow">➜</span>
-    </div>
-    <div class="course-card" onclick="location.href='/Teacher/teacher.html'">
-      <span class="icon">🧑🏼‍🏫</span>
-      <div class="text">
-        <h4>ครูสอนทั้งหมด</h4>
-        <p>ครูสอน 2,531 คน</p>
-      </div>
-      <span class="arrow">➜</span>
-    </div>
-  </section>
-</section>
 <!-- WHY US -->
 <section class="why-us">
-  <h2>ทำไมต้องเลือก CodeClass?</h2>
-  <p>แพลตฟอร์มการเรียนโค้ดที่รวมครูสอนคุณภาพจากทั่วโลกไว้ในที่เดียว</p>
+  <h2>ทำไมต้องเลือก Tutoring?</h2>
+  <p>แพลตฟอร์มการเรียนที่รวมผู้สอนคุณภาพจากทั่วประเทศไว้ในที่เดียว</p>
 
   <div class="why-us-cards">
     <div class="why-card">
