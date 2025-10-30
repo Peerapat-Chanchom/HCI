@@ -14,6 +14,17 @@
   <link rel="stylesheet" href="../CSS/navbar.css" />
   <!-- หน้าการแจ้งเตือน -->
   <link rel="stylesheet" href="../CSS/notifications.css" />
+
+    <style>
+    html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.site-footer {
+  margin-top: auto;
+}
+  </style>
 </head>
 
 <body>
@@ -30,6 +41,9 @@
       </ul>
 
       <div class="cc-right">
+         <a class="cc-icon" href="/Booked/Booked.html" aria-label="กล่องข้อความ">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h2v2H7z"/></svg>
+        </a>
         <!-- <button class="cc-btn ghost" onclick="location.href='teacher.html'">ไปเลือกอาจารย์</button> -->
         <!-- <div class="cc-actions">
           <a class="cc-icon" href="inbox.html" aria-label="กล่องข้อความ">
@@ -148,42 +162,26 @@
       window.dispatchEvent(new StorageEvent('storage', { key: COUNT_KEY, newValue: String(unread) }));
     }
 
+    localStorage.removeItem('notifications.items');
+    localStorage.removeItem('notifications.count');
+
+
     function seedIfEmpty(){
-      if(load().length) return;
-      const now = Date.now();
-      const items = [
-        {
-          id:'m1', type:'message', title:'ข้อความใหม่จาก Akira T.',
-          body:'“สวัสดีครับ มีเวลาว่างรอบวันพฤหัส 19:00 น. สนใจไหมครับ”',
-          href:'inbox.html', avatar:'https://i.pravatar.cc/64?img=15',
-          time: new Date(now - 15*60*1000).toISOString(), read:false
-        },
-        {
-          id:'b1', type:'booking', title:'ยืนยันการจองบทเรียนกับ Diego R.',
-          body:'วันอังคาร 19:00–19:55 (เวลาไทย) ผ่าน Google Meet',
-          href:'profile-diego.html', avatar:'https://i.pravatar.cc/64?img=64',
-          time: new Date(now - 2*60*60*1000).toISOString(), read:false
-        },
-        {
-          id:'f1', type:'favorite', title:'บันทึก Michiel B. ลง “ถูกใจของฉัน” แล้ว',
-          body:'แตะเพื่อดูโปรไฟล์หรือยกเลิกการบันทึก',
-          href:'favorites.html', avatar:'https://i.pravatar.cc/64?img=12',
-          time: new Date(now - 5*60*60*1000).toISOString(), read:true
-        },
-        {
-          id:'m2', type:'message', title:'ข้อความใหม่จาก Lina S.',
-          body:'“ลองดูไฟล์ Figma ที่แนบไว้นะคะ แล้วนัดคุยกันอีกทีค่ะ”',
-          href:'inbox.html', avatar:'https://i.pravatar.cc/64?img=47',
-          time: new Date(now - 26*60*60*1000).toISOString(), read:true
-        },
-        {
-          id:'s1', type:'system', title:'อัปเดตนโยบายความเป็นส่วนตัว',
-          body:'เราเพิ่มรายละเอียดเกี่ยวกับข้อมูลการจองและการชำระเงิน',
-          href:'help.html', avatar:'', time: new Date(now - 3*24*60*60*1000).toISOString(), read:true
-        }
-      ];
-      save(items);
+  if(load().length) return;
+  const now = Date.now();
+  const items = [
+    {
+      id:'m1', type:'message', title:'ข้อความใหม่จาก สมศรี มีหวัง.',
+      body:'“รบกวนเข้าก่อนเวลา 10 นาทีนะคะ”',
+      href:'inbox.html',
+      avatar:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgN_CJHzHV_vh2lcvF8tumbm4ZES0-6M9HsA&s',
+      time: new Date(now - 120*60*1000).toISOString(),
+      read:false
     }
+  ];
+  save(items);
+}
+
 
     function relTime(iso){
       const d = new Date(iso);
