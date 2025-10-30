@@ -119,9 +119,40 @@ select:focus, input[type="search"]:focus{border-color:var(--blue-400); box-shado
 /* (ไม่บังคับ) กันเนื้อหา header/ปุ่มอื่นเลื่อนทับหัวใจโดยเผื่อพื้นที่ด้านขวาบนของบรรทัดแรก */
 .card-top{ padding-right: 60px; } /* พื้นที่ ~ปุ่ม 36 + ช่องไฟ */
 
-.site-footer{
-  border-top:1px solid var(--pastel-200);
-  background:var(--blue-100); color:var(--blue-900);
-  width:100%; text-align:center; padding:20px 0; margin-top:auto;
+.site-footer {
+  background: linear-gradient(90deg, var(--blue-100), var(--cream));
+  border-top: 1px solid var(--pastel-200);
+  color: var(--blue-900);
+  text-align: center;
+  padding: 18px 0;
+  font-weight: 500;
 }
-.footer-inner{ max-width:1120px; margin:0 auto; font-size:.95rem; font-weight:500 }
+.site-footer .footer-inner {
+  width: min(1120px, 92%);
+  margin-inline: auto;
+}
+/* ===== สไตล์สำหรับ "หัวข้อที่สอน" ===== */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.chip {
+  background: #f9f8f7;
+  color: #22324d;
+  border: 1px solid #e5e2dd;
+  border-radius: 14px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+.chip:hover {
+  background: #f2efeb;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
