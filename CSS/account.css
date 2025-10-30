@@ -20,7 +20,7 @@ body {
 /* HERO */
 .account-hero {
   text-align: center;
-  padding: 3rem 1rem 2rem;
+  padding: 1.5rem 1rem 2rem !important;
   background: linear-gradient(to bottom, var(--blue-100), #f7f9fb);
   border-bottom: 1px solid var(--pastel-200);
 }
